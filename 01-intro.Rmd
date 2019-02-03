@@ -1,0 +1,112 @@
+
+# What is R?
+
+According to the official webpage:
+
+- R is a language and environment for statistical computing and graphics. It is a GNU project which is similar to the S language and environment which was developed at Bell Laboratories (formerly AT&T, now Lucent Technologies) by John Chambers and colleagues. R can be considered as a different implementation of S. There are some important differences, but much code written for S runs unaltered under R. http://www.r-project.org/about.html
+
+_According to Wikipedia_
+
+- R is a free software programming language and a software environment for statistical computing and graphics. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. Polls and surveys of data miners are showing R's popularity has increased substantially in recent years.
+
+To Summarise
+
+- R is the most amazing free statistical software ever!
+
+- This recent video by Revolution Analytics does a great job in summarizing R  
+
+!<iframe width="560" height="315" src="https://www.youtube.com/embed/ZCQHm63xc4s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Why should we learn R?
+
+R follows a type inference [^1] coding structure and provides a wide variety of statistical and graphical techniques, including;
+
+>- Linear and non-linear modelling
+
+>- Univariate & Multivariate Statistics
+
+>- Classical statistical tests
+
+>- Time-series analysis/ Econometrics
+
+>- Simulation and Modelling
+
+>- Datamining-classification, clustering etc.
+
+>- For computationally intensive tasks, C, C++, and Fortran code can be linked and called at run time. 
+
+>- R is easily extensible through functions and extensions, and the R community is noted for its active contributions in terms of packages. 
+
+```{r echo=TRUE}
+#Number of R Packages 
+length(available.packages(repos = "http://cran.us.r-project.org")[,1])
+```
+
+- Total `r length(available.packages(repos = "http://cran.us.r-project.org")[,1])` packages and counting
+
+ 
+
+[^1]:Type inference refers to the automatic deduction of the type of an expression in a programming language.
+
+## Installing R and RStudio on Windows {#Rinstall}
+
+- The latest version of R can be download from the R homepage.
+
+- R download page: http://www.cran.r-project.org/bin/windows/base/ The page also provides some instructions and FAQ's on R installation.
+
+- RStudio IDE ( _IDE: Integrated Development Environment_)  is a powerful and productive user interface for R. 
+- It’s free and open source, and works great on Windows, Mac, and Linux
+
+## RStudio GUI/IDE
+- RStudio GUI is composed of 4 panes which can be rearranged according to the requirements.
+
+- There are a lot of short introductions to RStudio available online so we will not go into more details. 
+
+The figure below gives the snapshot of RStudio GUI.
+
+```{r echo=FALSE, fig.cap="RStudio IDE"}
+knitr::include_graphics("Figure-1.2-RStudio.jpg")
+```
+
+
+
+
+- A short intro to RStudio 
+!<iframe src="https://player.vimeo.com/video/97166163?color=428bca&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<p><a href="https://vimeo.com/97166163">RStudio Overview - 1:30</a> from <a href="https://vimeo.com/rstudioinc">RStudio, Inc.</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+
+## Installing Packages
+- The easiest way to install packages is to do it via R console. The command install.packages(“package name”) installs R packages directly from internet. Other options to install various dependencies to a package can be easily specified when calling this function. A call to this function asks the user to chose a CRAN mirror at the first instance. 
+
+- Run the following to install Quantreg package on R. Also use the help function to get the details. 
+
+```{r eval=FALSE}
+#Install a package using RStudio Console
+install.packages("quantreg",dependencies=c("Depends","Suggests"))
+
+```
+``` {r eval=FALSE}
+install.packages(c("zoo","reshape2","quantreg","e1071","foreign","psych","pastecs","ggplot2","stargazer","formatR","plm","xts","tseries","fArma"), dependencies = TRUE) 
+#to be updated
+```
+
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+
+```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
