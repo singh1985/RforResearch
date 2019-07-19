@@ -1,15 +1,12 @@
 bookdown::gitbook:
+  cover-image: 'r2logo.png'
   css: style.css
   split_by: section+number
   config:
-
     toc:
-      before: |
-        <li><a href="./">A Minimal Book Example</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
-    download: ["pdf", "epub"]
+      before: '<img src="r2logo2.png" height="50" width="50" style="position:absolute;top:0px;right:0px;" /> <br/><br/><br/>'
+      after: null
+
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

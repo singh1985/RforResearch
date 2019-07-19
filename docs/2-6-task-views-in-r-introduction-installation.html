@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 What is R? | R for Research</title>
+  <title>2.6 Task Views in R-Introduction &amp; Installation | R for Research</title>
   <meta name="description" content="This is a collection of handouts used in R for Research course" />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 What is R? | R for Research" />
+  <meta property="og:title" content="2.6 Task Views in R-Introduction &amp; Installation | R for Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 What is R? | R for Research" />
+  <meta name="twitter:title" content="2.6 Task Views in R-Introduction &amp; Installation | R for Research" />
   
   <meta name="twitter:description" content="This is a collection of handouts used in R for Research course" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html">
-<link rel="next" href="2-1-why-should-we-learn-r.html">
+<link rel="prev" href="2-5-getting-help.html">
+<link rel="next" href="2-7-r-core-packages.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -165,30 +165,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="what-is-r" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> What is R?</h1>
-<p>According to the official webpage:</p>
+<div id="task-views-in-r-introduction-installation" class="section level2">
+<h2><span class="header-section-number">2.6</span> Task Views in R-Introduction &amp; Installation</h2>
 <ul>
-<li>R is a language and environment for statistical computing and graphics. It is a GNU project which is similar to the S language and environment which was developed at Bell Laboratories (formerly AT&amp;T, now Lucent Technologies) by John Chambers and colleagues. R can be considered as a different implementation of S. There are some important differences, but much code written for S runs unaltered under R. <a href="http://www.r-project.org/about.html" class="uri">http://www.r-project.org/about.html</a></li>
+<li><p>Task Views in R provide packages grouped together according to a
+generalized task they are used for.</p></li>
+<li><p>Table below gives the name of task views available<a href="references.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p></li>
+<li><p>The following commands install the package <em>ctv</em> and then Finance
+task view.</p></li>
 </ul>
-<p><em>According to Wikipedia</em></p>
-<ul>
-<li>R is a free software programming language and a software environment for statistical computing and graphics. The R language is widely used among statisticians and data miners for developing statistical software and data analysis. Polls and surveys of data miners are showing R’s popularity has increased substantially in recent years.</li>
-</ul>
-<p>To Summarise</p>
-<ul>
-<li><p>R is the most amazing free statistical software ever!</p></li>
-<li><p>This recent video by Revolution Analytics does a great job in summarizing R</p></li>
-</ul>
-<p>!<iframe width="560" height="315" src="https://www.youtube.com/embed/ZCQHm63xc4s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p> 
+<pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="2-6-task-views-in-r-introduction-installation.html#cb7-1"></a><span class="co">#install package task views</span></span>
+<span id="cb7-2"><a href="2-6-task-views-in-r-introduction-installation.html#cb7-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;ctv&quot;</span>)</span>
+<span id="cb7-3"><a href="2-6-task-views-in-r-introduction-installation.html#cb7-3"></a><span class="kw">library</span>(<span class="st">&quot;ctv&quot;</span>)<span class="co">#R function library() is used to call a package</span></span>
+<span id="cb7-4"><a href="2-6-task-views-in-r-introduction-installation.html#cb7-4"></a><span class="co">#install Finance task view</span></span>
+<span id="cb7-5"><a href="2-6-task-views-in-r-introduction-installation.html#cb7-5"></a><span class="kw">install.views</span>(<span class="st">&quot;Finance&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-8"></span>
+<img src="task.png" alt="Task Views" width="1253" />
+<p class="caption">
+Figure 2.2: Task Views
+</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="2-1-why-should-we-learn-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2-5-getting-help.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-7-r-core-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

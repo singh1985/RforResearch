@@ -3,4 +3,5 @@ output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
-    delete_merged_file: true
+    delete_merged_file: TRUE
+new_session: yes

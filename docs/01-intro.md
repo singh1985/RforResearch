@@ -37,12 +37,17 @@ R follows a type inference [^1] coding structure and provides a wide variety of 
 
 >- R is easily extensible through functions and extensions, and the R community is noted for its active contributions in terms of packages. 
 
-```{r echo=TRUE}
+
+```r
 #Number of R Packages 
 length(available.packages(repos = "http://cran.us.r-project.org")[,1])
 ```
 
-- Total `r length(available.packages(repos = "http://cran.us.r-project.org")[,1])` packages and counting
+```
+## [1] 14523
+```
+
+- Total 14523 packages and counting
 
  
 
@@ -64,9 +69,10 @@ length(available.packages(repos = "http://cran.us.r-project.org")[,1])
 
 The figure below gives the snapshot of RStudio GUI.
 
-```{r echo=FALSE, fig.cap="RStudio IDE"}
-knitr::include_graphics("Figure-1.2-RStudio.jpg")
-```
+<div class="figure">
+<img src="Figure-1.2-RStudio.jpg" alt="RStudio IDE" width="748" />
+<p class="caption">(\#fig:unnamed-chunk-2)RStudio IDE</p>
+</div>
 
 - A short intro to RStudio 
 !<iframe src="https://player.vimeo.com/video/97166163?color=428bca&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -78,12 +84,13 @@ knitr::include_graphics("Figure-1.2-RStudio.jpg")
 
 - Run the following to install Quantreg package on R. Also use the help function to get the details. 
 
-```{r eval=FALSE}
+
+```r
 #Install a package using RStudio Console
 install.packages("quantreg",dependencies=c("Depends","Suggests"))
-
 ```
-``` {r eval=FALSE}
+
+```r
 install.packages(c("zoo","reshape2","quantreg","e1071","foreign","psych","pastecs","ggplot2","stargazer","formatR","plm","xts","tseries","fArma"), dependencies = TRUE) 
 #to be updated
 ```
@@ -92,17 +99,17 @@ install.packages(c("zoo","reshape2","quantreg","e1071","foreign","psych","pastec
 
 As R is constantly evolving and new functions/packages are introduced every day it is good to know sources of help. The most basic help one can get is via the help() function. This function shows the help file for a function which has been created by package managers. 
 
-```{r eval=FALSE}
-help("function name")
 
+```r
+help("function name")
 ```
 
 - The following can be used to search for a function etc. 
 
-```{r eval=FALSE}
+
+```r
 #Replace the 'search string' with the expression you want to search 
 ??search string
-
 ```
 
 - All the R packages (with few exceptions) have a user's manual
@@ -135,7 +142,8 @@ help("function name")
 -   The following commands install the package *ctv* and then Finance
     task view.
     
-```{r eval=FALSE}
+
+```r
 #install package task views
 install.packages("ctv")
 library("ctv")#R function library() is used to call a package
@@ -143,9 +151,10 @@ library("ctv")#R function library() is used to call a package
 install.views("Finance")
 ```
     
-```{r echo=FALSE, fig.cap="Task Views"}
-knitr::include_graphics("task.png")
-```
+<div class="figure">
+<img src="task.png" alt="Task Views" width="1253" />
+<p class="caption">(\#fig:unnamed-chunk-8)Task Views</p>
+</div>
 
 
 [^4]: This list of available task views can be found at <http://cran.r-project.org/web/views/>  
@@ -155,19 +164,44 @@ knitr::include_graphics("task.png")
 
 - R comes with few bundled core packages which provide various data analytics/statistical capabilities to R. The base package in R has basic functions and operators which are required for analytical programming, stats is another example of core R packages.
 
-```{r}
+
+```r
 #List of R core packages
 row.names(installed.packages(priority="base"))
+```
 
+```
+##  [1] "base"      "compiler"  "datasets"  "graphics"  "grDevices"
+##  [6] "grid"      "methods"   "parallel"  "splines"   "stats"    
+## [11] "stats4"    "tcltk"     "tools"     "utils"
 ```
 
 ## Example-1 Hello R!
 
-```{r}
+
+```r
 message("Hello R!") #use to display messages
+```
+
+```
+## Hello R!
+```
+
+```r
 print("Hello R!") #use to display variables/messages
+```
+
+```
+## [1] "Hello R!"
+```
+
+```r
 msg="Hello R!" #type inference no need to define strings!
 print(msg)
+```
+
+```
+## [1] "Hello R!"
 ```
 
 

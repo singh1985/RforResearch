@@ -1,7 +1,7 @@
 --- 
 title: "R for Research"
 author: "Abhay Singh"
-date: "`r Sys.Date()`"
+date: "2019-07-19"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 split_by: section+number
@@ -14,9 +14,7 @@ description: "This is a collection of handouts used in R for Research course"
 ---
 
 
-```{r include=FALSE}
-knitr::opts_chunk$set(comment = NA)
-```
+
 
 # Preface 
 
@@ -24,9 +22,4 @@ knitr::opts_chunk$set(comment = NA)
 
 This is a compilcation of handouts for  _$R^2: R for Research$_  written in **Markdown**. 
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
+
