@@ -1,3 +1,4 @@
-# Methods
+# R Data Types and Data Structures
 
-We describe our methods in this chapter.
+*When human judgement and big data intersect there are some funny things that happen.* 
+-Nate Silver 

@@ -1,7 +1,7 @@
 --- 
 title: "R for Research"
 author: "Abhay Singh"
-date: "2019-07-19"
+date: "2020-03-02"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 split_by: section+number

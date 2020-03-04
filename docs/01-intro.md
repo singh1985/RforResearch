@@ -44,10 +44,10 @@ length(available.packages(repos = "http://cran.us.r-project.org")[,1])
 ```
 
 ```
-## [1] 14523
+## [1] 15355
 ```
 
-- Total 14523 packages and counting
+- Total 15355 packages and counting
 
  
 
@@ -171,9 +171,9 @@ row.names(installed.packages(priority="base"))
 ```
 
 ```
-##  [1] "base"      "compiler"  "datasets"  "graphics"  "grDevices"
-##  [6] "grid"      "methods"   "parallel"  "splines"   "stats"    
-## [11] "stats4"    "tcltk"     "tools"     "utils"
+##  [1] "base"      "compiler"  "datasets"  "graphics"  "grDevices" "grid"     
+##  [7] "methods"   "parallel"  "splines"   "stats"     "stats4"    "tcltk"    
+## [13] "tools"     "utils"
 ```
 
 ## Example-1 Hello R!
@@ -203,6 +203,5 @@ print(msg)
 ```
 ## [1] "Hello R!"
 ```
-
 
 - R packages not just come with demo programs but the help files for the functions in R packages mostly have example codes for the particular function. R function example() is helpful in running the example code for a function. For running example code for in quantreg package type `example(rq, package=”quantreg”) `
