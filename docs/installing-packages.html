@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | R for Research</title>
+  <title>2.4 Installing Packages | R for Research</title>
   <meta name="description" content="This is a collection of handouts used in R for Research course" />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | R for Research" />
+  <meta property="og:title" content="2.4 Installing Packages | R for Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | R for Research" />
+  <meta name="twitter:title" content="2.4 Installing Packages | R for Research" />
   
   <meta name="twitter:description" content="This is a collection of handouts used in R for Research course" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="final-words.html"/>
-
+<link rel="prev" href="rstudio-guiide.html"/>
+<link rel="next" href="getting-help.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -175,27 +175,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered" number="">
-<h1 class="unnumbered" number="">References</h1>
-
+<div id="installing-packages" class="section level2" number="2.4">
+<h2 number="2.4"><span class="header-section-number">2.4</span> Installing Packages</h2>
+<ul>
+<li><p>The easiest way to install packages is to do it via R console. The command install.packages(“package name”) installs R packages directly from internet. Other options to install various dependencies to a package can be easily specified when calling this function. A call to this function asks the user to chose a CRAN mirror at the first instance.</p></li>
+<li><p>Run the following to install Quantreg package on R. Also use the help function to get the details.</p></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="installing-packages.html#cb3-1"></a><span class="co">#Install a package using RStudio Console</span></span>
+<span id="cb3-2"><a href="installing-packages.html#cb3-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;quantreg&quot;</span>,<span class="dt">dependencies=</span><span class="kw">c</span>(<span class="st">&quot;Depends&quot;</span>,<span class="st">&quot;Suggests&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="installing-packages.html#cb4-1"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;zoo&quot;</span>,<span class="st">&quot;reshape2&quot;</span>,<span class="st">&quot;quantreg&quot;</span>,<span class="st">&quot;e1071&quot;</span>,<span class="st">&quot;foreign&quot;</span>,<span class="st">&quot;psych&quot;</span>,<span class="st">&quot;pastecs&quot;</span>,<span class="st">&quot;ggplot2&quot;</span>,<span class="st">&quot;stargazer&quot;</span>,<span class="st">&quot;formatR&quot;</span>,<span class="st">&quot;plm&quot;</span>,<span class="st">&quot;xts&quot;</span>,<span class="st">&quot;tseries&quot;</span>,<span class="st">&quot;fArma&quot;</span>), <span class="dt">dependencies =</span> <span class="ot">TRUE</span>) </span>
+<span id="cb4-2"><a href="installing-packages.html#cb4-2"></a><span class="co">#to be updated</span></span></code></pre></div>
 </div>
-
-
-
-
-
-
-
-
-
-
             </section>
 
           </div>
         </div>
       </div>
-<a href="final-words.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="rstudio-guiide.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-help.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
