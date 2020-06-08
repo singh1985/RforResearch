@@ -4,6 +4,10 @@ Some example visualisation
 
 ## Visualising COVID-19 using maps
 
+```{r, echo=FALSE}
+knitr::opts_chunk$set(message=FALSE)
+```
+
 ```{r}
 library(ggplot2)
 library(maps)
