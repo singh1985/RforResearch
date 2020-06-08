@@ -8,3 +8,49 @@
 - As per R's official language definitions; in every computer language variables provide a means of accessing the data stored in memory. 
 
 - R does not provide direct access to the computer's memory but rather provides a number of specialized data structures we will refer to as objects. These objects are referred to through symbols or variables. 
+
+### Double
+
+- Doubles are numbers like 5.0, 5.5, 10.999 etc. They may or may not include decimal places. Doubles are mostly used to represent a continuous variable like serial number, weight, age etc. 
+
+```{r}
+x=8.5
+is.double(x) #to check if the data type is double
+```
+
+### Integer
+
+- Integers are natural numbers. 
+
+```{r}
+x=9
+typeof(x)
+```
+
+
+```{r}
+#The following specifically assigns an integer to x
+
+x=as.integer(9)
+typeof(x)
+```
+
+### Logical
+
+- A variable of data type logical has the value TRUE or FALSE. To perform calculation on logical objects in R the FALSE is replaced by a zero and TRUE is replaced by 1.
+
+```{r}
+x=11
+y=10
+a=x>y
+a
+typeof(a)
+```
+
+
+
+### Character
+
+- Characters represent the string values in R. An object of type character can have alphanumeric strings. Character objects are specified by assigning a string or collection of characters between double quotes (“ string”) . Everything in a double quote is considered a string in R.
+
+
