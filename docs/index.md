@@ -21,6 +21,6 @@ description: "This is a collection of handouts used in R for Research course"
 
 <img src="r2logo.png" height="50" width="50" style="position:absolute;top:0px;right:0px;" />
 
-This is a compilcation of handouts for  _$R^2: R for Research$_  written in **Markdown**. 
+This is a compilation of handouts for  _$R^2: R for Research$_  written in **Markdown**. 
 
 

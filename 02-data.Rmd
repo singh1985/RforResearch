@@ -5,6 +5,10 @@ output:
   header-includes:
     - \usepackage{caption}
 ---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
 # R Data Types and Data Structures
 
 *When human judgement and big data intersect there are some funny things that happen.* 

@@ -1,4 +1,5 @@
 
+
 # What is R?
 
 According to the official webpage:
@@ -44,7 +45,7 @@ length(available.packages(repos = "http://cran.us.r-project.org")[,1])
 ```
 
 ```
-## [1] 15758
+[1] 15758
 ```
 
 - Total 15758 packages and counting
@@ -71,7 +72,7 @@ The figure below gives the snapshot of RStudio GUI.
 
 <div class="figure">
 <img src="Figure-1.2-RStudio.jpg" alt="RStudio IDE" width="748" />
-<p class="caption">(\#fig:unnamed-chunk-2)RStudio IDE</p>
+<p class="caption">(\#fig:unnamed-chunk-3)RStudio IDE</p>
 </div>
 
 - A short intro to RStudio 
@@ -153,7 +154,7 @@ install.views("Finance")
     
 <div class="figure">
 <img src="task.png" alt="Task Views" width="1253" />
-<p class="caption">(\#fig:unnamed-chunk-8)Task Views</p>
+<p class="caption">(\#fig:unnamed-chunk-9)Task Views</p>
 </div>
 
 
@@ -171,9 +172,9 @@ row.names(installed.packages(priority="base"))
 ```
 
 ```
-##  [1] "base"      "compiler"  "datasets"  "graphics"  "grDevices" "grid"     
-##  [7] "methods"   "parallel"  "splines"   "stats"     "stats4"    "tcltk"    
-## [13] "tools"     "utils"
+ [1] "base"      "compiler"  "datasets"  "graphics"  "grDevices" "grid"     
+ [7] "methods"   "parallel"  "splines"   "stats"     "stats4"    "tcltk"    
+[13] "tools"     "utils"    
 ```
 
 ## Example-1 Hello R!
@@ -184,7 +185,7 @@ message("Hello R!") #use to display messages
 ```
 
 ```
-## Hello R!
+Hello R!
 ```
 
 ```r
@@ -192,7 +193,7 @@ print("Hello R!") #use to display variables/messages
 ```
 
 ```
-## [1] "Hello R!"
+[1] "Hello R!"
 ```
 
 ```r
@@ -201,7 +202,7 @@ print(msg)
 ```
 
 ```
-## [1] "Hello R!"
+[1] "Hello R!"
 ```
 
 - R packages not just come with demo programs but the help files for the functions in R packages mostly have example codes for the particular function. R function example() is helpful in running the example code for a function. For running example code for in quantreg package type `example(rq, package=”quantreg”) `

@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="3-2-data-structures-in-r.html#cb36-1"></a>vec1=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
 <span id="cb36-2"><a href="3-2-data-structures-in-r.html#cb36-2"></a>vec1</span></code></pre></div>
-<pre><code>## [1] 1 2 3 4 5</code></pre>
+<pre><code>[1] 1 2 3 4 5</code></pre>
 <blockquote>
 <p>The <code>str</code> function can be used to view the data structure of an object</p>
 </blockquote>
@@ -225,46 +225,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb38-3"><a href="3-2-data-structures-in-r.html#cb38-3"></a><span class="co">#ncol-specify number of columns,</span></span>
 <span id="cb38-4"><a href="3-2-data-structures-in-r.html#cb38-4"></a><span class="co">#byrow-fill the matrix in rows with the data supplied</span></span>
 <span id="cb38-5"><a href="3-2-data-structures-in-r.html#cb38-5"></a>m1 <span class="co">#print the matrix</span></span></code></pre></div>
-<pre><code>##      [,1] [,2]
-## [1,]    1    2
-## [2,]    3    4
-## [3,]    5    6</code></pre>
+<pre><code>     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6</code></pre>
 <ul>
 <li>A vector can be converted to matrix using <span class="math inline">\(\mathtt{dim}\)</span> function, e.g:</li>
 </ul>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="3-2-data-structures-in-r.html#cb40-1"></a>m2=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
 <span id="cb40-2"><a href="3-2-data-structures-in-r.html#cb40-2"></a><span class="kw">dim</span>(m2)=<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>)<span class="co">#the matrix will be filled by columns</span></span>
 <span id="cb40-3"><a href="3-2-data-structures-in-r.html#cb40-3"></a>m2</span></code></pre></div>
-<pre><code>##      [,1] [,2]
-## [1,]    1    4
-## [2,]    2    5
-## [3,]    3    6</code></pre>
+<pre><code>     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6</code></pre>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="3-2-data-structures-in-r.html#cb42-1"></a><span class="co">#use dim to get the dimension (#rows and #columns) of a matrix</span></span>
 <span id="cb42-2"><a href="3-2-data-structures-in-r.html#cb42-2"></a><span class="kw">dim</span>(m1) </span></code></pre></div>
-<pre><code>## [1] 3 2</code></pre>
+<pre><code>[1] 3 2</code></pre>
 <p>** Matrix Manipulations **</p>
 <ul>
 <li>For calculations on matrices; all the mathematical functions available for vectors are applicable on a matrix. All operations are applied on each element in a matrix, e.g.</li>
 </ul>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="3-2-data-structures-in-r.html#cb44-1"></a>m3=m1<span class="op">*</span><span class="dv">2</span> <span class="co"># all elements will be multiplied by 2 individually</span></span>
 <span id="cb44-2"><a href="3-2-data-structures-in-r.html#cb44-2"></a>m3</span></code></pre></div>
-<pre><code>##      [,1] [,2]
-## [1,]    2    4
-## [2,]    6    8
-## [3,]   10   12</code></pre>
+<pre><code>     [,1] [,2]
+[1,]    2    4
+[2,]    6    8
+[3,]   10   12</code></pre>
 <ul>
 <li><p>A matrix can be multiplied with a vector as long as the length of the vector is a multiple of length of the matrix. Try different combinations of matrix and vector arithmetic to see the results and errors.</p></li>
 <li><p>Mathematical matrix operations are also available for matrices in R. For instance <span class="math inline">\(\mathtt{\%*\%}\)</span> is used for matrix multiplication, the matrices must agree dimensionally for matrix multiplication. Note the use of <span class="math inline">\(\mathtt{:}\)</span> operator to create a sequence.</p></li>
 </ul>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="3-2-data-structures-in-r.html#cb46-1"></a><span class="kw">dim</span>(m1)<span class="co"># 3 rows and 2 columns</span></span></code></pre></div>
-<pre><code>## [1] 3 2</code></pre>
+<pre><code>[1] 3 2</code></pre>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="3-2-data-structures-in-r.html#cb48-1"></a><span class="co">#create another matrix with 2 rows and 3 columns</span></span>
 <span id="cb48-2"><a href="3-2-data-structures-in-r.html#cb48-2"></a>m3=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>),<span class="dt">ncol=</span><span class="dv">3</span>)</span>
 <span id="cb48-3"><a href="3-2-data-structures-in-r.html#cb48-3"></a>m1<span class="op">%*%</span>m3</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3]
-## [1,]    5   11   17
-## [2,]   11   25   39
-## [3,]   17   39   61</code></pre>
+<pre><code>     [,1] [,2] [,3]
+[1,]    5   11   17
+[2,]   11   25   39
+[3,]   17   39   61</code></pre>
 <p>R facilitates various matrix specific operations. Table 1 gives most of the available functions and operators. Use <span class="math inline">\(\mathtt{help()}\)</span> or <span class="math inline">\(\mathtt{?}\)</span> followed by function name to get more details about the operators and functions.</p>
 <div class="float-table">
 <div id="magicparlabel-976" class="plain_layout">
@@ -560,25 +560,25 @@ Returns vector of column means.
 <span id="cb50-2"><a href="3-2-data-structures-in-r.html#cb50-2"></a><span class="co">#constructing a 3 by 4 by 2 array</span></span>
 <span id="cb50-3"><a href="3-2-data-structures-in-r.html#cb50-3"></a>a1=<span class="kw">array</span>(z,<span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>)) </span>
 <span id="cb50-4"><a href="3-2-data-structures-in-r.html#cb50-4"></a>a1</span></code></pre></div>
-<pre><code>## , , 1
-## 
-##      [,1] [,2] [,3] [,4]
-## [1,]    1    4    7   10
-## [2,]    2    5    8   11
-## [3,]    3    6    9   12
-## 
-## , , 2
-## 
-##      [,1] [,2] [,3] [,4]
-## [1,]   13   16   19   22
-## [2,]   14   17   20   23
-## [3,]   15   18   21   24</code></pre>
+<pre><code>, , 1
+
+     [,1] [,2] [,3] [,4]
+[1,]    1    4    7   10
+[2,]    2    5    8   11
+[3,]    3    6    9   12
+
+, , 2
+
+     [,1] [,2] [,3] [,4]
+[1,]   13   16   19   22
+[2,]   14   17   20   23
+[3,]   15   18   21   24</code></pre>
 <ul>
 <li>Individual elements of an array are accessed by referring them by their index. This is done by giving the name of the array followed by the subscript (index) in this square bracket separated by commas. We try to access the element [1,3,1] of array a1 in the following example</li>
 </ul>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="3-2-data-structures-in-r.html#cb52-1"></a><span class="co">#element in the row 1 and column 3 in the first subset</span></span>
 <span id="cb52-2"><a href="3-2-data-structures-in-r.html#cb52-2"></a>a1[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>]</span></code></pre></div>
-<pre><code>## [1] 7</code></pre>
+<pre><code>[1] 7</code></pre>
 <ul>
 <li>Next we discuss the Data Frames which are the most convenient data structures for data analysis in R.</li>
 </ul>

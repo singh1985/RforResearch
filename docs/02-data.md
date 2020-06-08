@@ -5,6 +5,8 @@ output:
   header-includes:
     - \usepackage{caption}
 ---
+
+
 # R Data Types and Data Structures
 
 *When human judgement and big data intersect there are some funny things that happen.* 
@@ -27,7 +29,7 @@ is.double(x) #to check if the data type is double
 ```
 
 ```
-## [1] TRUE
+[1] TRUE
 ```
 
 ### Integer
@@ -41,7 +43,7 @@ typeof(x)
 ```
 
 ```
-## [1] "double"
+[1] "double"
 ```
 
 
@@ -54,7 +56,7 @@ typeof(x)
 ```
 
 ```
-## [1] "integer"
+[1] "integer"
 ```
 
 ### Logical
@@ -70,7 +72,7 @@ a
 ```
 
 ```
-## [1] TRUE
+[1] TRUE
 ```
 
 ```r
@@ -78,7 +80,7 @@ typeof(a)
 ```
 
 ```
-## [1] "logical"
+[1] "logical"
 ```
 
 
@@ -99,8 +101,8 @@ b.type
 ```
 
 ```
-## [1] A  AB B  O 
-## Levels: A AB B O
+[1] A  AB B  O 
+Levels: A AB B O
 ```
 
 ```r
@@ -109,7 +111,7 @@ levels(b.type)
 ```
 
 ```
-## [1] "A"  "AB" "B"  "O"
+[1] "A"  "AB" "B"  "O" 
 ```
 
 ### Date & Time
@@ -124,7 +126,7 @@ date1
 ```
 
 ```
-## [1] "2012-01-31"
+[1] "2012-01-31"
 ```
 
 ```r
@@ -132,7 +134,7 @@ data.class(date1)
 ```
 
 ```
-## [1] "Date"
+[1] "Date"
 ```
 
 ```r
@@ -141,7 +143,7 @@ typeof(date1)
 ```
 
 ```
-## [1] "double"
+[1] "double"
 ```
 
 ## Data Structures in R
@@ -172,7 +174,7 @@ vec1
 ```
 
 ```
-## [1] 1 2 3 4 5
+[1] 1 2 3 4 5
 ```
 > The `str` function can be used to view the data structure of an object
 
@@ -199,10 +201,10 @@ m1 #print the matrix
 ```
 
 ```
-##      [,1] [,2]
-## [1,]    1    2
-## [2,]    3    4
-## [3,]    5    6
+     [,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6
 ```
 
 
@@ -216,10 +218,10 @@ m2
 ```
 
 ```
-##      [,1] [,2]
-## [1,]    1    4
-## [2,]    2    5
-## [3,]    3    6
+     [,1] [,2]
+[1,]    1    4
+[2,]    2    5
+[3,]    3    6
 ```
 
 ```r
@@ -228,7 +230,7 @@ dim(m1)
 ```
 
 ```
-## [1] 3 2
+[1] 3 2
 ```
 
 ** Matrix Manipulations **
@@ -242,10 +244,10 @@ m3
 ```
 
 ```
-##      [,1] [,2]
-## [1,]    2    4
-## [2,]    6    8
-## [3,]   10   12
+     [,1] [,2]
+[1,]    2    4
+[2,]    6    8
+[3,]   10   12
 ```
 
 - A matrix can be multiplied with a vector as long as the length of the vector is a multiple of length of the matrix. Try different combinations of matrix and vector arithmetic to see the results and errors. 
@@ -258,7 +260,7 @@ dim(m1)# 3 rows and 2 columns
 ```
 
 ```
-## [1] 3 2
+[1] 3 2
 ```
 
 ```r
@@ -268,10 +270,10 @@ m1%*%m3
 ```
 
 ```
-##      [,1] [,2] [,3]
-## [1,]    5   11   17
-## [2,]   11   25   39
-## [3,]   17   39   61
+     [,1] [,2] [,3]
+[1,]    5   11   17
+[2,]   11   25   39
+[3,]   17   39   61
 ```
 
 R facilitates various matrix specific operations. Table 1 gives most of the available functions and operators. Use $\mathtt{help()}$ or $\mathtt{?}$ followed by function name to get more details about the operators and functions. 
@@ -436,19 +438,19 @@ a1
 ```
 
 ```
-## , , 1
-## 
-##      [,1] [,2] [,3] [,4]
-## [1,]    1    4    7   10
-## [2,]    2    5    8   11
-## [3,]    3    6    9   12
-## 
-## , , 2
-## 
-##      [,1] [,2] [,3] [,4]
-## [1,]   13   16   19   22
-## [2,]   14   17   20   23
-## [3,]   15   18   21   24
+, , 1
+
+     [,1] [,2] [,3] [,4]
+[1,]    1    4    7   10
+[2,]    2    5    8   11
+[3,]    3    6    9   12
+
+, , 2
+
+     [,1] [,2] [,3] [,4]
+[1,]   13   16   19   22
+[2,]   14   17   20   23
+[3,]   15   18   21   24
 ```
 
 - Individual elements of an array are accessed by referring them by their index. This is done by giving the name of the array followed by the subscript (index) in this square bracket separated by commas. We try to access the element [1,3,1] of array a1 in the following example 
@@ -460,7 +462,7 @@ a1[1,3,1]
 ```
 
 ```
-## [1] 7
+[1] 7
 ```
 
 

@@ -1,4 +1,7 @@
 
+```{r include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
 # What is R?
 
 According to the official webpage:
