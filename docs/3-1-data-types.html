@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="3-r-data-types-and-data-structures.html"/>
-<link rel="next" href="4-r-data-types-and-data-structures-1.html"/>
+<link rel="next" href="3-2-data-structures-in-r.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -156,6 +156,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1.2" data-path="3-1-data-types.html"><a href="3-1-data-types.html#integer"><i class="fa fa-check"></i><b>3.1.2</b> Integer</a></li>
 <li class="chapter" data-level="3.1.3" data-path="3-1-data-types.html"><a href="3-1-data-types.html#logical"><i class="fa fa-check"></i><b>3.1.3</b> Logical</a></li>
 <li class="chapter" data-level="3.1.4" data-path="3-1-data-types.html"><a href="3-1-data-types.html#character"><i class="fa fa-check"></i><b>3.1.4</b> Character</a></li>
+<li class="chapter" data-level="3.1.5" data-path="3-1-data-types.html"><a href="3-1-data-types.html#factor"><i class="fa fa-check"></i><b>3.1.5</b> Factor</a></li>
+<li class="chapter" data-level="3.1.6" data-path="3-1-data-types.html"><a href="3-1-data-types.html#date-time"><i class="fa fa-check"></i><b>3.1.6</b> Date &amp; Time</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="3-2-data-structures-in-r.html"><a href="3-2-data-structures-in-r.html"><i class="fa fa-check"></i><b>3.2</b> Data Structures in R</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-2-data-structures-in-r.html"><a href="3-2-data-structures-in-r.html#vector"><i class="fa fa-check"></i><b>3.2.1</b> Vector</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-2-data-structures-in-r.html"><a href="3-2-data-structures-in-r.html#matrices"><i class="fa fa-check"></i><b>3.2.2</b> Matrices</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="4-r-data-types-and-data-structures-1.html"><a href="4-r-data-types-and-data-structures-1.html"><i class="fa fa-check"></i><b>4</b> R Data Types and Data Structures</a></li>
@@ -229,17 +235,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Characters represent the string values in R. An object of type character can have alphanumeric strings. Character objects are specified by assigning a string or collection of characters between double quotes (“ string”) . Everything in a double quote is considered a string in R.</li>
 </ul>
-
+</div>
+<div id="factor" class="section level3">
+<h3><span class="header-section-number">3.1.5</span> Factor</h3>
+<p>-Factor is an important data type to represent categorical data. This also comes handy when dealing with Panel or Longitudinal data. Example of factors are Blood type (A , B, AB, O), Sex (Male or Female). Factor objects can be created from character object or from numeric object.
+-The operator c is used to create a vector of values which can be of any data type.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="3-1-data-types.html#cb26-1"></a>b.type=<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;AB&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;O&quot;</span>) <span class="co">#character object</span></span>
+<span id="cb26-2"><a href="3-1-data-types.html#cb26-2"></a><span class="co">#use factor function to convert to factor object</span></span>
+<span id="cb26-3"><a href="3-1-data-types.html#cb26-3"></a>b.type=<span class="kw">factor</span>(b.type)</span>
+<span id="cb26-4"><a href="3-1-data-types.html#cb26-4"></a>b.type</span></code></pre></div>
+<pre><code>## [1] A  AB B  O 
+## Levels: A AB B O</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="3-1-data-types.html#cb28-1"></a><span class="co">#to get individual elements (levels) in factor object</span></span>
+<span id="cb28-2"><a href="3-1-data-types.html#cb28-2"></a><span class="kw">levels</span>(b.type)</span></code></pre></div>
+<pre><code>## [1] &quot;A&quot;  &quot;AB&quot; &quot;B&quot;  &quot;O&quot;</code></pre>
+</div>
+<div id="date-time" class="section level3">
+<h3><span class="header-section-number">3.1.6</span> Date &amp; Time</h3>
+<p>-R is capable of dealing calendar dates and times. It is an important object when dealing with time series models. The function <code>as.Date</code> can be used to create an object of class Date.
+- see <code>help(as.Date)</code> for more details about the format of dates.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="3-1-data-types.html#cb30-1"></a>date1=<span class="st">&quot;31-01-2012&quot;</span></span>
+<span id="cb30-2"><a href="3-1-data-types.html#cb30-2"></a>date1=<span class="kw">as.Date</span>(date1,<span class="st">&quot;%d-%m-%Y&quot;</span>)</span>
+<span id="cb30-3"><a href="3-1-data-types.html#cb30-3"></a>date1</span></code></pre></div>
+<pre><code>## [1] &quot;2012-01-31&quot;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="3-1-data-types.html#cb32-1"></a><span class="kw">data.class</span>(date1)</span></code></pre></div>
+<pre><code>## [1] &quot;Date&quot;</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="3-1-data-types.html#cb34-1"></a><span class="co">#The date and time are internally interpreted as Double so the function typeof will return the type Double</span></span>
+<span id="cb34-2"><a href="3-1-data-types.html#cb34-2"></a><span class="kw">typeof</span>(date1)</span></code></pre></div>
+<pre><code>## [1] &quot;double&quot;</code></pre>
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="3-r-data-types-and-data-structures.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4-r-data-types-and-data-structures-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="3-2-data-structures-in-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

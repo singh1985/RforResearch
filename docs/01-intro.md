@@ -44,10 +44,10 @@ length(available.packages(repos = "http://cran.us.r-project.org")[,1])
 ```
 
 ```
-## [1] 15758
+## [1] 15757
 ```
 
-- Total 15758 packages and counting
+- Total 15757 packages and counting
 
  
 

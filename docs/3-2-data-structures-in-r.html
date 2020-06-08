@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 R Data Types and Data Structures | R for Research</title>
+  <title>3.2 Data Structures in R | R for Research</title>
   <meta name="description" content="This is a collection of handouts used in R for Research course" />
   <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 R Data Types and Data Structures | R for Research" />
+  <meta property="og:title" content="3.2 Data Structures in R | R for Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 R Data Types and Data Structures | R for Research" />
+  <meta name="twitter:title" content="3.2 Data Structures in R | R for Research" />
   
   <meta name="twitter:description" content="This is a collection of handouts used in R for Research course" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="3-2-data-structures-in-r.html"/>
-<link rel="next" href="5-graphs-examples.html"/>
+<link rel="prev" href="3-1-data-types.html"/>
+<link rel="next" href="4-r-data-types-and-data-structures-1.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -188,19 +188,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r-data-types-and-data-structures-1" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> R Data Types and Data Structures</h1>
-<p><em>When human judgement and big data intersect there are some funny things that happen.</em>
--Nate Silver</p>
+<div id="data-structures-in-r" class="section level2">
+<h2><span class="header-section-number">3.2</span> Data Structures in R</h2>
+<p>Every data analysis requires the data to be structured in a well defined way. These coherent ways to put together data forms some basic data structures in R. Every data set intended for analysis has to be imported in R environment as a data structure. R has the following basic data structures:</p>
+<p>• Vector</p>
+<p>• Matrix</p>
+<p>• Array</p>
+<p>• Data Frame</p>
+<p>• Lists</p>
+<div id="vector" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Vector</h3>
+<ul>
+<li><p>Vectors are group of values having same data types.</p></li>
+<li><p>There can be numeric vectors, character vector and so on. Vectors are mostly used to represent a single variable in a data set.</p></li>
+<li><p>A vector is constructed using the function <code>c</code>. The same function <code>c</code> can be used to combine different vectors of same data type.</p></li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="3-2-data-structures-in-r.html#cb36-1"></a>vec1=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb36-2"><a href="3-2-data-structures-in-r.html#cb36-2"></a>vec1</span></code></pre></div>
+<pre><code>## [1] 1 2 3 4 5</code></pre>
+<blockquote>
+<p>The <code>str</code> function can be used to view the data structure of an object</p>
+</blockquote>
+</div>
+<div id="matrices" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Matrices</h3>
+<ul>
+<li>A matrix is a collection of data elements arranged in a two-dimensional rectangular layout. Like vectors all the elements in a matrix are of same data type.</li>
+</ul>
+<p><span class="math inline">\(\left[\begin{array}{cc} 1 &amp; 2\\ 3 &amp; 4\\ 5 &amp; 6 \end{array}\right]\)</span></p>
+<ul>
+<li>The function <span class="math inline">\(\mathtt{matrix}\)</span> is used to create matrices in R. Note that all the elements in a matrix object are of same basic type. Lets create the matrix in the example above.</li>
+</ul>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="3-2-data-structures-in-r.html#cb38-1"></a>m1=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)</span>
+<span id="cb38-2"><a href="3-2-data-structures-in-r.html#cb38-2"></a><span class="co">#nrow-specify number of rows,</span></span>
+<span id="cb38-3"><a href="3-2-data-structures-in-r.html#cb38-3"></a><span class="co">#ncol-specify number of columns,</span></span>
+<span id="cb38-4"><a href="3-2-data-structures-in-r.html#cb38-4"></a><span class="co">#byrow-fill the matrix in rows with the data supplied</span></span>
+<span id="cb38-5"><a href="3-2-data-structures-in-r.html#cb38-5"></a>m1 <span class="co">#print the matrix</span></span></code></pre></div>
+<pre><code>##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## [3,]    5    6</code></pre>
 
 </div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="3-2-data-structures-in-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="5-graphs-examples.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="3-1-data-types.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4-r-data-types-and-data-structures-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
