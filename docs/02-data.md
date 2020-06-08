@@ -1,3 +1,10 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+  header-includes:
+    - \usepackage{caption}
+---
 # R Data Types and Data Structures
 
 *When human judgement and big data intersect there are some funny things that happen.* 
@@ -199,4 +206,263 @@ m1 #print the matrix
 ```
 
 
- 
+- A vector can be converted to matrix using $\mathtt{dim}$ function, e.g:
+
+
+```r
+m2=c(1,2,3,4,5,6)
+dim(m2)=c(3,2)#the matrix will be filled by columns
+m2
+```
+
+```
+##      [,1] [,2]
+## [1,]    1    4
+## [2,]    2    5
+## [3,]    3    6
+```
+
+```r
+#use dim to get the dimension (#rows and #columns) of a matrix
+dim(m1) 
+```
+
+```
+## [1] 3 2
+```
+
+** Matrix Manipulations **
+
+- For calculations on matrices; all the mathematical functions available for vectors are applicable on a matrix. All operations are applied on each element in a matrix, e.g.
+
+
+```r
+m3=m1*2 # all elements will be multiplied by 2 individually
+m3
+```
+
+```
+##      [,1] [,2]
+## [1,]    2    4
+## [2,]    6    8
+## [3,]   10   12
+```
+
+- A matrix can be multiplied with a vector as long as the length of the vector is a multiple of length of the matrix. Try different combinations of matrix and vector arithmetic to see the results and errors. 
+
+- Mathematical matrix operations are also available for matrices in R. For instance $\mathtt{\%*\%}$ is used for matrix multiplication, the matrices must agree dimensionally for matrix multiplication. Note the use of $\mathtt{:}$ operator to create a sequence.
+
+
+```r
+dim(m1)# 3 rows and 2 columns
+```
+
+```
+## [1] 3 2
+```
+
+```r
+#create another matrix with 2 rows and 3 columns
+m3=matrix(c(1:6),ncol=3)
+m1%*%m3
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    5   11   17
+## [2,]   11   25   39
+## [3,]   17   39   61
+```
+
+R facilitates various matrix specific operations. Table 1 gives most of the available functions and operators. Use $\mathtt{help()}$ or $\mathtt{?}$ followed by function name to get more details about the operators and functions. 
+
+<div class='float-table'><div class="plain_layout" id='magicparlabel-976'><span class='float-caption-Standard float-caption float-caption-standard'>Table :  Functions and operators for matrices</span></div>
+<div class="plain_layout" style='text-align: left;' id='magicparlabel-981'><table><tbody><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1040'><b>Operator or Function</b></div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1043'><b>Description</b></div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1046'>X * Y </div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1049'>Element-wise multiplication</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1052'>X %*% Y</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1055'>Matrix multiplication</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1058'>Y %o% X </div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1061'>Outer product. XB' </div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1064'>crossprod(X,Y)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1067'>X'Y </div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1070'>crossprod(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1073'> X'X</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1076'>t(X) </div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1079'>Transpose</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1082'>diag(x)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1085'>Creates diagonal matrix with elements of x in the principal diagonal</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1088'>diag(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1091'>Returns a vector containing the elements of the principal diagonal</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1094'>diag(k)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1097'>If k is a scalar, this creates a k x k identity matrix. Go figure.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1100'>solve(X, b)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1103'>Returns vector x in the equation b = Xx (i.e., X-1b)</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1106'>solve(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1109'>Inverse of X where X is a square matrix.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1112'>y=eigen(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1115'>y$val are the eigenvalues of X</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1121'>y$vec are the eigenvectors of X</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1124'>y=svd(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1127'>Singular value decomposition of X.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1130'>R = chol(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1133'>Choleski factorization of X. Returns the upper triangular factor, such that R'R = X.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1136'>y = qr(X) </div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1139'>QR decomposition of X.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1142'>cbind(X,Y,...)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1145'>Combine matrices(vectors) horizontally. Returns a matrix.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1148'>rbind(X,Y,...)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1151'>Combine matrices(vectors) vertically. Returns a matrix.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1154'>rowMeans(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1157'>Returns vector of row means.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1160'>rowSums(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1163'>Returns vector of row sums.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1166'>colMeans(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1169'>Returns vector of column means.</div>
+</td>
+</tr><tr><td align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1172'>colSums(X)</div>
+</td>
+<td style ="width: 9cm;" align='left' valign='top'>
+<div class="plain_layout" id='magicparlabel-1175'>Returns vector of column means.</div>
+</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+
+
+### Arrays
+
+- Arrays are the generalisation of vectors and matrices. A vector in R is a one dimensional array and a matrix a two dimensional array. An array is a multiply subscripted collection of data entries of the same data type. Arrays can be constructed using the function $\mathtt{array}$, for example[^5] 
+
+[^5]: Function $\mathtt{dim}$ can also be used to define an array by assigning dimensions to a vector.
+
+
+```r
+z=c(1:24)#vector of length 24
+#constructing a 3 by 4 by 2 array
+a1=array(z,dim=c(3,4,2)) 
+a1
+```
+
+```
+## , , 1
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    4    7   10
+## [2,]    2    5    8   11
+## [3,]    3    6    9   12
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,]   13   16   19   22
+## [2,]   14   17   20   23
+## [3,]   15   18   21   24
+```
+
+- Individual elements of an array are accessed by referring them by their index. This is done by giving the name of the array followed by the subscript (index) in this square bracket separated by commas. We try to access the element [1,3,1] of array a1 in the following example 
+
+
+```r
+#element in the row 1 and column 3 in the first subset
+a1[1,3,1]
+```
+
+```
+## [1] 7
+```
+
+
+- Next we discuss the Data Frames which are the most convenient data structures for data analysis in R. 
+
