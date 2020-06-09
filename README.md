@@ -1,1 +1,0 @@
-This is a bookdown version of R for Research handouts
