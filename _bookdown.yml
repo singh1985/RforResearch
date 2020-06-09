@@ -5,3 +5,4 @@ language:
     chapter_name: "Chapter "
     delete_merged_file: TRUE
 new_session: yes
+always_allow_html: true
