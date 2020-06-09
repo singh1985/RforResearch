@@ -204,8 +204,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Doubles are numbers like 5.0, 5.5, 10.999 etc. They may or may not include decimal places. Doubles are mostly used to represent a continuous variable like serial number, weight, age etc.</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="3-1-data-types.html#cb16-1"></a>x=<span class="fl">8.5</span></span>
-<span id="cb16-2"><a href="3-1-data-types.html#cb16-2"></a><span class="kw">is.double</span>(x) <span class="co">#to check if the data type is double</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="3-1-data-types.html#cb16-1"></a>x =<span class="st"> </span><span class="fl">8.5</span></span>
+<span id="cb16-2"><a href="3-1-data-types.html#cb16-2"></a><span class="kw">is.double</span>(x)  <span class="co">#to check if the data type is double</span></span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 </div>
 <div id="integer" class="section level3">
@@ -213,12 +213,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Integers are natural numbers.</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="3-1-data-types.html#cb18-1"></a>x=<span class="dv">9</span></span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="3-1-data-types.html#cb18-1"></a>x =<span class="st"> </span><span class="dv">9</span></span>
 <span id="cb18-2"><a href="3-1-data-types.html#cb18-2"></a><span class="kw">typeof</span>(x)</span></code></pre></div>
 <pre><code>[1] &quot;double&quot;</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="3-1-data-types.html#cb20-1"></a><span class="co">#The following specifically assigns an integer to x</span></span>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="3-1-data-types.html#cb20-1"></a><span class="co"># The following specifically assigns an integer to x</span></span>
 <span id="cb20-2"><a href="3-1-data-types.html#cb20-2"></a></span>
-<span id="cb20-3"><a href="3-1-data-types.html#cb20-3"></a>x=<span class="kw">as.integer</span>(<span class="dv">9</span>)</span>
+<span id="cb20-3"><a href="3-1-data-types.html#cb20-3"></a>x =<span class="st"> </span><span class="kw">as.integer</span>(<span class="dv">9</span>)</span>
 <span id="cb20-4"><a href="3-1-data-types.html#cb20-4"></a><span class="kw">typeof</span>(x)</span></code></pre></div>
 <pre><code>[1] &quot;integer&quot;</code></pre>
 </div>
@@ -227,9 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>A variable of data type logical has the value TRUE or FALSE. To perform calculation on logical objects in R the FALSE is replaced by a zero and TRUE is replaced by 1.</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="3-1-data-types.html#cb22-1"></a>x=<span class="dv">11</span></span>
-<span id="cb22-2"><a href="3-1-data-types.html#cb22-2"></a>y=<span class="dv">10</span></span>
-<span id="cb22-3"><a href="3-1-data-types.html#cb22-3"></a>a=x<span class="op">&gt;</span>y</span>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="3-1-data-types.html#cb22-1"></a>x =<span class="st"> </span><span class="dv">11</span></span>
+<span id="cb22-2"><a href="3-1-data-types.html#cb22-2"></a>y =<span class="st"> </span><span class="dv">10</span></span>
+<span id="cb22-3"><a href="3-1-data-types.html#cb22-3"></a>a =<span class="st"> </span>x <span class="op">&gt;</span><span class="st"> </span>y</span>
 <span id="cb22-4"><a href="3-1-data-types.html#cb22-4"></a>a</span></code></pre></div>
 <pre><code>[1] TRUE</code></pre>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="3-1-data-types.html#cb24-1"></a><span class="kw">typeof</span>(a)</span></code></pre></div>
@@ -245,13 +245,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">3.1.5</span> Factor</h3>
 <p>-Factor is an important data type to represent categorical data. This also comes handy when dealing with Panel or Longitudinal data. Example of factors are Blood type (A , B, AB, O), Sex (Male or Female). Factor objects can be created from character object or from numeric object.
 -The operator c is used to create a vector of values which can be of any data type.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="3-1-data-types.html#cb26-1"></a>b.type=<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;AB&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;O&quot;</span>) <span class="co">#character object</span></span>
-<span id="cb26-2"><a href="3-1-data-types.html#cb26-2"></a><span class="co">#use factor function to convert to factor object</span></span>
-<span id="cb26-3"><a href="3-1-data-types.html#cb26-3"></a>b.type=<span class="kw">factor</span>(b.type)</span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="3-1-data-types.html#cb26-1"></a>b.type =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;AB&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;O&quot;</span>)  <span class="co">#character object</span></span>
+<span id="cb26-2"><a href="3-1-data-types.html#cb26-2"></a><span class="co"># use factor function to convert to factor object</span></span>
+<span id="cb26-3"><a href="3-1-data-types.html#cb26-3"></a>b.type =<span class="st"> </span><span class="kw">factor</span>(b.type)</span>
 <span id="cb26-4"><a href="3-1-data-types.html#cb26-4"></a>b.type</span></code></pre></div>
 <pre><code>[1] A  AB B  O 
 Levels: A AB B O</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="3-1-data-types.html#cb28-1"></a><span class="co">#to get individual elements (levels) in factor object</span></span>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="3-1-data-types.html#cb28-1"></a><span class="co"># to get individual elements (levels) in factor object</span></span>
 <span id="cb28-2"><a href="3-1-data-types.html#cb28-2"></a><span class="kw">levels</span>(b.type)</span></code></pre></div>
 <pre><code>[1] &quot;A&quot;  &quot;AB&quot; &quot;B&quot;  &quot;O&quot; </code></pre>
 </div>
@@ -259,14 +259,15 @@ Levels: A AB B O</code></pre>
 <h3><span class="header-section-number">3.1.6</span> Date &amp; Time</h3>
 <p>-R is capable of dealing calendar dates and times. It is an important object when dealing with time series models. The function <code>as.Date</code> can be used to create an object of class Date.
 - see <code>help(as.Date)</code> for more details about the format of dates.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="3-1-data-types.html#cb30-1"></a>date1=<span class="st">&quot;31-01-2012&quot;</span></span>
-<span id="cb30-2"><a href="3-1-data-types.html#cb30-2"></a>date1=<span class="kw">as.Date</span>(date1,<span class="st">&quot;%d-%m-%Y&quot;</span>)</span>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="3-1-data-types.html#cb30-1"></a>date1 =<span class="st"> &quot;31-01-2012&quot;</span></span>
+<span id="cb30-2"><a href="3-1-data-types.html#cb30-2"></a>date1 =<span class="st"> </span><span class="kw">as.Date</span>(date1, <span class="st">&quot;%d-%m-%Y&quot;</span>)</span>
 <span id="cb30-3"><a href="3-1-data-types.html#cb30-3"></a>date1</span></code></pre></div>
 <pre><code>[1] &quot;2012-01-31&quot;</code></pre>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="3-1-data-types.html#cb32-1"></a><span class="kw">data.class</span>(date1)</span></code></pre></div>
 <pre><code>[1] &quot;Date&quot;</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="3-1-data-types.html#cb34-1"></a><span class="co">#The date and time are internally interpreted as Double so the function typeof will return the type Double</span></span>
-<span id="cb34-2"><a href="3-1-data-types.html#cb34-2"></a><span class="kw">typeof</span>(date1)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="3-1-data-types.html#cb34-1"></a><span class="co"># The date and time are internally interpreted as Double so the function typeof</span></span>
+<span id="cb34-2"><a href="3-1-data-types.html#cb34-2"></a><span class="co"># will return the type Double</span></span>
+<span id="cb34-3"><a href="3-1-data-types.html#cb34-3"></a><span class="kw">typeof</span>(date1)</span></code></pre></div>
 <pre><code>[1] &quot;double&quot;</code></pre>
 </div>
 </div>

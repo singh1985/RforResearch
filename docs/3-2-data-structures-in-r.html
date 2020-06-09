@@ -208,7 +208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>There can be numeric vectors, character vector and so on. Vectors are mostly used to represent a single variable in a data set.</p></li>
 <li><p>A vector is constructed using the function <code>c</code>. The same function <code>c</code> can be used to combine different vectors of same data type.</p></li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="3-2-data-structures-in-r.html#cb36-1"></a>vec1=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="3-2-data-structures-in-r.html#cb36-1"></a>vec1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
 <span id="cb36-2"><a href="3-2-data-structures-in-r.html#cb36-2"></a>vec1</span></code></pre></div>
 <pre><code>[1] 1 2 3 4 5</code></pre>
 <blockquote>
@@ -228,11 +228,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>The function <span class="math inline">\(\mathtt{matrix}\)</span> is used to create matrices in R. Note that all the elements in a matrix object are of same basic type. Lets create the matrix in the example above.</li>
 </ul>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="3-2-data-structures-in-r.html#cb38-1"></a>m1=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),<span class="dt">nrow=</span><span class="dv">3</span>,<span class="dt">ncol=</span><span class="dv">2</span>,<span class="dt">byrow=</span><span class="ot">TRUE</span>)</span>
-<span id="cb38-2"><a href="3-2-data-structures-in-r.html#cb38-2"></a><span class="co">#nrow-specify number of rows,</span></span>
-<span id="cb38-3"><a href="3-2-data-structures-in-r.html#cb38-3"></a><span class="co">#ncol-specify number of columns,</span></span>
-<span id="cb38-4"><a href="3-2-data-structures-in-r.html#cb38-4"></a><span class="co">#byrow-fill the matrix in rows with the data supplied</span></span>
-<span id="cb38-5"><a href="3-2-data-structures-in-r.html#cb38-5"></a>m1 <span class="co">#print the matrix</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="3-2-data-structures-in-r.html#cb38-1"></a>m1 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>), <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">byrow =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb38-2"><a href="3-2-data-structures-in-r.html#cb38-2"></a><span class="co"># nrow-specify number of rows, ncol-specify number of columns, byrow-fill the</span></span>
+<span id="cb38-3"><a href="3-2-data-structures-in-r.html#cb38-3"></a><span class="co"># matrix in rows with the data supplied</span></span>
+<span id="cb38-4"><a href="3-2-data-structures-in-r.html#cb38-4"></a>m1  <span class="co">#print the matrix</span></span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    2
 [2,]    3    4
@@ -240,21 +239,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>A vector can be converted to matrix using <span class="math inline">\(\mathtt{dim}\)</span> function, e.g:</li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="3-2-data-structures-in-r.html#cb40-1"></a>m2=<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
-<span id="cb40-2"><a href="3-2-data-structures-in-r.html#cb40-2"></a><span class="kw">dim</span>(m2)=<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">2</span>)<span class="co">#the matrix will be filled by columns</span></span>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="3-2-data-structures-in-r.html#cb40-1"></a>m2 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb40-2"><a href="3-2-data-structures-in-r.html#cb40-2"></a><span class="kw">dim</span>(m2) =<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)  <span class="co">#the matrix will be filled by columns</span></span>
 <span id="cb40-3"><a href="3-2-data-structures-in-r.html#cb40-3"></a>m2</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    1    4
 [2,]    2    5
 [3,]    3    6</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="3-2-data-structures-in-r.html#cb42-1"></a><span class="co">#use dim to get the dimension (#rows and #columns) of a matrix</span></span>
-<span id="cb42-2"><a href="3-2-data-structures-in-r.html#cb42-2"></a><span class="kw">dim</span>(m1) </span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="3-2-data-structures-in-r.html#cb42-1"></a><span class="co"># use dim to get the dimension (#rows and #columns) of a matrix</span></span>
+<span id="cb42-2"><a href="3-2-data-structures-in-r.html#cb42-2"></a><span class="kw">dim</span>(m1)</span></code></pre></div>
 <pre><code>[1] 3 2</code></pre>
 <p>** Matrix Manipulations **</p>
 <ul>
 <li>For calculations on matrices; all the mathematical functions available for vectors are applicable on a matrix. All operations are applied on each element in a matrix, e.g.</li>
 </ul>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="3-2-data-structures-in-r.html#cb44-1"></a>m3=m1<span class="op">*</span><span class="dv">2</span> <span class="co"># all elements will be multiplied by 2 individually</span></span>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="3-2-data-structures-in-r.html#cb44-1"></a>m3 =<span class="st"> </span>m1 <span class="op">*</span><span class="st"> </span><span class="dv">2</span>  <span class="co"># all elements will be multiplied by 2 individually</span></span>
 <span id="cb44-2"><a href="3-2-data-structures-in-r.html#cb44-2"></a>m3</span></code></pre></div>
 <pre><code>     [,1] [,2]
 [1,]    2    4
@@ -264,11 +263,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>A matrix can be multiplied with a vector as long as the length of the vector is a multiple of length of the matrix. Try different combinations of matrix and vector arithmetic to see the results and errors.</p></li>
 <li><p>Mathematical matrix operations are also available for matrices in R. For instance <span class="math inline">\(\mathtt{\%*\%}\)</span> is used for matrix multiplication, the matrices must agree dimensionally for matrix multiplication. Note the use of <span class="math inline">\(\mathtt{:}\)</span> operator to create a sequence.</p></li>
 </ul>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="3-2-data-structures-in-r.html#cb46-1"></a><span class="kw">dim</span>(m1)<span class="co"># 3 rows and 2 columns</span></span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="3-2-data-structures-in-r.html#cb46-1"></a><span class="kw">dim</span>(m1)  <span class="co"># 3 rows and 2 columns</span></span></code></pre></div>
 <pre><code>[1] 3 2</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="3-2-data-structures-in-r.html#cb48-1"></a><span class="co">#create another matrix with 2 rows and 3 columns</span></span>
-<span id="cb48-2"><a href="3-2-data-structures-in-r.html#cb48-2"></a>m3=<span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>),<span class="dt">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb48-3"><a href="3-2-data-structures-in-r.html#cb48-3"></a>m1<span class="op">%*%</span>m3</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="3-2-data-structures-in-r.html#cb48-1"></a><span class="co"># create another matrix with 2 rows and 3 columns</span></span>
+<span id="cb48-2"><a href="3-2-data-structures-in-r.html#cb48-2"></a>m3 =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">6</span>), <span class="dt">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb48-3"><a href="3-2-data-structures-in-r.html#cb48-3"></a>m1 <span class="op">%*%</span><span class="st"> </span>m3</span></code></pre></div>
 <pre><code>     [,1] [,2] [,3]
 [1,]    5   11   17
 [2,]   11   25   39
@@ -564,9 +563,9 @@ Returns vector of column means.
 <ul>
 <li>Arrays are the generalisation of vectors and matrices. A vector in R is a one dimensional array and a matrix a two dimensional array. An array is a multiply subscripted collection of data entries of the same data type. Arrays can be constructed using the function <span class="math inline">\(\mathtt{array}\)</span>, for example<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></li>
 </ul>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="3-2-data-structures-in-r.html#cb50-1"></a>z=<span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>)<span class="co">#vector of length 24</span></span>
-<span id="cb50-2"><a href="3-2-data-structures-in-r.html#cb50-2"></a><span class="co">#constructing a 3 by 4 by 2 array</span></span>
-<span id="cb50-3"><a href="3-2-data-structures-in-r.html#cb50-3"></a>a1=<span class="kw">array</span>(z,<span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>)) </span>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="3-2-data-structures-in-r.html#cb50-1"></a>z =<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>)  <span class="co">#vector of length 24</span></span>
+<span id="cb50-2"><a href="3-2-data-structures-in-r.html#cb50-2"></a><span class="co"># constructing a 3 by 4 by 2 array</span></span>
+<span id="cb50-3"><a href="3-2-data-structures-in-r.html#cb50-3"></a>a1 =<span class="st"> </span><span class="kw">array</span>(z, <span class="dt">dim =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>))</span>
 <span id="cb50-4"><a href="3-2-data-structures-in-r.html#cb50-4"></a>a1</span></code></pre></div>
 <pre><code>, , 1
 
@@ -584,8 +583,8 @@ Returns vector of column means.
 <ul>
 <li>Individual elements of an array are accessed by referring them by their index. This is done by giving the name of the array followed by the subscript (index) in this square bracket separated by commas. We try to access the element [1,3,1] of array a1 in the following example</li>
 </ul>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="3-2-data-structures-in-r.html#cb52-1"></a><span class="co">#element in the row 1 and column 3 in the first subset</span></span>
-<span id="cb52-2"><a href="3-2-data-structures-in-r.html#cb52-2"></a>a1[<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="3-2-data-structures-in-r.html#cb52-1"></a><span class="co"># element in the row 1 and column 3 in the first subset</span></span>
+<span id="cb52-2"><a href="3-2-data-structures-in-r.html#cb52-2"></a>a1[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>[1] 7</code></pre>
 </div>
 <div id="data-frames" class="section level3">
@@ -596,11 +595,12 @@ Returns vector of column means.
 <li><p>A data frame in R is the most natural way to represent these data sets as it can have different data type in the data frame object. Most statistical routines in R require a data frame as input.</p></li>
 </ul>
 <p>The following example uses an important function <span class="math inline">\(\mathtt{str}\)</span> on R’s inbuilt data frame “swiss”. <span class="math inline">\(\mathtt{str}\)</span> function is used to see the internal structure of an object in R.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="3-2-data-structures-in-r.html#cb54-1"></a><span class="kw">options</span>(<span class="dt">str=</span><span class="kw">list</span>(<span class="dt">vec.len=</span><span class="dv">2</span>))</span>
-<span id="cb54-2"><a href="3-2-data-structures-in-r.html#cb54-2"></a><span class="co">#swiss dataframe has standardized fertility measure and socio-economic indicators </span></span>
-<span id="cb54-3"><a href="3-2-data-structures-in-r.html#cb54-3"></a><span class="co">#for each of 47 French-speaking provinces of Switzerland at about 1888.</span></span>
-<span id="cb54-4"><a href="3-2-data-structures-in-r.html#cb54-4"></a><span class="kw">data</span>(swiss)</span>
-<span id="cb54-5"><a href="3-2-data-structures-in-r.html#cb54-5"></a><span class="kw">str</span>(swiss)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="3-2-data-structures-in-r.html#cb54-1"></a><span class="kw">options</span>(<span class="dt">str =</span> <span class="kw">list</span>(<span class="dt">vec.len =</span> <span class="dv">2</span>))</span>
+<span id="cb54-2"><a href="3-2-data-structures-in-r.html#cb54-2"></a><span class="co"># swiss dataframe has standardized fertility measure and socio-economic</span></span>
+<span id="cb54-3"><a href="3-2-data-structures-in-r.html#cb54-3"></a><span class="co"># indicators for each of 47 French-speaking provinces of Switzerland at about</span></span>
+<span id="cb54-4"><a href="3-2-data-structures-in-r.html#cb54-4"></a><span class="co"># 1888.</span></span>
+<span id="cb54-5"><a href="3-2-data-structures-in-r.html#cb54-5"></a><span class="kw">data</span>(swiss)</span>
+<span id="cb54-6"><a href="3-2-data-structures-in-r.html#cb54-6"></a><span class="kw">str</span>(swiss)</span></code></pre></div>
 <pre><code>&#39;data.frame&#39;:   47 obs. of  6 variables:
  $ Fertility       : num  80.2 83.1 92.5 85.8 76.9 ...
  $ Agriculture     : num  17 45.1 39.7 36.5 43.5 ...
@@ -611,14 +611,14 @@ Returns vector of column means.
 <ul>
 <li>Data frames have two attributes namely; <span class="math inline">\(\mathtt{names}\)</span> and <span class="math inline">\(\mathtt{row.names}\)</span>, these two contains the column names and row names respectively. The data in the named column can be accessed by the <span class="math inline">\(\mathtt{\$}\)</span> operator.</li>
 </ul>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="3-2-data-structures-in-r.html#cb56-1"></a><span class="co">#using names and row.names</span></span>
-<span id="cb56-2"><a href="3-2-data-structures-in-r.html#cb56-2"></a><span class="kw">names</span>(swiss)<span class="co">#name of the columns (can also use colnames)</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="3-2-data-structures-in-r.html#cb56-1"></a><span class="co"># using names and row.names</span></span>
+<span id="cb56-2"><a href="3-2-data-structures-in-r.html#cb56-2"></a><span class="kw">names</span>(swiss)  <span class="co">#name of the columns (can also use colnames)</span></span></code></pre></div>
 <pre><code>[1] &quot;Fertility&quot;        &quot;Agriculture&quot;      &quot;Examination&quot;      &quot;Education&quot;       
 [5] &quot;Catholic&quot;         &quot;Infant.Mortality&quot;</code></pre>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="3-2-data-structures-in-r.html#cb58-1"></a><span class="kw">colnames</span>(swiss)</span></code></pre></div>
 <pre><code>[1] &quot;Fertility&quot;        &quot;Agriculture&quot;      &quot;Examination&quot;      &quot;Education&quot;       
 [5] &quot;Catholic&quot;         &quot;Infant.Mortality&quot;</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="3-2-data-structures-in-r.html#cb60-1"></a><span class="kw">row.names</span>(swiss)<span class="co">#name of the rows</span></span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="3-2-data-structures-in-r.html#cb60-1"></a><span class="kw">row.names</span>(swiss)  <span class="co">#name of the rows</span></span></code></pre></div>
 <pre><code> [1] &quot;Courtelary&quot;   &quot;Delemont&quot;     &quot;Franches-Mnt&quot; &quot;Moutier&quot;      &quot;Neuveville&quot;  
  [6] &quot;Porrentruy&quot;   &quot;Broye&quot;        &quot;Glane&quot;        &quot;Gruyere&quot;      &quot;Sarine&quot;      
 [11] &quot;Veveyse&quot;      &quot;Aigle&quot;        &quot;Aubonne&quot;      &quot;Avenches&quot;     &quot;Cossonay&quot;    
@@ -629,7 +629,7 @@ Returns vector of column means.
 [36] &quot;St Maurice&quot;   &quot;Sierre&quot;       &quot;Sion&quot;         &quot;Boudry&quot;       &quot;La Chauxdfnd&quot;
 [41] &quot;Le Locle&quot;     &quot;Neuchatel&quot;    &quot;Val de Ruz&quot;   &quot;ValdeTravers&quot; &quot;V. De Geneve&quot;
 [46] &quot;Rive Droite&quot;  &quot;Rive Gauche&quot; </code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="3-2-data-structures-in-r.html#cb62-1"></a>swiss<span class="op">$</span>Fertility <span class="co">#returns the vector of data in the column Fertility</span></span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="3-2-data-structures-in-r.html#cb62-1"></a>swiss<span class="op">$</span>Fertility  <span class="co">#returns the vector of data in the column Fertility</span></span></code></pre></div>
 <pre><code> [1] 80.2 83.1 92.5 85.8 76.9 76.1 83.8 92.4 82.4 82.9 87.1 64.1 66.9 68.9 61.7
 [16] 68.3 71.7 55.7 54.3 65.1 65.5 65.0 56.6 57.4 72.5 74.2 72.0 60.5 58.3 65.4
 [31] 75.5 69.3 77.3 70.5 79.4 65.0 92.2 79.3 70.4 65.7 72.7 64.4 77.6 67.6 35.0
@@ -637,9 +637,9 @@ Returns vector of column means.
 <ul>
 <li>Data frames are constructed using the function <span class="math inline">\(\mathtt{data.frame}\)</span>. For example following creates a data frame of a character and numeric vector.</li>
 </ul>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="3-2-data-structures-in-r.html#cb64-1"></a>num1=<span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span>
-<span id="cb64-2"><a href="3-2-data-structures-in-r.html#cb64-2"></a>ch1=<span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>)</span>
-<span id="cb64-3"><a href="3-2-data-structures-in-r.html#cb64-3"></a>df1=<span class="kw">data.frame</span>(ch1,num1)</span>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="3-2-data-structures-in-r.html#cb64-1"></a>num1 =<span class="st"> </span><span class="kw">seq</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</span>
+<span id="cb64-2"><a href="3-2-data-structures-in-r.html#cb64-2"></a>ch1 =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>, <span class="st">&quot;E&quot;</span>)</span>
+<span id="cb64-3"><a href="3-2-data-structures-in-r.html#cb64-3"></a>df1 =<span class="st"> </span><span class="kw">data.frame</span>(ch1, num1)</span>
 <span id="cb64-4"><a href="3-2-data-structures-in-r.html#cb64-4"></a>df1</span></code></pre></div>
 <pre><code>  ch1 num1
 1   A    1
@@ -655,12 +655,12 @@ Returns vector of column means.
 <li><p>A list can contain another list and therefore it can be used to construct arbitrary data structures.</p></li>
 <li><p>A list can be constructed using the <span class="math inline">\(\mathtt{list}\)</span> function, for example</p></li>
 </ul>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="3-2-data-structures-in-r.html#cb66-1"></a>e1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>) <span class="co">#element-1</span></span>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="3-2-data-structures-in-r.html#cb66-1"></a>e1 =<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>)  <span class="co">#element-1</span></span>
 <span id="cb66-2"><a href="3-2-data-structures-in-r.html#cb66-2"></a>e2 =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;aa&quot;</span>, <span class="st">&quot;bb&quot;</span>, <span class="st">&quot;cc&quot;</span>, <span class="st">&quot;dd&quot;</span>, <span class="st">&quot;ee&quot;</span>)  <span class="co">#element-2</span></span>
-<span id="cb66-3"><a href="3-2-data-structures-in-r.html#cb66-3"></a>e3 =<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)<span class="co">#element-3</span></span>
-<span id="cb66-4"><a href="3-2-data-structures-in-r.html#cb66-4"></a>e4=df1 <span class="co">#element-4 (previously constructed data frame)</span></span>
-<span id="cb66-5"><a href="3-2-data-structures-in-r.html#cb66-5"></a>lst1 =<span class="st"> </span><span class="kw">list</span>(e1,e2,e3, e4)   <span class="co"># lst contains copies of e1,e2,e3,e4</span></span>
-<span id="cb66-6"><a href="3-2-data-structures-in-r.html#cb66-6"></a><span class="kw">str</span>(lst1)<span class="co">#show the structure of lst1</span></span></code></pre></div>
+<span id="cb66-3"><a href="3-2-data-structures-in-r.html#cb66-3"></a>e3 =<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>)  <span class="co">#element-3</span></span>
+<span id="cb66-4"><a href="3-2-data-structures-in-r.html#cb66-4"></a>e4 =<span class="st"> </span>df1  <span class="co">#element-4 (previously constructed data frame)</span></span>
+<span id="cb66-5"><a href="3-2-data-structures-in-r.html#cb66-5"></a>lst1 =<span class="st"> </span><span class="kw">list</span>(e1, e2, e3, e4)  <span class="co"># lst contains copies of e1,e2,e3,e4</span></span>
+<span id="cb66-6"><a href="3-2-data-structures-in-r.html#cb66-6"></a><span class="kw">str</span>(lst1)  <span class="co">#show the structure of lst1</span></span></code></pre></div>
 <pre><code>List of 4
  $ : num [1:3] 2 3 5
  $ : chr [1:5] &quot;aa&quot; &quot;bb&quot; ...
@@ -678,7 +678,7 @@ Figure 3.1: Lists
 </div></li>
 <li>Thus if lst1 is the name of a list with four components, these may be individually referred to as lst1[[1]], lst1[[2]], lst1[[3]] and lst1[[4]]. Note: When a single square bracket is used the component of a list is returned as a list while the double square bracket returns the component itself</li>
 </ul>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="3-2-data-structures-in-r.html#cb68-1"></a><span class="co">#first element of lst1</span></span>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="3-2-data-structures-in-r.html#cb68-1"></a><span class="co"># first element of lst1</span></span>
 <span id="cb68-2"><a href="3-2-data-structures-in-r.html#cb68-2"></a>lst1[[<span class="dv">1</span>]]</span></code></pre></div>
 <pre><code>[1] 2 3 5</code></pre>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="3-2-data-structures-in-r.html#cb70-1"></a>lst1[<span class="dv">1</span>]</span></code></pre></div>
@@ -687,10 +687,10 @@ Figure 3.1: Lists
 <ul>
 <li>The elements in a list can also be named using the  function and these elements can be referred individually via there names.</li>
 </ul>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="3-2-data-structures-in-r.html#cb72-1"></a><span class="kw">names</span>(lst1)=<span class="kw">c</span>(<span class="st">&quot;e1&quot;</span>,<span class="st">&quot;e2&quot;</span>,<span class="st">&quot;e3&quot;</span>,<span class="st">&quot;e4&quot;</span>)</span>
-<span id="cb72-2"><a href="3-2-data-structures-in-r.html#cb72-2"></a><span class="kw">names</span>(lst1)<span class="co">#name of the elements</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="3-2-data-structures-in-r.html#cb72-1"></a><span class="kw">names</span>(lst1) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;e1&quot;</span>, <span class="st">&quot;e2&quot;</span>, <span class="st">&quot;e3&quot;</span>, <span class="st">&quot;e4&quot;</span>)</span>
+<span id="cb72-2"><a href="3-2-data-structures-in-r.html#cb72-2"></a><span class="kw">names</span>(lst1)  <span class="co">#name of the elements</span></span></code></pre></div>
 <pre><code>[1] &quot;e1&quot; &quot;e2&quot; &quot;e3&quot; &quot;e4&quot;</code></pre>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="3-2-data-structures-in-r.html#cb74-1"></a>lst1<span class="op">$</span>e1 <span class="co">#using $operator to refer the element</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="3-2-data-structures-in-r.html#cb74-1"></a>lst1<span class="op">$</span>e1  <span class="co">#using $operator to refer the element</span></span></code></pre></div>
 <pre><code>[1] 2 3 5</code></pre>
 <blockquote>
 <p>This section provided an overview of various data types and data structures in R. The next section will discuss how to deal with external data souces with flat data.</p>
