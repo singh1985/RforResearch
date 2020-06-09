@@ -1,4 +1,7 @@
-# R Data Types and Data Structures
+# Working with Data
 
-*When human judgement and big data intersect there are some funny things that happen.* 
--Nate Silver 
+*Errors using inadequate data are much less than those using no data at all.* 
+-Charles Babbage 
+
+
+## Data Import/Export in R

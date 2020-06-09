@@ -466,5 +466,177 @@ a1[1,3,1]
 ```
 
 
-- Next we discuss the Data Frames which are the most convenient data structures for data analysis in R. 
+### Data Frames
+- Data frame forms the most convenient data structures in R to represent tabular data. 
 
+- In quantitative research data is often in the form of data tables. These data tables have multiple rows and can have multiple columns with each column representing a different variable (quantity). 
+
+- A data frame in R is the most natural way to represent these data sets as it can have different data type in the data frame object. Most statistical routines in R require a data frame as input. 
+
+The following example uses an important function $\mathtt{str}$ on R's inbuilt data frame “swiss”. $\mathtt{str}$ function is used to see the internal structure of an object in R. 
+
+
+```r
+options(str=list(vec.len=2))
+#swiss dataframe has standardized fertility measure and socio-economic indicators 
+#for each of 47 French-speaking provinces of Switzerland at about 1888.
+data(swiss)
+str(swiss)
+```
+
+```
+'data.frame':	47 obs. of  6 variables:
+ $ Fertility       : num  80.2 83.1 92.5 85.8 76.9 ...
+ $ Agriculture     : num  17 45.1 39.7 36.5 43.5 ...
+ $ Examination     : int  15 6 5 12 17 ...
+ $ Education       : int  12 9 5 7 15 ...
+ $ Catholic        : num  9.96 84.84 ...
+ $ Infant.Mortality: num  22.2 22.2 20.2 20.3 20.6 ...
+```
+
+- Data frames have two attributes namely; $\mathtt{names}$ and $\mathtt{row.names}$, these two contains the column names and row names respectively. The data in the named column can be accessed by the $\mathtt{\$}$ operator. 
+
+
+```r
+#using names and row.names
+names(swiss)#name of the columns (can also use colnames)
+```
+
+```
+[1] "Fertility"        "Agriculture"      "Examination"      "Education"       
+[5] "Catholic"         "Infant.Mortality"
+```
+
+```r
+colnames(swiss)
+```
+
+```
+[1] "Fertility"        "Agriculture"      "Examination"      "Education"       
+[5] "Catholic"         "Infant.Mortality"
+```
+
+```r
+row.names(swiss)#name of the rows
+```
+
+```
+ [1] "Courtelary"   "Delemont"     "Franches-Mnt" "Moutier"      "Neuveville"  
+ [6] "Porrentruy"   "Broye"        "Glane"        "Gruyere"      "Sarine"      
+[11] "Veveyse"      "Aigle"        "Aubonne"      "Avenches"     "Cossonay"    
+[16] "Echallens"    "Grandson"     "Lausanne"     "La Vallee"    "Lavaux"      
+[21] "Morges"       "Moudon"       "Nyone"        "Orbe"         "Oron"        
+[26] "Payerne"      "Paysd'enhaut" "Rolle"        "Vevey"        "Yverdon"     
+[31] "Conthey"      "Entremont"    "Herens"       "Martigwy"     "Monthey"     
+[36] "St Maurice"   "Sierre"       "Sion"         "Boudry"       "La Chauxdfnd"
+[41] "Le Locle"     "Neuchatel"    "Val de Ruz"   "ValdeTravers" "V. De Geneve"
+[46] "Rive Droite"  "Rive Gauche" 
+```
+
+```r
+swiss$Fertility #returns the vector of data in the column Fertility
+```
+
+```
+ [1] 80.2 83.1 92.5 85.8 76.9 76.1 83.8 92.4 82.4 82.9 87.1 64.1 66.9 68.9 61.7
+[16] 68.3 71.7 55.7 54.3 65.1 65.5 65.0 56.6 57.4 72.5 74.2 72.0 60.5 58.3 65.4
+[31] 75.5 69.3 77.3 70.5 79.4 65.0 92.2 79.3 70.4 65.7 72.7 64.4 77.6 67.6 35.0
+[46] 44.7 42.8
+```
+
+- Data frames are constructed using the function $\mathtt{data.frame}$. For example following creates a data frame of a character and numeric vector. 
+
+
+```r
+num1=seq(1:5)
+ch1=c("A","B","C","D","E")
+df1=data.frame(ch1,num1)
+df1
+```
+
+```
+  ch1 num1
+1   A    1
+2   B    2
+3   C    3
+4   D    4
+5   E    5
+```
+
+### Lists
+- A list is like generic vector containing other objects. Lists can have numerous elements any type and structure they can also be of different lengths
+
+- A list can contain another list and therefore it can be used to construct arbitrary data structures.  
+
+- A list can be constructed using the $\mathtt{list}$ function, for example
+
+
+```r
+e1 = c(2, 3, 5) #element-1
+e2 = c("aa", "bb", "cc", "dd", "ee")  #element-2
+e3 = c(TRUE, FALSE, TRUE, FALSE, FALSE)#element-3
+e4=df1 #element-4 (previously constructed data frame)
+lst1 = list(e1,e2,e3, e4)   # lst contains copies of e1,e2,e3,e4
+str(lst1)#show the structure of lst1
+```
+
+```
+List of 4
+ $ : num [1:3] 2 3 5
+ $ : chr [1:5] "aa" "bb" ...
+ $ : logi [1:5] TRUE FALSE TRUE ...
+ $ :'data.frame':	5 obs. of  2 variables:
+  ..$ ch1 : chr [1:5] "A" "B" ...
+  ..$ num1: int [1:5] 1 2 3 4 5
+```
+
+
+- Components are always numbered and may always be referred to as such.
+<div class="figure">
+<img src="CO2_qPVWsAAErbv.png large.png" alt="Lists" width="687" />
+<p class="caption">(\#fig:unnamed-chunk-19)Lists</p>
+</div>
+
+- Thus if lst1 is the name of a list with four components, these may be individually referred to as lst1[[1]], lst1[[2]], lst1[[3]] and lst1[[4]]. Note: When a single square bracket is used the component of a list is returned as a list while the double square bracket returns the component itself
+
+
+```r
+#first element of lst1
+lst1[[1]]
+```
+
+```
+[1] 2 3 5
+```
+
+```r
+lst1[1]
+```
+
+```
+[[1]]
+[1] 2 3 5
+```
+
+- The elements in a list can also be named using the \mathtt{list} function and these elements can be referred individually via there names. 
+
+
+
+```r
+names(lst1)=c("e1","e2","e3","e4")
+names(lst1)#name of the elements
+```
+
+```
+[1] "e1" "e2" "e3" "e4"
+```
+
+```r
+lst1$e1 #using $operator to refer the element
+```
+
+```
+[1] 2 3 5
+```
+
+> This section provided an overview of various data types and data structures in R. The next section will discuss how to deal with external data souces with flat data.
