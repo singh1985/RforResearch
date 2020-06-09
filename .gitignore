@@ -7,3 +7,5 @@ _bookdown_files
 rsconnect
 data/
 VideoDecodeStats/
+*.md
+*.Rmd

@@ -182,11 +182,11 @@ vec1
 
 - A matrix is a collection of data elements arranged in a two-dimensional rectangular layout. Like vectors all the elements in a matrix are of same data type. 
 
-$\left[\begin{array}{cc}
+$$\left[\begin{array}{cc}
 1 & 2\\
 3 & 4\\
 5 & 6
-\end{array}\right]$
+\end{array}\right]$$
 
 -  The function $\mathtt{matrix}$ is used to create matrices in R. Note that all the elements in a matrix object are of same basic type. Lets create the matrix in the example above.
 
