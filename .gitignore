@@ -8,3 +8,8 @@ rsconnect
 VideoDecodeStats/
 *.md
 *.Rmd
+*.html
+*.png
+*.tex
+*.log
+*.Rproj
