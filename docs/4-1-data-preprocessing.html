@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-06-11" />
+<meta name="date" content="2020-06-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="4-data-exploration.html"/>
-<link rel="next" href="4-2-summary-statistics.html"/>
+<link rel="next" href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,7 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
@@ -189,16 +190,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.1.2" data-path="4-1-data-preprocessing.html"><a href="4-1-data-preprocessing.html#combining-data-frames"><i class="fa fa-check"></i><b>4.1.2</b> Combining Data Frames</a></li>
 <li class="chapter" data-level="4.1.3" data-path="4-1-data-preprocessing.html"><a href="4-1-data-preprocessing.html#sub-setting-and-logical-data-selection"><i class="fa fa-check"></i><b>4.1.3</b> Sub setting and Logical Data Selection</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="4-2-summary-statistics.html"><a href="4-2-summary-statistics.html"><i class="fa fa-check"></i><b>4.2</b> Summary Statistics</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="4-2-summary-statistics.html"><a href="4-2-summary-statistics.html#example-descriptive-statistics-of-stock-returns"><i class="fa fa-check"></i><b>4.2.1</b> Example-Descriptive Statistics of Stock Returns</a></li>
+<li class="chapter" data-level="4.2" data-path="4-2-data-transformation-from-wide-to-long-or-vice-versa.html"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html"><i class="fa fa-check"></i><b>4.2</b> Data Transformation from Wide to Long (or vice versa)</a></li>
+<li class="chapter" data-level="4.3" data-path="4-3-summary-statistics.html"><a href="4-3-summary-statistics.html"><i class="fa fa-check"></i><b>4.3</b> Summary Statistics</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="4-3-summary-statistics.html"><a href="4-3-summary-statistics.html#example-descriptive-statistics-of-stock-returns"><i class="fa fa-check"></i><b>4.3.1</b> Example-Descriptive Statistics of Stock Returns</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="5-graphs-examples.html"><a href="5-graphs-examples.html"><i class="fa fa-check"></i><b>5</b> Graphs examples</a><ul>
-<li class="chapter" data-level="5.1" data-path="5-1-visualising-covid-19-using-maps.html"><a href="5-1-visualising-covid-19-using-maps.html"><i class="fa fa-check"></i><b>5.1</b> Visualising COVID-19 using maps</a></li>
-<li class="chapter" data-level="5.2" data-path="5-2-example-two.html"><a href="5-2-example-two.html"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="5" data-path="5-graphics-in-r.html"><a href="5-graphics-in-r.html"><i class="fa fa-check"></i><b>5</b> Graphics in R</a><ul>
+<li class="chapter" data-level="5.1" data-path="5-1-basic-plots-in-r.html"><a href="5-1-basic-plots-in-r.html"><i class="fa fa-check"></i><b>5.1</b> Basic Plots in R</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="5-1-basic-plots-in-r.html"><a href="5-1-basic-plots-in-r.html#scatter-plot"><i class="fa fa-check"></i><b>5.1.1</b> Scatter Plot</a></li>
+<li class="chapter" data-level="5.1.2" data-path="5-1-basic-plots-in-r.html"><a href="5-1-basic-plots-in-r.html#line-plot"><i class="fa fa-check"></i><b>5.1.2</b> Line Plot</a></li>
+<li class="chapter" data-level="5.1.3" data-path="5-1-basic-plots-in-r.html"><a href="5-1-basic-plots-in-r.html#bar-plot"><i class="fa fa-check"></i><b>5.1.3</b> Bar Plot</a></li>
+<li class="chapter" data-level="5.1.4" data-path="5-1-basic-plots-in-r.html"><a href="5-1-basic-plots-in-r.html#pie-chart"><i class="fa fa-check"></i><b>5.1.4</b> Pie Chart</a></li>
+<li class="chapter" data-level="5.1.5" data-path="5-1-basic-plots-in-r.html"><a href="5-1-basic-plots-in-r.html#scatter-plot-1"><i class="fa fa-check"></i><b>5.1.5</b> Scatter Plot</a></li>
+<li class="chapter" data-level="5.1.6" data-path="5-1-basic-plots-in-r.html"><a href="5-1-basic-plots-in-r.html#a-subset-can-also-be-selected-using-formula-method-for-example-the-following-r-code-will-generate-a-scatterplot-with-only-australia-uk-and-usa."><i class="fa fa-check"></i><b>5.1.6</b> A subset can also be selected using formula method, for example the following R code will generate a scatterplot with only Australia, UK and USA.</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="5-2-r-graphical-parameters.html"><a href="5-2-r-graphical-parameters.html"><i class="fa fa-check"></i><b>5.2</b> R Graphical Parameters</a></li>
+<li class="chapter" data-level="5.3" data-path="5-3-introduction-to-ggplot2.html"><a href="5-3-introduction-to-ggplot2.html"><i class="fa fa-check"></i><b>5.3</b> Introduction to ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="5-3-introduction-to-ggplot2.html"><a href="5-3-introduction-to-ggplot2.html#mathttqplot"><i class="fa fa-check"></i><b>5.3.1</b> <span class="math inline">\(\mathtt{qplot}\)</span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="5-3-introduction-to-ggplot2.html"><a href="5-3-introduction-to-ggplot2.html#layered-graphics-using-mathttggplot"><i class="fa fa-check"></i><b>5.3.2</b> Layered graphics using <span class="math inline">\(\mathtt{ggplot}\)</span></a></li>
+<li class="chapter" data-level="5.3.3" data-path="5-3-introduction-to-ggplot2.html"><a href="5-3-introduction-to-ggplot2.html#arranging-plots-using-gridextra"><i class="fa fa-check"></i><b>5.3.3</b> Arranging plots using gridExtra</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="6" data-path="6-final-words.html"><a href="6-final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+<li class="chapter" data-level="7" data-path="7-graphs-examples.html"><a href="7-graphs-examples.html"><i class="fa fa-check"></i><b>7</b> Graphs examples</a><ul>
+<li class="chapter" data-level="7.1" data-path="7-1-visualising-covid-19-using-maps.html"><a href="7-1-visualising-covid-19-using-maps.html"><i class="fa fa-check"></i><b>7.1</b> Visualising COVID-19 using maps</a></li>
+<li class="chapter" data-level="7.2" data-path="7-2-example-two.html"><a href="7-2-example-two.html"><i class="fa fa-check"></i><b>7.2</b> Example two</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -424,7 +442,7 @@ NULL</code></pre>
         </div>
       </div>
 <a href="4-data-exploration.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4-2-summary-statistics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
