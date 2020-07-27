@@ -1,10 +1,11 @@
-.Rproj.user
+.Rproj.user/
 .Rhistory
 .RData
 _publish.R
 _book
 _bookdown_files
 rsconnect
+gitignore
 VideoDecodeStats/
 *.md
 *.Rmd
@@ -21,7 +22,7 @@ VideoDecodeStats/
 *.Rhistory
 .Rhistory
 .Rapp.history
-
+.gitignore
 # Session Data files
 .RData
 
