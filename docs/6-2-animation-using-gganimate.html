@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1.2 Installing R and RStudio on Windows | R for Research</title>
+  <title>6.2 Animation using gganimate | R for Research</title>
   <meta name="description" content="This is a collection of handouts used in R for Research course" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1.2 Installing R and RStudio on Windows | R for Research" />
+  <meta property="og:title" content="6.2 Animation using gganimate | R for Research" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1.2 Installing R and RStudio on Windows | R for Research" />
+  <meta name="twitter:title" content="6.2 Animation using gganimate | R for Research" />
   
   <meta name="twitter:description" content="This is a collection of handouts used in R for Research course" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="1-1-why-should-we-learn-r.html"/>
-<link rel="next" href="1-3-rstudio-guiide.html"/>
+<link rel="prev" href="6-1-interactive-plots-using-plotly.html"/>
+<link rel="next" href="6-3-plot-maps.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -234,22 +234,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Rinstall" class="section level2">
-<h2><span class="header-section-number">1.2</span> Installing R and RStudio on Windows</h2>
+<div id="animation-using-gganimate" class="section level2">
+<h2><span class="header-section-number">6.2</span> Animation using gganimate</h2>
 <ul>
-<li><p>The latest version of R can be download from the R homepage.</p></li>
-<li><p>R download page: <a href="http://www.cran.r-project.org/bin/windows/base/" class="uri">http://www.cran.r-project.org/bin/windows/base/</a> The page also provides some instructions and FAQ’s on R installation.</p></li>
-<li><p>RStudio IDE ( <em>IDE: Integrated Development Environment</em>) is a powerful and productive user interface for R.</p></li>
-<li><p>It’s free and open source, and works great on Windows, Mac, and Linux</p></li>
+<li>We can also use the gganimate package to convert the image into a gif.</li>
+<li>Its also possible to create animations with plotly <a href="6-2-animation-using-gganimate.html#fig:ch6-5">6.4</a></li>
 </ul>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="6-2-animation-using-gganimate.html#cb239-1"></a><span class="kw">library</span>(gganimate)</span>
+<span id="cb239-2"><a href="6-2-animation-using-gganimate.html#cb239-2"></a>p1.anim =<span class="st"> </span>p1 <span class="op">+</span><span class="st"> </span><span class="kw">transition_reveal</span>(Date)</span>
+<span id="cb239-3"><a href="6-2-animation-using-gganimate.html#cb239-3"></a>anim_p1 =<span class="st"> </span><span class="kw">animate</span>(p1.anim, <span class="dt">fps =</span> <span class="dv">2</span>, <span class="dt">start_pause =</span> <span class="dv">2</span>, <span class="dt">end_pause =</span> <span class="dv">5</span>, <span class="dt">rewind =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb239-4"><a href="6-2-animation-using-gganimate.html#cb239-4"></a>    <span class="dt">width =</span> <span class="dv">800</span>, <span class="dt">height =</span> <span class="dv">1000</span>)</span>
+<span id="cb239-5"><a href="6-2-animation-using-gganimate.html#cb239-5"></a><span class="kw">anim_save</span>(<span class="dt">filename =</span> <span class="st">&quot;covid_cases_log_2020jul.gif&quot;</span>, <span class="dt">animation =</span> anim_p1)</span></code></pre></div>
+<div class="figure"><span id="fig:ch6-5"></span>
+<img src="covid_cases_log_2020jul.gif" alt="Animated Graph" height="600px" />
+<p class="caption">
+Figure 6.4: Animated Graph
+</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="1-1-why-should-we-learn-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="1-3-rstudio-guiide.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="6-1-interactive-plots-using-plotly.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="6-3-plot-maps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
