@@ -1,0 +1,267 @@
+# Graphics in R (Part-I)
+```{r, include=FALSE}
+knitr::opts_chunk$set(comment = NA,tidy=TRUE,tidy.opts = list(keep.blank.lines=TRUE,width.cutoff=80),fig.env='figure',message=FALSE,warning=FALSE)
+```
+
+
+## Basic Plots in R
+
+### Scatter Plot
+
+- One of the most popular and most frequently used functions to build a new plot in R is the $\mathtt{plot}$ function. 
+- Plot is a high level generic graphic function which depends on the class of the first argument (usually the data object). For example if the first argument is of the class zoo which is a timeseries object the $\mathtt{plot}$ function will call $\mathtt{plot.zoo}$ from the R package zoo. This time series plot can be a single timeseries line plot or multiple time series stacked plot. 
+
+```{r,fig.cap="Simple Scatter Plot"}
+#Generate two random normal vectors
+x=rnorm(100)
+y=rnorm(100)
+#plot x and y using the plot() function 
+plot(x,y)
+```
+
+- There are various other arguments which can be modified to change the overall presentation of the plot and even the type of plot. 
+
+```{r}
+args(plot.default)
+```
+- The following example uses the argument $\mathtt{main}$ in the $\mathtt{plot}$ function to include a title on the plot along with axis tiles using the arguments $\mathtt{xlab}$ and $\mathtt{ylab}$.
+
+```{r,fig.cap="Simple Scatter Plot with Title"}
+plot(x,y,main="Figure-2",xlab="Normal X", ylab="Normal Y")
+```
+
+### Line Plot
+
+- The following example demonstrates how to create a line plot using Microsoft prices given in the data file $\mathtt{data\_fin.RData}$. 
+
+```{r,fig.cap="Line Chart"}
+
+#change the working directory to the folder containing data_fin.csv or provide the full path with the filename 
+load("data/data_fin.RData")
+#column names 
+colnames(FinData)
+#plot a line plot for Dow Jones stock index prices 
+plot(FinData$MSFT,type="l",main="Microsoft Prices",ylab="Prices")
+```
+- Plotting it as Time Series data
+- Various R packages provide functionality to plot specific data types. For example, $\mathtt{zoo}$ can be used to plot time series data.
+```{r,fig.cap="Time Series Plot"}
+library(zoo)
+#convert data to class zoo
+FinData.ts=zoo(FinData[,2:5],order.by=FinData$Date)
+#plot multiple stacked plot
+plot(FinData.ts,col=gray.colors(4))#figure-4
+
+```
+
+### Bar Plot
+
+- The function $\mathtt{barplot}$ creates bar graphs in R. 
+- The main data argument in this function is $\mathtt{height}$ which can be a vector or a matrix of values describing the bars which make up the plot. If $\mathtt{height}$is a matrix the bar graph can be a stacked graph or a juxtaposed graph with $\mathtt{besides=TRUE}$
+
+```{r,fig.cap="Bar Graph with argument height as vector"}
+
+load("data/GDP_Yearly.RData")
+par1=par()
+par(ask=F)
+barplot(height=GDP$Australia,names.arg=GDP$Year,
+ylab="GDP Per Capita")#figure-5
+
+```
+
+- It is also possible to create a yearly vertical stacked or yearly horizontal grouped bar plot for the GDP data. 
+
+- The data has to be first converted into a matrix to create stacked or grouped barplots. 
+
+- In this example the argument $\mathtt{legend}$ specifies the names (Years) to appear in the legend and the argument $\mathtt{args.legend}$ specifies the position (x=”top”), alignment (horiz=TRUE) and distance from the margin (inset=-0.1).
+```{r,fig.cap="Vertical Stacked Barplot",warning=FALSE}
+#convert data to matrix
+data=as.matrix(GDP[,2:12])
+#create row names
+rownames(data)=GDP$Year
+#plot a stacked bar plot with legend showing the years
+barplot(height=data[1:5,],beside=FALSE,col=rainbow(5),legend=rownames(data[1:5,]),args.legend=list(x="top",horiz=TRUE,inset=-0.1),cex.names=0.6) 
+par(par1)
+```
+
+
+### Pie Chart
+
+- R provides the function $\mathtt{pie}$ to create pie graphs. $\mathtt{labels}$ in \@ref(fig:piechart) 
+
+
+```{r piechart,fig.cap="Pie Chart"}
+pie(x=data[1,],labels=colnames(data))
+
+```
+
+### Scatter Plot
+
+- The basic $\mathtt{plot}$ function plots a scatter plot for bivariate or univariate data. It is also possible to create a scatterplot for multivariate data using the $\mathtt{pairs}$ function.
+
+```{r scatterplot1,fig.cap="Scatterplot"}
+pairs(data[,1:5])
+```
+
+- A subset can also be selected using formula method, for example the following R code will generate a scatterplot with only Australia, UK and USA.
+
+```{r scatterplot2,fig.cap="Scatterplot (subset)"}
+pairs(~Australia+UK+USA,data=data)
+```
+
+## R Graphical Parameters
+
+- The $\mathtt{par}$ function facilitates access and modification of a large list of parameters such as color, margin, number of rows and columns on a graphic device etc (see $\mathtt{help(par)}$ for a list of such parameters).
+
+- R provides various margin parameters to tweak inner and outer margins of a graphical device. 
+
+```{r margins1,echo=FALSE, fig.cap="Graph Margins"}
+knitr::include_graphics("figure-6_15.png")
+```
+- A modification to par always changes the global values of graphic parameters and hence its is a good practice to first store the default parameters in a separate object (variable) which can be later used to restore default graphic parameters. 
+
+- These margins can be altered using \mathtt{mai}or \mathtt{mar} parameters with the first setting the margins in inches and the second in unit of text lines. Setting one of these will adjust the other accordingly. 
+
+- The following example (output not shown here) changes the margins to $\mathtt{c(5,4,7,2)}$ from the default of $\mathtt{c(5,4,4,2)+0.1}$ to accommodate a title on top of the figure.
+
+```{r bar1,eval=FALSE}
+#first save the default parameters 
+par.old=par() 
+#change the margins
+par(mar=c(5,4,7,2))
+#plot the bargraph
+barplot(height=data[1:5,],beside=FALSE,col=rainbow(5),legend=rownames(data[1:5,]),args.legend=list(x="top",horiz=TRUE,inset=-0.1),cex.names=0.6)  
+title("Bar Plot \n(with custom margins)")
+#set parameters to default
+par(par.old) 
+```
+
+- A multiple plot grid can be created by altering $\mathtt{mfrow}$ or $\mathtt{mfcol}$ parameter which specifies the number of rows and columns in a grid. 
+
+```{r multiplot1,fig.cap="Multiple Plots in a Grid",fig.show="hold",warning=FALSE}
+#first save the default parameters  
+par.old=par() 
+#creat a 2X2 grid 
+par(mfrow=c(2,2))
+#scatterplot
+plot(x,y,xlab="Normal X", ylab="Normal Y")
+#time series plot
+plot(FinData.ts[,1])
+#bar plot
+barplot(height=GDP$Australia, names.arg=GDP$Year,ylab="GDP Per Capita (Australia)") 
+#pie chart
+pie(x=data[1:11,1],labels=rownames(data[1:11,]))
+#set parameters to default 
+par(par.old)
+```
+
+## Introduction to ggplot2
+
+- *ggplot2* [@Wickham2009] is an R package which provides a large variety of plotting functionality to enable better and highly customisable graphs. 
+- These functions in ggplot2 are based on the grammar of graphics [@Wickham2010] which is a more formal and structured way to plotting, for a list of various possible graphs, customisation settings and procedures see https://ggplot2.tidyverse.org/
+
+### $\mathtt{qplot}$
+- $\mathtt{qplot}$ stands for quick plot and it makes is easy to produce plots which may often require several lines of codes using base R graphics system. 
+
+- $\mathtt{qplot}$ is particularly useful for beginners as they are just getting used to the $\mathtt{plot}$ function from the base package also the data arguments in $\mathtt{qplot}$ are same as in the $\mathtt{plot}$ function (see $\mathtt{help(qplot)}$ for other arguments to the function). 
+
+```{r ggplot1,fig.cap="Scatterplot using qplot"}
+x=rnorm(100)
+y=rnorm(100)
+#load the library
+library(ggplot2)
+#simple scatterplot using qplot
+qplot(x,y)
+```
+
+- The argument geom, which stands for geometric objects drawn to represent data has to be changed to "line" create this line plot. 
+
+- Similarly there is an option to plot histograms using the argument *geom="histogram"*
+```{r ggplot2,fig.cap="Line Plot with lables using qplot"}
+
+load("data/data_fin.RData")
+#line plot using qplot 
+qplot(x=FinData$Date,y=FinData$DJI,geom="line",xlab="Dates",ylab="Prices",main="DJIA Price Timeseries") 
+```
+
+### Layered graphics using $\mathtt{ggplot}$
+
+- The $\mathtt{qplot}$ function is just sufficient for creating various plots with better presentation compared to base R plots but the true capabilities of ggplot2 are realised by the function $\mathtt{ggplot}$. 
+
+- It is important to note that $\mathtt{ggplot}$ function requires the data in “long” format and hence it is required to first transform the dataset to “long” from “wide” format as in ggplot2, groups are identified by rows, not by columns.
+
+```{r ggplot3,warning=FALSE}
+#Read "long" format data
+load("data/GDP_l.RData")
+#data snapshot
+head(GDP_l)
+#creating the aesthetics using ggplot
+p1=ggplot(GDP_l,aes(Country,GDP,fill=Year))
+```
+
+- A plot can be created by adding another layer to p1
+
+```{r ggplot4, fig.cap="Bar Chart Using ggplot function"}
+#figure
+p1+geom_bar(stat="identity")
+
+```
+
+
+- To draw a line chart using $\mathtt{ggplot}$, $\mathtt{geom\_line()}$
+
+```{r ggplot5,fig.cap="Line Chart Using ggplot",fig.width=10}
+#change the aesthetics to show time on X-axis and GDP values on Y-axis
+#the colour line fill be according to the country
+p2=ggplot(GDP_l,aes(Year,GDP,colour=Country,group=Country))
+p2+geom_line()
+```
+
+- These lines can also be drawn in separate panels using faceting. Faceting creates a subplot for each group side by side. 
+
+- Faceting can be used to either to split the data into vertical groups using $\mathtt{facet\_grid}$ or horizontal groups using $\mathtt{facet\_wrap}$. 
+
+- Figure plots GDP for each country in a separate subplot using grid faceting. 
+
+```{r ggplot6,fig.cap="Faceting in ggplot (Line Chart)"}
+#change the aesthetics to show time on X-axis and GDP values on Y-axis
+#the colour line fill be according to the country 
+p2=ggplot(GDP_l,aes(Year,GDP,colour=Country,group=Country))
+p2+geom_line()+facet_grid(Country~.)
+```
+
+### Arranging plots using gridExtra
+
+- There are a few pacakges which allow to arrange ggplots in a grid or a speacific order. gridExtra is one of them and is quite useful in arranging the plots.
+
+- Look at the Vignette for egg package for more options. https://cran.r-project.org/web/packages/egg/vignettes/Ecosystem.html
+- Let's create three ggplots
+```{r ggplot7,fig.cap="GDP Per Country"}
+p1.1=ggplot(GDP_l,aes(x=Year,y=GDP))
+p2.1=p1.1+geom_bar(aes(fill=Country),stat="identity",position="dodge")
+
+```
+- Stacked bar chart (previous example)
+```{r ggplot8,fig.cap="Bar Chart with Selected Data"}
+p1.2=ggplot(GDP_l[GDP_l$Country%in%c("Australia","UK","USA"),],aes(Year,GDP))
+p2.2=p1.2+geom_col(aes(fill=Country))+labs(title="GDP for Aus, US and UK")#using labs to modify title
+p2.2
+```
+
+- Stock data 
+```{r ggplot9,fig.cap="Stock Series Plot with Smooth Curve"}
+p1.3=ggplot(FinData,aes(x=Date,y=DJI))
+p2.3=p1.3+geom_path(colour="darkblue")+geom_smooth(colour="black")+theme_linedraw() #changing theme
+p2.3
+```
+- Now use gridExtra to put these together
+```{r ggplot10,fig.cap="Combined plots"}
+library(gridExtra)
+fig1=grid.arrange(p2.1,p2.2,p2.3,nrow=3,heights=c(20,12,12),top="Combined plots in three rows")
+
+```
+- The plots can be saved using the $\mathtt{ggsave}$ function
+```{r ggplot11,eval=FALSE}
+ggsave(filename="combined_plot.pdf",plot=fig1)
+```
+
