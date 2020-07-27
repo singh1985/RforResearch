@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -241,13 +242,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>One of the most popular and most frequently used functions to build a new plot in R is the <span class="math inline">\(\mathtt{plot}\)</span> function.</li>
 <li>Plot is a high level generic graphic function which depends on the class of the first argument (usually the data object). For example if the first argument is of the class zoo which is a timeseries object the <span class="math inline">\(\mathtt{plot}\)</span> function will call <span class="math inline">\(\mathtt{plot.zoo}\)</span> from the R package zoo. This time series plot can be a single timeseries line plot or multiple time series stacked plot.</li>
 </ul>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="5-1-basic-plots-in-r.html#cb211-1"></a><span class="co"># Generate two random normal vectors</span></span>
-<span id="cb211-2"><a href="5-1-basic-plots-in-r.html#cb211-2"></a>x =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb211-3"><a href="5-1-basic-plots-in-r.html#cb211-3"></a>y =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb211-4"><a href="5-1-basic-plots-in-r.html#cb211-4"></a><span class="co"># plot x and y using the plot() function</span></span>
-<span id="cb211-5"><a href="5-1-basic-plots-in-r.html#cb211-5"></a><span class="kw">plot</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="5-1-basic-plots-in-r.html#cb203-1"></a><span class="co"># Generate two random normal vectors</span></span>
+<span id="cb203-2"><a href="5-1-basic-plots-in-r.html#cb203-2"></a>x =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb203-3"><a href="5-1-basic-plots-in-r.html#cb203-3"></a>y =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb203-4"><a href="5-1-basic-plots-in-r.html#cb203-4"></a><span class="co"># plot x and y using the plot() function</span></span>
+<span id="cb203-5"><a href="5-1-basic-plots-in-r.html#cb203-5"></a><span class="kw">plot</span>(x, y)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-2"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-2-1.png" alt="Simple Scatter Plot" width="672" />
+<img src="05-plots_files/figure-html/unnamed-chunk-2-1.png" alt="Simple Scatter Plot" width="672" />
 <p class="caption">
 Figure 5.1: Simple Scatter Plot
 </p>
@@ -255,7 +256,7 @@ Figure 5.1: Simple Scatter Plot
 <ul>
 <li>There are various other arguments which can be modified to change the overall presentation of the plot and even the type of plot.</li>
 </ul>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="5-1-basic-plots-in-r.html#cb212-1"></a><span class="kw">args</span>(plot.default)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="5-1-basic-plots-in-r.html#cb204-1"></a><span class="kw">args</span>(plot.default)</span></code></pre></div>
 <pre><code>function (x, y = NULL, type = &quot;p&quot;, xlim = NULL, ylim = NULL, 
     log = &quot;&quot;, main = NULL, sub = NULL, xlab = NULL, ylab = NULL, 
     ann = par(&quot;ann&quot;), axes = TRUE, frame.plot = axes, panel.first = NULL, 
@@ -265,9 +266,9 @@ NULL</code></pre>
 <ul>
 <li>The following example uses the argument <span class="math inline">\(\mathtt{main}\)</span> in the <span class="math inline">\(\mathtt{plot}\)</span> function to include a title on the plot along with axis tiles using the arguments <span class="math inline">\(\mathtt{xlab}\)</span> and <span class="math inline">\(\mathtt{ylab}\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="5-1-basic-plots-in-r.html#cb214-1"></a><span class="kw">plot</span>(x, y, <span class="dt">main =</span> <span class="st">&quot;Figure-2&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Normal X&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Normal Y&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="5-1-basic-plots-in-r.html#cb206-1"></a><span class="kw">plot</span>(x, y, <span class="dt">main =</span> <span class="st">&quot;Figure-2&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Normal X&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Normal Y&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-4"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-4-1.png" alt="Simple Scatter Plot with Title" width="672" />
+<img src="05-plots_files/figure-html/unnamed-chunk-4-1.png" alt="Simple Scatter Plot with Title" width="672" />
 <p class="caption">
 Figure 5.2: Simple Scatter Plot with Title
 </p>
@@ -278,18 +279,18 @@ Figure 5.2: Simple Scatter Plot with Title
 <ul>
 <li>The following example demonstrates how to create a line plot using Microsoft prices given in the data file <span class="math inline">\(\mathtt{data\_fin.RData}\)</span>.</li>
 </ul>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="5-1-basic-plots-in-r.html#cb215-1"></a><span class="co"># change the working directory to the folder containing data_fin.csv or provide</span></span>
-<span id="cb215-2"><a href="5-1-basic-plots-in-r.html#cb215-2"></a><span class="co"># the full path with the filename</span></span>
-<span id="cb215-3"><a href="5-1-basic-plots-in-r.html#cb215-3"></a><span class="kw">load</span>(<span class="st">&quot;data/data_fin.RData&quot;</span>)</span>
-<span id="cb215-4"><a href="5-1-basic-plots-in-r.html#cb215-4"></a><span class="co"># column names</span></span>
-<span id="cb215-5"><a href="5-1-basic-plots-in-r.html#cb215-5"></a><span class="kw">colnames</span>(FinData)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="5-1-basic-plots-in-r.html#cb207-1"></a><span class="co"># change the working directory to the folder containing data_fin.csv or provide</span></span>
+<span id="cb207-2"><a href="5-1-basic-plots-in-r.html#cb207-2"></a><span class="co"># the full path with the filename</span></span>
+<span id="cb207-3"><a href="5-1-basic-plots-in-r.html#cb207-3"></a><span class="kw">load</span>(<span class="st">&quot;data/data_fin.RData&quot;</span>)</span>
+<span id="cb207-4"><a href="5-1-basic-plots-in-r.html#cb207-4"></a><span class="co"># column names</span></span>
+<span id="cb207-5"><a href="5-1-basic-plots-in-r.html#cb207-5"></a><span class="kw">colnames</span>(FinData)</span></code></pre></div>
 <pre><code> [1] &quot;Date&quot;  &quot;DJI&quot;   &quot;AXP&quot;   &quot;MMM&quot;   &quot;ATT&quot;   &quot;BA&quot;    &quot;CAT&quot;   &quot;CISCO&quot; &quot;DD&quot;   
 [10] &quot;XOM&quot;   &quot;GE&quot;    &quot;GS&quot;    &quot;HD&quot;    &quot;IBM&quot;   &quot;INTC&quot;  &quot;JNJ&quot;   &quot;JPM&quot;   &quot;MRK&quot;  
 [19] &quot;MCD&quot;   &quot;MSFT&quot;  &quot;NKE&quot;  </code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="5-1-basic-plots-in-r.html#cb217-1"></a><span class="co"># plot a line plot for Dow Jones stock index prices</span></span>
-<span id="cb217-2"><a href="5-1-basic-plots-in-r.html#cb217-2"></a><span class="kw">plot</span>(FinData<span class="op">$</span>MSFT, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Microsoft Prices&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Prices&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="5-1-basic-plots-in-r.html#cb209-1"></a><span class="co"># plot a line plot for Dow Jones stock index prices</span></span>
+<span id="cb209-2"><a href="5-1-basic-plots-in-r.html#cb209-2"></a><span class="kw">plot</span>(FinData<span class="op">$</span>MSFT, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">main =</span> <span class="st">&quot;Microsoft Prices&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Prices&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-5"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-5-1.png" alt="Line Chart" width="672" />
+<img src="05-plots_files/figure-html/unnamed-chunk-5-1.png" alt="Line Chart" width="672" />
 <p class="caption">
 Figure 5.3: Line Chart
 </p>
@@ -298,18 +299,13 @@ Figure 5.3: Line Chart
 <li>Plotting it as Time Series data</li>
 <li>Various R packages provide functionality to plot specific data types. For example, <span class="math inline">\(\mathtt{zoo}\)</span> can be used to plot time series data.</li>
 </ul>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="5-1-basic-plots-in-r.html#cb218-1"></a><span class="kw">library</span>(zoo)</span></code></pre></div>
-<pre><code>
-Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:base&#39;:
-
-    as.Date, as.Date.numeric</code></pre>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="5-1-basic-plots-in-r.html#cb221-1"></a><span class="co"># convert data to class zoo</span></span>
-<span id="cb221-2"><a href="5-1-basic-plots-in-r.html#cb221-2"></a>FinData.ts =<span class="st"> </span><span class="kw">zoo</span>(FinData[, <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">order.by =</span> FinData<span class="op">$</span>Date)</span>
-<span id="cb221-3"><a href="5-1-basic-plots-in-r.html#cb221-3"></a><span class="co"># plot multiple stacked plot</span></span>
-<span id="cb221-4"><a href="5-1-basic-plots-in-r.html#cb221-4"></a><span class="kw">plot</span>(FinData.ts, <span class="dt">col =</span> <span class="kw">gray.colors</span>(<span class="dv">4</span>))  <span class="co">#figure-4</span></span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="5-1-basic-plots-in-r.html#cb210-1"></a><span class="kw">library</span>(zoo)</span>
+<span id="cb210-2"><a href="5-1-basic-plots-in-r.html#cb210-2"></a><span class="co"># convert data to class zoo</span></span>
+<span id="cb210-3"><a href="5-1-basic-plots-in-r.html#cb210-3"></a>FinData.ts =<span class="st"> </span><span class="kw">zoo</span>(FinData[, <span class="dv">2</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">order.by =</span> FinData<span class="op">$</span>Date)</span>
+<span id="cb210-4"><a href="5-1-basic-plots-in-r.html#cb210-4"></a><span class="co"># plot multiple stacked plot</span></span>
+<span id="cb210-5"><a href="5-1-basic-plots-in-r.html#cb210-5"></a><span class="kw">plot</span>(FinData.ts, <span class="dt">col =</span> <span class="kw">gray.colors</span>(<span class="dv">4</span>))  <span class="co">#figure-4</span></span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-6"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-6-1.png" alt="Time Series Plot" width="672" />
+<img src="05-plots_files/figure-html/unnamed-chunk-6-1.png" alt="Time Series Plot" width="672" />
 <p class="caption">
 Figure 5.4: Time Series Plot
 </p>
@@ -321,12 +317,12 @@ Figure 5.4: Time Series Plot
 <li>The function <span class="math inline">\(\mathtt{barplot}\)</span> creates bar graphs in R.</li>
 <li>The main data argument in this function is <span class="math inline">\(\mathtt{height}\)</span> which can be a vector or a matrix of values describing the bars which make up the plot. If <span class="math inline">\(\mathtt{height}\)</span>is a matrix the bar graph can be a stacked graph or a juxtaposed graph with <span class="math inline">\(\mathtt{besides=TRUE}\)</span></li>
 </ul>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="5-1-basic-plots-in-r.html#cb222-1"></a><span class="kw">load</span>(<span class="st">&quot;data/GDP_Yearly.RData&quot;</span>)</span>
-<span id="cb222-2"><a href="5-1-basic-plots-in-r.html#cb222-2"></a>par1 =<span class="st"> </span><span class="kw">par</span>()</span>
-<span id="cb222-3"><a href="5-1-basic-plots-in-r.html#cb222-3"></a><span class="kw">par</span>(<span class="dt">ask =</span> F)</span>
-<span id="cb222-4"><a href="5-1-basic-plots-in-r.html#cb222-4"></a><span class="kw">barplot</span>(<span class="dt">height =</span> GDP<span class="op">$</span>Australia, <span class="dt">names.arg =</span> GDP<span class="op">$</span>Year, <span class="dt">ylab =</span> <span class="st">&quot;GDP Per Capita&quot;</span>)  <span class="co">#figure-5</span></span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="5-1-basic-plots-in-r.html#cb211-1"></a><span class="kw">load</span>(<span class="st">&quot;data/GDP_Yearly.RData&quot;</span>)</span>
+<span id="cb211-2"><a href="5-1-basic-plots-in-r.html#cb211-2"></a>par1 =<span class="st"> </span><span class="kw">par</span>()</span>
+<span id="cb211-3"><a href="5-1-basic-plots-in-r.html#cb211-3"></a><span class="kw">par</span>(<span class="dt">ask =</span> F)</span>
+<span id="cb211-4"><a href="5-1-basic-plots-in-r.html#cb211-4"></a><span class="kw">barplot</span>(<span class="dt">height =</span> GDP<span class="op">$</span>Australia, <span class="dt">names.arg =</span> GDP<span class="op">$</span>Year, <span class="dt">ylab =</span> <span class="st">&quot;GDP Per Capita&quot;</span>)  <span class="co">#figure-5</span></span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-7"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-7-1.png" alt="Bar Graph with argument height as vector" width="672" />
+<img src="05-plots_files/figure-html/unnamed-chunk-7-1.png" alt="Bar Graph with argument height as vector" width="672" />
 <p class="caption">
 Figure 5.5: Bar Graph with argument height as vector
 </p>
@@ -336,31 +332,31 @@ Figure 5.5: Bar Graph with argument height as vector
 <li><p>The data has to be first converted into a matrix to create stacked or grouped barplots.</p></li>
 <li><p>In this example the argument <span class="math inline">\(\mathtt{legend}\)</span> specifies the names (Years) to appear in the legend and the argument <span class="math inline">\(\mathtt{args.legend}\)</span> specifies the position (x=”top”), alignment (horiz=TRUE) and distance from the margin (inset=-0.1).</p></li>
 </ul>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="5-1-basic-plots-in-r.html#cb223-1"></a><span class="co"># convert data to matrix</span></span>
-<span id="cb223-2"><a href="5-1-basic-plots-in-r.html#cb223-2"></a>data =<span class="st"> </span><span class="kw">as.matrix</span>(GDP[, <span class="dv">2</span><span class="op">:</span><span class="dv">12</span>])</span>
-<span id="cb223-3"><a href="5-1-basic-plots-in-r.html#cb223-3"></a><span class="co"># create row names</span></span>
-<span id="cb223-4"><a href="5-1-basic-plots-in-r.html#cb223-4"></a><span class="kw">rownames</span>(data) =<span class="st"> </span>GDP<span class="op">$</span>Year</span>
-<span id="cb223-5"><a href="5-1-basic-plots-in-r.html#cb223-5"></a><span class="co"># plot a stacked bar plot with legend showing the years</span></span>
-<span id="cb223-6"><a href="5-1-basic-plots-in-r.html#cb223-6"></a><span class="kw">barplot</span>(<span class="dt">height =</span> data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ], <span class="dt">beside =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="kw">rainbow</span>(<span class="dv">5</span>), <span class="dt">legend =</span> <span class="kw">rownames</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </span>
-<span id="cb223-7"><a href="5-1-basic-plots-in-r.html#cb223-7"></a>    ]), <span class="dt">args.legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">horiz =</span> <span class="ot">TRUE</span>, <span class="dt">inset =</span> <span class="fl">-0.1</span>), <span class="dt">cex.names =</span> <span class="fl">0.6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="5-1-basic-plots-in-r.html#cb212-1"></a><span class="co"># convert data to matrix</span></span>
+<span id="cb212-2"><a href="5-1-basic-plots-in-r.html#cb212-2"></a>data =<span class="st"> </span><span class="kw">as.matrix</span>(GDP[, <span class="dv">2</span><span class="op">:</span><span class="dv">12</span>])</span>
+<span id="cb212-3"><a href="5-1-basic-plots-in-r.html#cb212-3"></a><span class="co"># create row names</span></span>
+<span id="cb212-4"><a href="5-1-basic-plots-in-r.html#cb212-4"></a><span class="kw">rownames</span>(data) =<span class="st"> </span>GDP<span class="op">$</span>Year</span>
+<span id="cb212-5"><a href="5-1-basic-plots-in-r.html#cb212-5"></a><span class="co"># plot a stacked bar plot with legend showing the years</span></span>
+<span id="cb212-6"><a href="5-1-basic-plots-in-r.html#cb212-6"></a><span class="kw">barplot</span>(<span class="dt">height =</span> data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ], <span class="dt">beside =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="kw">rainbow</span>(<span class="dv">5</span>), <span class="dt">legend =</span> <span class="kw">rownames</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </span>
+<span id="cb212-7"><a href="5-1-basic-plots-in-r.html#cb212-7"></a>    ]), <span class="dt">args.legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">horiz =</span> <span class="ot">TRUE</span>, <span class="dt">inset =</span> <span class="fl">-0.1</span>), <span class="dt">cex.names =</span> <span class="fl">0.6</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-8"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-8-1.png" alt="Vertical Stacked Barplot" width="672" />
+<img src="05-plots_files/figure-html/unnamed-chunk-8-1.png" alt="Vertical Stacked Barplot" width="672" />
 <p class="caption">
 Figure 5.6: Vertical Stacked Barplot
 </p>
 </div>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="5-1-basic-plots-in-r.html#cb224-1"></a><span class="kw">par</span>(par1)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="5-1-basic-plots-in-r.html#cb213-1"></a><span class="co"># par(par1)</span></span></code></pre></div>
 </div>
 <div id="pie-chart" class="section level3">
 <h3><span class="header-section-number">5.1.4</span> Pie Chart</h3>
 <ul>
-<li>R provides the function <span class="math inline">\(\mathtt{pie}\)</span> to create pie graphs. <span class="math inline">\(\mathtt{labels}\)</span>.</li>
+<li>R provides the function <span class="math inline">\(\mathtt{pie}\)</span> to create pie graphs. <span class="math inline">\(\mathtt{labels}\)</span> in <a href="5-1-basic-plots-in-r.html#fig:piechart">5.7</a></li>
 </ul>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="5-1-basic-plots-in-r.html#cb225-1"></a><span class="kw">pie</span>(<span class="dt">x =</span> data[<span class="dv">1</span>, ], <span class="dt">labels =</span> <span class="kw">colnames</span>(data))</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-9"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-9-1.png" alt="Pie Chart" width="672" />
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="5-1-basic-plots-in-r.html#cb214-1"></a><span class="kw">pie</span>(<span class="dt">x =</span> data[<span class="dv">1</span>, ], <span class="dt">labels =</span> <span class="kw">colnames</span>(data))</span></code></pre></div>
+<div class="figure"><span id="fig:piechart"></span>
+<img src="05-plots_files/figure-html/piechart-1.png" alt="Pie Chart" width="672" />
 <p class="caption">
-Figure 1.2: Pie Chart
+Figure 5.7: Pie Chart
 </p>
 </div>
 </div>
@@ -369,21 +365,21 @@ Figure 1.2: Pie Chart
 <ul>
 <li>The basic <span class="math inline">\(\mathtt{plot}\)</span> function plots a scatter plot for bivariate or univariate data. It is also possible to create a scatterplot for multivariate data using the <span class="math inline">\(\mathtt{pairs}\)</span> function.</li>
 </ul>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="5-1-basic-plots-in-r.html#cb226-1"></a><span class="kw">pairs</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-10"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-10-1.png" alt="Scatterplot" width="672" />
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="5-1-basic-plots-in-r.html#cb215-1"></a><span class="kw">pairs</span>(data[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>])</span></code></pre></div>
+<div class="figure"><span id="fig:scatterplot1"></span>
+<img src="05-plots_files/figure-html/scatterplot1-1.png" alt="Scatterplot" width="672" />
 <p class="caption">
-Figure 5.7: Scatterplot
+Figure 5.8: Scatterplot
 </p>
 </div>
 <ul>
 <li>A subset can also be selected using formula method, for example the following R code will generate a scatterplot with only Australia, UK and USA.</li>
 </ul>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="5-1-basic-plots-in-r.html#cb227-1"></a><span class="kw">pairs</span>(<span class="op">~</span>Australia <span class="op">+</span><span class="st"> </span>UK <span class="op">+</span><span class="st"> </span>USA, <span class="dt">data =</span> data)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-11"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-11-1.png" alt="Scatterplot (subset)" width="672" />
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="5-1-basic-plots-in-r.html#cb216-1"></a><span class="kw">pairs</span>(<span class="op">~</span>Australia <span class="op">+</span><span class="st"> </span>UK <span class="op">+</span><span class="st"> </span>USA, <span class="dt">data =</span> data)</span></code></pre></div>
+<div class="figure"><span id="fig:scatterplot2"></span>
+<img src="05-plots_files/figure-html/scatterplot2-1.png" alt="Scatterplot (subset)" width="672" />
 <p class="caption">
-Figure 5.8: Scatterplot (subset)
+Figure 5.9: Scatterplot (subset)
 </p>
 </div>
 </div>

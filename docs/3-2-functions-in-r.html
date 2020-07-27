@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -246,28 +247,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>The body of the function is enclosed in curly braces. The function is assigned to a named object and called by passing arguments to the object.</p></li>
 <li><p>The following example illustrates by creating a function to calculate mean for all the columns in the data set <span class="math inline">\(\mathtt{data\_stocks}\)</span></p></li>
 </ul>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="3-2-functions-in-r.html#cb105-1"></a><span class="co"># the following function takes 2 arguments, x a data frame, dates to indicate if</span></span>
-<span id="cb105-2"><a href="3-2-functions-in-r.html#cb105-2"></a><span class="co"># there are dates in the first column</span></span>
-<span id="cb105-3"><a href="3-2-functions-in-r.html#cb105-3"></a>cal_mean =<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">dates =</span> <span class="ot">TRUE</span>) {</span>
-<span id="cb105-4"><a href="3-2-functions-in-r.html#cb105-4"></a>    num_cols =<span class="st"> </span><span class="kw">ncol</span>(x)  <span class="co">#calculate the number of columns</span></span>
-<span id="cb105-5"><a href="3-2-functions-in-r.html#cb105-5"></a>    <span class="co"># num_cols=ifelse(dates==TRUE,num_cals-1,num_cals) lets use a list and a loop to</span></span>
-<span id="cb105-6"><a href="3-2-functions-in-r.html#cb105-6"></a>    <span class="co"># refresh our concepts</span></span>
-<span id="cb105-7"><a href="3-2-functions-in-r.html#cb105-7"></a>    m_stocks =<span class="st"> </span><span class="kw">list</span>()  <span class="co">#creating an empty list</span></span>
-<span id="cb105-8"><a href="3-2-functions-in-r.html#cb105-8"></a>    </span>
-<span id="cb105-9"><a href="3-2-functions-in-r.html#cb105-9"></a>    <span class="co"># use for loop assign the starting value based on the dates column,we skip dates</span></span>
-<span id="cb105-10"><a href="3-2-functions-in-r.html#cb105-10"></a>    <span class="co"># column if they are present (dates are basically row names to more generalised</span></span>
-<span id="cb105-11"><a href="3-2-functions-in-r.html#cb105-11"></a>    <span class="co"># version will be to check for row names)</span></span>
-<span id="cb105-12"><a href="3-2-functions-in-r.html#cb105-12"></a>    l =<span class="st"> </span><span class="kw">ifelse</span>(dates <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
-<span id="cb105-13"><a href="3-2-functions-in-r.html#cb105-13"></a>    j =<span class="st"> </span><span class="dv">1</span>  <span class="co">#starting point in the list m_stocks</span></span>
-<span id="cb105-14"><a href="3-2-functions-in-r.html#cb105-14"></a>    <span class="cf">for</span> (i <span class="cf">in</span> l<span class="op">:</span>num_cols) {</span>
-<span id="cb105-15"><a href="3-2-functions-in-r.html#cb105-15"></a>        m_stocks[[j]] =<span class="st"> </span><span class="kw">mean</span>(x[, i])</span>
-<span id="cb105-16"><a href="3-2-functions-in-r.html#cb105-16"></a>        j =<span class="st"> </span>j <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb105-17"><a href="3-2-functions-in-r.html#cb105-17"></a>    }</span>
-<span id="cb105-18"><a href="3-2-functions-in-r.html#cb105-18"></a>    <span class="kw">names</span>(m_stocks) =<span class="st"> </span><span class="kw">colnames</span>(x[, l<span class="op">:</span>num_cols])</span>
-<span id="cb105-19"><a href="3-2-functions-in-r.html#cb105-19"></a>    <span class="kw">return</span>(m_stocks)</span>
-<span id="cb105-20"><a href="3-2-functions-in-r.html#cb105-20"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="3-2-functions-in-r.html#cb106-1"></a><span class="co"># lets call the function cal_mean (output not shown)</span></span>
-<span id="cb106-2"><a href="3-2-functions-in-r.html#cb106-2"></a><span class="kw">cal_mean</span>(data_stocks, <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="3-2-functions-in-r.html#cb101-1"></a><span class="co"># the following function takes 2 arguments, x a data frame, dates to indicate if</span></span>
+<span id="cb101-2"><a href="3-2-functions-in-r.html#cb101-2"></a><span class="co"># there are dates in the first column</span></span>
+<span id="cb101-3"><a href="3-2-functions-in-r.html#cb101-3"></a>cal_mean =<span class="st"> </span><span class="cf">function</span>(x, <span class="dt">dates =</span> <span class="ot">TRUE</span>) {</span>
+<span id="cb101-4"><a href="3-2-functions-in-r.html#cb101-4"></a>    num_cols =<span class="st"> </span><span class="kw">ncol</span>(x)  <span class="co">#calculate the number of columns</span></span>
+<span id="cb101-5"><a href="3-2-functions-in-r.html#cb101-5"></a>    <span class="co"># num_cols=ifelse(dates==TRUE,num_cals-1,num_cals) lets use a list and a loop to</span></span>
+<span id="cb101-6"><a href="3-2-functions-in-r.html#cb101-6"></a>    <span class="co"># refresh our concepts</span></span>
+<span id="cb101-7"><a href="3-2-functions-in-r.html#cb101-7"></a>    m_stocks =<span class="st"> </span><span class="kw">list</span>()  <span class="co">#creating an empty list</span></span>
+<span id="cb101-8"><a href="3-2-functions-in-r.html#cb101-8"></a>    </span>
+<span id="cb101-9"><a href="3-2-functions-in-r.html#cb101-9"></a>    <span class="co"># use for loop assign the starting value based on the dates column,we skip dates</span></span>
+<span id="cb101-10"><a href="3-2-functions-in-r.html#cb101-10"></a>    <span class="co"># column if they are present (dates are basically row names to more generalised</span></span>
+<span id="cb101-11"><a href="3-2-functions-in-r.html#cb101-11"></a>    <span class="co"># version will be to check for row names)</span></span>
+<span id="cb101-12"><a href="3-2-functions-in-r.html#cb101-12"></a>    l =<span class="st"> </span><span class="kw">ifelse</span>(dates <span class="op">==</span><span class="st"> </span><span class="ot">TRUE</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb101-13"><a href="3-2-functions-in-r.html#cb101-13"></a>    j =<span class="st"> </span><span class="dv">1</span>  <span class="co">#starting point in the list m_stocks</span></span>
+<span id="cb101-14"><a href="3-2-functions-in-r.html#cb101-14"></a>    <span class="cf">for</span> (i <span class="cf">in</span> l<span class="op">:</span>num_cols) {</span>
+<span id="cb101-15"><a href="3-2-functions-in-r.html#cb101-15"></a>        m_stocks[[j]] =<span class="st"> </span><span class="kw">mean</span>(x[, i])</span>
+<span id="cb101-16"><a href="3-2-functions-in-r.html#cb101-16"></a>        j =<span class="st"> </span>j <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb101-17"><a href="3-2-functions-in-r.html#cb101-17"></a>    }</span>
+<span id="cb101-18"><a href="3-2-functions-in-r.html#cb101-18"></a>    <span class="kw">names</span>(m_stocks) =<span class="st"> </span><span class="kw">colnames</span>(x[, l<span class="op">:</span>num_cols])</span>
+<span id="cb101-19"><a href="3-2-functions-in-r.html#cb101-19"></a>    <span class="kw">return</span>(m_stocks)</span>
+<span id="cb101-20"><a href="3-2-functions-in-r.html#cb101-20"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="3-2-functions-in-r.html#cb102-1"></a><span class="co"># lets call the function cal_mean (output not shown)</span></span>
+<span id="cb102-2"><a href="3-2-functions-in-r.html#cb102-2"></a><span class="kw">cal_mean</span>(data_stocks, <span class="ot">TRUE</span>)</span></code></pre></div>
 <pre><code>$MSFT
 [1] 26.91177
 
@@ -285,8 +286,8 @@ $PG
 
 $GOOG
 [1] 469.9453</code></pre>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="3-2-functions-in-r.html#cb108-1"></a><span class="co"># lets call the function with no dates column</span></span>
-<span id="cb108-2"><a href="3-2-functions-in-r.html#cb108-2"></a><span class="kw">cal_mean</span>(data_stocks[, <span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(data_stocks)], <span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="3-2-functions-in-r.html#cb104-1"></a><span class="co"># lets call the function with no dates column</span></span>
+<span id="cb104-2"><a href="3-2-functions-in-r.html#cb104-2"></a><span class="kw">cal_mean</span>(data_stocks[, <span class="dv">2</span><span class="op">:</span><span class="kw">ncol</span>(data_stocks)], <span class="ot">FALSE</span>)</span></code></pre></div>
 <pre><code>$MSFT
 [1] 26.91177
 

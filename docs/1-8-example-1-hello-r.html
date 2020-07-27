@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -235,12 +236,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="example-1-hello-r" class="section level2">
 <h2><span class="header-section-number">1.8</span> Example-1 Hello R!</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="1-8-example-1-hello-r.html#cb10-1"></a><span class="kw">message</span>(<span class="st">&quot;Hello R!&quot;</span>)  <span class="co">#use to display messages</span></span></code></pre></div>
-<pre><code>Hello R!</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="1-8-example-1-hello-r.html#cb12-1"></a><span class="kw">print</span>(<span class="st">&quot;Hello R!&quot;</span>)  <span class="co">#use to display variables/messages</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="1-8-example-1-hello-r.html#cb10-1"></a><span class="kw">message</span>(<span class="st">&quot;Hello R!&quot;</span>)  <span class="co">#use to display messages</span></span>
+<span id="cb10-2"><a href="1-8-example-1-hello-r.html#cb10-2"></a><span class="kw">print</span>(<span class="st">&quot;Hello R!&quot;</span>)  <span class="co">#use to display variables/messages</span></span></code></pre></div>
 <pre><code>[1] &quot;Hello R!&quot;</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="1-8-example-1-hello-r.html#cb14-1"></a>msg =<span class="st"> &quot;Hello R!&quot;</span>  <span class="co">#type inference no need to define strings!</span></span>
-<span id="cb14-2"><a href="1-8-example-1-hello-r.html#cb14-2"></a><span class="kw">print</span>(msg)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="1-8-example-1-hello-r.html#cb12-1"></a>msg =<span class="st"> &quot;Hello R!&quot;</span>  <span class="co">#type inference no need to define strings!</span></span>
+<span id="cb12-2"><a href="1-8-example-1-hello-r.html#cb12-2"></a><span class="kw">print</span>(msg)</span></code></pre></div>
 <pre><code>[1] &quot;Hello R!&quot;</code></pre>
 <ul>
 <li>R packages not just come with demo programs but the help files for the functions in R packages mostly have example codes for the particular function. R function example() is helpful in running the example code for a function. For running example code for in quantreg package type <code>example(rq, package=”quantreg”)</code></li>

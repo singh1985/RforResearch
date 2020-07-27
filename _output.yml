@@ -1,11 +1,13 @@
 bookdown::gitbook:
   cover-image: 'r2logo.png'
   css: style.css
+  number_sections: true
   split_by: section+number
   config:
     toc:
       before: '<img src="r2logo2.png" height="50" width="50" style="position:absolute;top:0px;right:0px;" /> <br/><br/><br/>'
       after: null
+
 
 bookdown::pdf_book:
   includes:

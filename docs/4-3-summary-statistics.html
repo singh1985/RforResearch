@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -472,10 +473,10 @@ Kurtosis
 <ul>
 <li>The following example demonstrates how to calculate the statistics measures in table-1 for Dow Jones prices in data file <em>data_fin.csv</em></li>
 </ul>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="4-3-summary-statistics.html#cb161-1"></a><span class="co"># change the working directory to the folder containing data_fin.csv or provide</span></span>
-<span id="cb161-2"><a href="4-3-summary-statistics.html#cb161-2"></a><span class="co"># the full path with the filename</span></span>
-<span id="cb161-3"><a href="4-3-summary-statistics.html#cb161-3"></a>data_stocks =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/data_fin.csv&quot;</span>)  <span class="co">#import data</span></span>
-<span id="cb161-4"><a href="4-3-summary-statistics.html#cb161-4"></a><span class="kw">head</span>(data_stocks)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="4-3-summary-statistics.html#cb157-1"></a><span class="co"># change the working directory to the folder containing data_fin.csv or provide</span></span>
+<span id="cb157-2"><a href="4-3-summary-statistics.html#cb157-2"></a><span class="co"># the full path with the filename</span></span>
+<span id="cb157-3"><a href="4-3-summary-statistics.html#cb157-3"></a>data_stocks =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/data_fin.csv&quot;</span>)  <span class="co">#import data</span></span>
+<span id="cb157-4"><a href="4-3-summary-statistics.html#cb157-4"></a><span class="kw">head</span>(data_stocks)</span></code></pre></div>
 <pre><code>        Date     DJI   AXP   MMM   ATT    BA   CAT CISCO    DD   XOM    GE
 1  3/01/2000 11357.5 45.82 47.19 47.19 40.12 24.31 54.05 65.00 39.09 49.95
 2  4/01/2000 10997.9 44.09 45.31 44.25 40.12 24.00 51.00 65.00 38.41 48.06
@@ -490,46 +491,46 @@ Kurtosis
 4 82.25 60.00 114.62 39.38 46.28 47.65 64.75 38.88 55.00 11.97
 5 82.56 62.81 113.31 41.00 47.88 48.52 70.97 39.75 55.72 11.97
 6 84.38 63.19 118.44 42.88 47.03 47.69 68.89 40.06 56.12 12.17</code></pre>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="4-3-summary-statistics.html#cb163-1"></a>DJI =<span class="st"> </span>data_stocks<span class="op">$</span>DJI</span>
-<span id="cb163-2"><a href="4-3-summary-statistics.html#cb163-2"></a>DJI =<span class="st"> </span><span class="kw">na.omit</span>(DJI)  <span class="co">#remove NAs as it will affect the calculations</span></span>
-<span id="cb163-3"><a href="4-3-summary-statistics.html#cb163-3"></a><span class="co"># Arithmetic mean</span></span>
-<span id="cb163-4"><a href="4-3-summary-statistics.html#cb163-4"></a><span class="kw">mean</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="4-3-summary-statistics.html#cb159-1"></a>DJI =<span class="st"> </span>data_stocks<span class="op">$</span>DJI</span>
+<span id="cb159-2"><a href="4-3-summary-statistics.html#cb159-2"></a>DJI =<span class="st"> </span><span class="kw">na.omit</span>(DJI)  <span class="co">#remove NAs as it will affect the calculations</span></span>
+<span id="cb159-3"><a href="4-3-summary-statistics.html#cb159-3"></a><span class="co"># Arithmetic mean</span></span>
+<span id="cb159-4"><a href="4-3-summary-statistics.html#cb159-4"></a><span class="kw">mean</span>(DJI)</span></code></pre></div>
 <pre><code>[1] 11098.12</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="4-3-summary-statistics.html#cb165-1"></a><span class="co"># Geometric mean</span></span>
-<span id="cb165-2"><a href="4-3-summary-statistics.html#cb165-2"></a><span class="kw">exp</span>(<span class="kw">mean</span>(<span class="kw">log</span>(DJI)))</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="4-3-summary-statistics.html#cb161-1"></a><span class="co"># Geometric mean</span></span>
+<span id="cb161-2"><a href="4-3-summary-statistics.html#cb161-2"></a><span class="kw">exp</span>(<span class="kw">mean</span>(<span class="kw">log</span>(DJI)))</span></code></pre></div>
 <pre><code>[1] 10953.39</code></pre>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="4-3-summary-statistics.html#cb167-1"></a><span class="co"># median</span></span>
-<span id="cb167-2"><a href="4-3-summary-statistics.html#cb167-2"></a><span class="kw">median</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="4-3-summary-statistics.html#cb163-1"></a><span class="co"># median</span></span>
+<span id="cb163-2"><a href="4-3-summary-statistics.html#cb163-2"></a><span class="kw">median</span>(DJI)</span></code></pre></div>
 <pre><code>[1] 10748.8</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="4-3-summary-statistics.html#cb169-1"></a><span class="co"># variance &amp; standard deviation</span></span>
-<span id="cb169-2"><a href="4-3-summary-statistics.html#cb169-2"></a><span class="kw">var</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="4-3-summary-statistics.html#cb165-1"></a><span class="co"># variance &amp; standard deviation</span></span>
+<span id="cb165-2"><a href="4-3-summary-statistics.html#cb165-2"></a><span class="kw">var</span>(DJI)</span></code></pre></div>
 <pre><code>[1] 3280347</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="4-3-summary-statistics.html#cb171-1"></a><span class="kw">sd</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="4-3-summary-statistics.html#cb167-1"></a><span class="kw">sd</span>(DJI)</span></code></pre></div>
 <pre><code>[1] 1811.173</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="4-3-summary-statistics.html#cb173-1"></a><span class="co"># interquantile range and few quantiles</span></span>
-<span id="cb173-2"><a href="4-3-summary-statistics.html#cb173-2"></a><span class="kw">IQR</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="4-3-summary-statistics.html#cb169-1"></a><span class="co"># interquantile range and few quantiles</span></span>
+<span id="cb169-2"><a href="4-3-summary-statistics.html#cb169-2"></a><span class="kw">IQR</span>(DJI)</span></code></pre></div>
 <pre><code>[1] 2276.25</code></pre>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="4-3-summary-statistics.html#cb175-1"></a><span class="kw">quantile</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="4-3-summary-statistics.html#cb171-1"></a><span class="kw">quantile</span>(DJI)</span></code></pre></div>
 <pre><code>      0%      25%      50%      75%     100% 
  6547.10 10063.25 10748.80 12339.50 16576.66 </code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="4-3-summary-statistics.html#cb177-1"></a><span class="co"># skewness and kurtosis skewness and kurtosis functions are not available in R</span></span>
-<span id="cb177-2"><a href="4-3-summary-statistics.html#cb177-2"></a><span class="co"># core library but in library e1071 (there are other packages which have</span></span>
-<span id="cb177-3"><a href="4-3-summary-statistics.html#cb177-3"></a><span class="co"># functions for skewness and kurtosis try ??kurtosis or search for the function</span></span>
-<span id="cb177-4"><a href="4-3-summary-statistics.html#cb177-4"></a><span class="co"># on RSearch.</span></span>
-<span id="cb177-5"><a href="4-3-summary-statistics.html#cb177-5"></a><span class="kw">library</span>(e1071)</span>
-<span id="cb177-6"><a href="4-3-summary-statistics.html#cb177-6"></a><span class="kw">skewness</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="4-3-summary-statistics.html#cb173-1"></a><span class="co"># skewness and kurtosis skewness and kurtosis functions are not available in R</span></span>
+<span id="cb173-2"><a href="4-3-summary-statistics.html#cb173-2"></a><span class="co"># core library but in library e1071 (there are other packages which have</span></span>
+<span id="cb173-3"><a href="4-3-summary-statistics.html#cb173-3"></a><span class="co"># functions for skewness and kurtosis try ??kurtosis or search for the function</span></span>
+<span id="cb173-4"><a href="4-3-summary-statistics.html#cb173-4"></a><span class="co"># on RSearch.</span></span>
+<span id="cb173-5"><a href="4-3-summary-statistics.html#cb173-5"></a><span class="kw">library</span>(e1071)</span>
+<span id="cb173-6"><a href="4-3-summary-statistics.html#cb173-6"></a><span class="kw">skewness</span>(DJI)</span></code></pre></div>
 <pre><code>[1] 0.4777828</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="4-3-summary-statistics.html#cb179-1"></a><span class="kw">kurtosis</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="4-3-summary-statistics.html#cb175-1"></a><span class="kw">kurtosis</span>(DJI)</span></code></pre></div>
 <pre><code>[1] 0.08404185</code></pre>
 <ul>
 <li>The function <span class="math inline">\(\mathtt{summary}\)</span> in R provides some basic summary viz., minimum value, maximum value, median value and quartiles for one variable or a dataset. The function <span class="math inline">\(\mathtt{summary}\)</span> can be used as follows</li>
 </ul>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="4-3-summary-statistics.html#cb181-1"></a><span class="co"># summary of one column/variable in a dataframe</span></span>
-<span id="cb181-2"><a href="4-3-summary-statistics.html#cb181-2"></a><span class="kw">summary</span>(DJI)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="4-3-summary-statistics.html#cb177-1"></a><span class="co"># summary of one column/variable in a dataframe</span></span>
+<span id="cb177-2"><a href="4-3-summary-statistics.html#cb177-2"></a><span class="kw">summary</span>(DJI)</span></code></pre></div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    6547   10063   10749   11098   12340   16577 </code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="4-3-summary-statistics.html#cb183-1"></a><span class="co"># summary of whole dataset excluding the time column</span></span>
-<span id="cb183-2"><a href="4-3-summary-statistics.html#cb183-2"></a><span class="kw">summary</span>(data_stocks[, <span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">21</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="4-3-summary-statistics.html#cb179-1"></a><span class="co"># summary of whole dataset excluding the time column</span></span>
+<span id="cb179-2"><a href="4-3-summary-statistics.html#cb179-2"></a><span class="kw">summary</span>(data_stocks[, <span class="kw">c</span>(<span class="dv">2</span><span class="op">:</span><span class="dv">21</span>)])</span></code></pre></div>
 <pre><code>      DJI             AXP             MMM              ATT       
  Min.   : 6547   Min.   :10.26   Min.   : 39.50   Min.   :19.34  
  1st Qu.:10063   1st Qu.:38.31   1st Qu.: 62.55   1st Qu.:25.54  
@@ -576,8 +577,8 @@ Kurtosis
 <li>In this example we will use R to calculate descriptive statistics for the returns of 10 stocks in the data file <span class="math inline">\(\mathtt{data\_fin.csv}\)</span>.</li>
 </ul>
 <p>• We will first import the dataset into R using the <span class="math inline">\(\mathtt{read.csv}\)</span> function.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="4-3-summary-statistics.html#cb185-1"></a>data_cs1 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/data_fin.csv&quot;</span>)</span>
-<span id="cb185-2"><a href="4-3-summary-statistics.html#cb185-2"></a><span class="kw">head</span>(data_cs1)  <span class="co">#check the imported data</span></span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="4-3-summary-statistics.html#cb181-1"></a>data_cs1 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/data_fin.csv&quot;</span>)</span>
+<span id="cb181-2"><a href="4-3-summary-statistics.html#cb181-2"></a><span class="kw">head</span>(data_cs1)  <span class="co">#check the imported data</span></span></code></pre></div>
 <pre><code>        Date     DJI   AXP   MMM   ATT    BA   CAT CISCO    DD   XOM    GE
 1  3/01/2000 11357.5 45.82 47.19 47.19 40.12 24.31 54.05 65.00 39.09 49.95
 2  4/01/2000 10997.9 44.09 45.31 44.25 40.12 24.00 51.00 65.00 38.41 48.06
@@ -595,14 +596,14 @@ Kurtosis
 <ul>
 <li>Apply  function to  with dates as character and then after converting dates to Date class.</li>
 </ul>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="4-3-summary-statistics.html#cb187-1"></a><span class="co"># selecting first 10 price series including the data column</span></span>
-<span id="cb187-2"><a href="4-3-summary-statistics.html#cb187-2"></a>data_cs1<span class="fl">.1</span> =<span class="st"> </span>data_cs1[, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>)]</span>
-<span id="cb187-3"><a href="4-3-summary-statistics.html#cb187-3"></a><span class="co"># data cleaning-remove NAs</span></span>
-<span id="cb187-4"><a href="4-3-summary-statistics.html#cb187-4"></a>data_cs1<span class="fl">.1</span> =<span class="st"> </span><span class="kw">na.omit</span>(data_cs1<span class="fl">.1</span>)</span>
-<span id="cb187-5"><a href="4-3-summary-statistics.html#cb187-5"></a><span class="kw">colnames</span>(data_cs1<span class="fl">.1</span>)  <span class="co"># see the columns present in the data</span></span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="4-3-summary-statistics.html#cb183-1"></a><span class="co"># selecting first 10 price series including the data column</span></span>
+<span id="cb183-2"><a href="4-3-summary-statistics.html#cb183-2"></a>data_cs1<span class="fl">.1</span> =<span class="st"> </span>data_cs1[, <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>)]</span>
+<span id="cb183-3"><a href="4-3-summary-statistics.html#cb183-3"></a><span class="co"># data cleaning-remove NAs</span></span>
+<span id="cb183-4"><a href="4-3-summary-statistics.html#cb183-4"></a>data_cs1<span class="fl">.1</span> =<span class="st"> </span><span class="kw">na.omit</span>(data_cs1<span class="fl">.1</span>)</span>
+<span id="cb183-5"><a href="4-3-summary-statistics.html#cb183-5"></a><span class="kw">colnames</span>(data_cs1<span class="fl">.1</span>)  <span class="co"># see the columns present in the data</span></span></code></pre></div>
 <pre><code> [1] &quot;Date&quot;  &quot;DJI&quot;   &quot;AXP&quot;   &quot;MMM&quot;   &quot;ATT&quot;   &quot;BA&quot;    &quot;CAT&quot;   &quot;CISCO&quot; &quot;DD&quot;   
 [10] &quot;XOM&quot;   &quot;GE&quot;   </code></pre>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="4-3-summary-statistics.html#cb189-1"></a><span class="kw">summary</span>(data_cs1<span class="fl">.1</span>)  <span class="co">#notice the Date variable</span></span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="4-3-summary-statistics.html#cb185-1"></a><span class="kw">summary</span>(data_cs1<span class="fl">.1</span>)  <span class="co">#notice the Date variable</span></span></code></pre></div>
 <pre><code>     Date                DJI             AXP             MMM        
  Length:3523        Min.   : 6547   Min.   :10.26   Min.   : 39.50  
  Class :character   1st Qu.:10063   1st Qu.:38.38   1st Qu.: 62.55  
@@ -624,14 +625,14 @@ Kurtosis
  Mean   :44.43   Mean   : 63.18   Mean   :29.63  
  3rd Qu.:48.93   3rd Qu.: 81.70   3rd Qu.:36.05  
  Max.   :71.62   Max.   :101.51   Max.   :59.94  </code></pre>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="4-3-summary-statistics.html#cb191-1"></a><span class="co"># check class of dates which will be factor ( treated as factor by default)</span></span>
-<span id="cb191-2"><a href="4-3-summary-statistics.html#cb191-2"></a><span class="kw">class</span>(data_cs1<span class="fl">.1</span><span class="op">$</span>Date)</span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="4-3-summary-statistics.html#cb187-1"></a><span class="co"># check class of dates which will be factor ( treated as factor by default)</span></span>
+<span id="cb187-2"><a href="4-3-summary-statistics.html#cb187-2"></a><span class="kw">class</span>(data_cs1<span class="fl">.1</span><span class="op">$</span>Date)</span></code></pre></div>
 <pre><code>[1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="4-3-summary-statistics.html#cb193-1"></a><span class="co"># convert dates to class Date</span></span>
-<span id="cb193-2"><a href="4-3-summary-statistics.html#cb193-2"></a>data_cs1<span class="fl">.1</span><span class="op">$</span>Date =<span class="st"> </span><span class="kw">as.Date</span>(data_cs1<span class="fl">.1</span><span class="op">$</span>Date, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span>
-<span id="cb193-3"><a href="4-3-summary-statistics.html#cb193-3"></a><span class="kw">class</span>(data_cs1<span class="fl">.1</span><span class="op">$</span>Date)</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="4-3-summary-statistics.html#cb189-1"></a><span class="co"># convert dates to class Date</span></span>
+<span id="cb189-2"><a href="4-3-summary-statistics.html#cb189-2"></a>data_cs1<span class="fl">.1</span><span class="op">$</span>Date =<span class="st"> </span><span class="kw">as.Date</span>(data_cs1<span class="fl">.1</span><span class="op">$</span>Date, <span class="dt">format =</span> <span class="st">&quot;%d/%m/%Y&quot;</span>)</span>
+<span id="cb189-3"><a href="4-3-summary-statistics.html#cb189-3"></a><span class="kw">class</span>(data_cs1<span class="fl">.1</span><span class="op">$</span>Date)</span></code></pre></div>
 <pre><code>[1] &quot;Date&quot;</code></pre>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="4-3-summary-statistics.html#cb195-1"></a><span class="kw">summary</span>(data_cs1<span class="fl">.1</span>)  <span class="co">#notice the Date variable</span></span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="4-3-summary-statistics.html#cb191-1"></a><span class="kw">summary</span>(data_cs1<span class="fl">.1</span>)  <span class="co">#notice the Date variable</span></span></code></pre></div>
 <pre><code>      Date                 DJI             AXP             MMM        
  Min.   :2000-01-03   Min.   : 6547   Min.   :10.26   Min.   : 39.50  
  1st Qu.:2003-07-08   1st Qu.:10063   1st Qu.:38.38   1st Qu.: 62.55  
@@ -656,12 +657,12 @@ Kurtosis
 <ul>
 <li>Convert prices to returns</li>
 </ul>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="4-3-summary-statistics.html#cb197-1"></a>d2 =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(data_cs1<span class="fl">.1</span>[<span class="dv">2</span><span class="op">:</span><span class="dv">11</span>], <span class="cf">function</span>(x) <span class="kw">diff</span>(<span class="kw">log</span>(x)) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>))  <span class="co">#note it will be one less</span></span>
-<span id="cb197-2"><a href="4-3-summary-statistics.html#cb197-2"></a><span class="co"># create a different dataframe with returns</span></span>
-<span id="cb197-3"><a href="4-3-summary-statistics.html#cb197-3"></a>data_stocks_ret =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">cbind</span>(<span class="dt">Date =</span> data_cs1<span class="fl">.1</span><span class="op">$</span>Date[<span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(data_cs1<span class="fl">.1</span><span class="op">$</span>Date)], </span>
-<span id="cb197-4"><a href="4-3-summary-statistics.html#cb197-4"></a>    d2), <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, <span class="dt">row.names =</span> <span class="ot">NULL</span>)</span>
-<span id="cb197-5"><a href="4-3-summary-statistics.html#cb197-5"></a><span class="co"># visual inspection</span></span>
-<span id="cb197-6"><a href="4-3-summary-statistics.html#cb197-6"></a><span class="kw">head</span>(data_stocks_ret)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="4-3-summary-statistics.html#cb193-1"></a>d2 =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">sapply</span>(data_cs1<span class="fl">.1</span>[<span class="dv">2</span><span class="op">:</span><span class="dv">11</span>], <span class="cf">function</span>(x) <span class="kw">diff</span>(<span class="kw">log</span>(x)) <span class="op">*</span><span class="st"> </span><span class="dv">100</span>))  <span class="co">#note it will be one less</span></span>
+<span id="cb193-2"><a href="4-3-summary-statistics.html#cb193-2"></a><span class="co"># create a different dataframe with returns</span></span>
+<span id="cb193-3"><a href="4-3-summary-statistics.html#cb193-3"></a>data_stocks_ret =<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">cbind</span>(<span class="dt">Date =</span> data_cs1<span class="fl">.1</span><span class="op">$</span>Date[<span class="dv">2</span><span class="op">:</span><span class="kw">length</span>(data_cs1<span class="fl">.1</span><span class="op">$</span>Date)], </span>
+<span id="cb193-4"><a href="4-3-summary-statistics.html#cb193-4"></a>    d2), <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>, <span class="dt">row.names =</span> <span class="ot">NULL</span>)</span>
+<span id="cb193-5"><a href="4-3-summary-statistics.html#cb193-5"></a><span class="co"># visual inspection</span></span>
+<span id="cb193-6"><a href="4-3-summary-statistics.html#cb193-6"></a><span class="kw">head</span>(data_stocks_ret)</span></code></pre></div>
 <pre><code>        Date        DJI        AXP        MMM        ATT         BA       CAT
 1 2000-01-04 -3.2173973 -3.8487678 -4.0654247 -6.4326634  0.0000000 -1.283396
 2 2000-01-05  1.1283720 -2.5963549  2.8501875  1.5472895  6.0448664  2.306527
@@ -681,16 +682,16 @@ Kurtosis
 <ul>
 <li>The package psych comes with a function called <span class="math inline">\(\mathtt{describe}\)</span> which generated the descriptive statistics for all the data vectors (columns) in a data frame, matrix or a vector.</li>
 </ul>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="4-3-summary-statistics.html#cb199-1"></a><span class="kw">library</span>(psych)  <span class="co">#load the required package</span></span>
-<span id="cb199-2"><a href="4-3-summary-statistics.html#cb199-2"></a><span class="kw">args</span>(describe)  <span class="co">#arguments for describe function</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="4-3-summary-statistics.html#cb195-1"></a><span class="kw">library</span>(psych)  <span class="co">#load the required package</span></span>
+<span id="cb195-2"><a href="4-3-summary-statistics.html#cb195-2"></a><span class="kw">args</span>(describe)  <span class="co">#arguments for describe function</span></span></code></pre></div>
 <pre><code>function (x, na.rm = TRUE, interp = FALSE, skew = TRUE, ranges = TRUE, 
     trim = 0.1, type = 3, check = TRUE, fast = NULL, quant = NULL, 
     IQR = FALSE, omit = FALSE) 
 NULL</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="4-3-summary-statistics.html#cb201-1"></a><span class="co"># use describe to calculate descriptive stats for data_cs1.1r</span></span>
-<span id="cb201-2"><a href="4-3-summary-statistics.html#cb201-2"></a>desc1 =<span class="st"> </span><span class="kw">describe</span>(data_stocks_ret[, <span class="dv">2</span><span class="op">:</span><span class="dv">11</span>])  <span class="co">#note we dont pass the date column</span></span>
-<span id="cb201-3"><a href="4-3-summary-statistics.html#cb201-3"></a><span class="co"># check the output</span></span>
-<span id="cb201-4"><a href="4-3-summary-statistics.html#cb201-4"></a><span class="kw">head</span>(desc1)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="4-3-summary-statistics.html#cb197-1"></a><span class="co"># use describe to calculate descriptive stats for data_cs1.1r</span></span>
+<span id="cb197-2"><a href="4-3-summary-statistics.html#cb197-2"></a>desc1 =<span class="st"> </span><span class="kw">describe</span>(data_stocks_ret[, <span class="dv">2</span><span class="op">:</span><span class="dv">11</span>])  <span class="co">#note we dont pass the date column</span></span>
+<span id="cb197-3"><a href="4-3-summary-statistics.html#cb197-3"></a><span class="co"># check the output</span></span>
+<span id="cb197-4"><a href="4-3-summary-statistics.html#cb197-4"></a><span class="kw">head</span>(desc1)</span></code></pre></div>
 <pre><code>    vars    n  mean   sd median trimmed  mad    min   max range  skew kurtosis
 DJI    1 3522  0.01 1.23   0.04    0.03 0.82  -8.20 10.51 18.71 -0.06     7.71
 AXP    2 3522  0.02 2.89   0.02    0.03 1.55 -19.35 18.77 38.12 -0.01     9.14
@@ -705,9 +706,9 @@ MMM 0.03
 ATT 0.03
 BA  0.03
 CAT 0.04</code></pre>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="4-3-summary-statistics.html#cb203-1"></a><span class="co"># the above output is in long format, we can transpose it get column format</span></span>
-<span id="cb203-2"><a href="4-3-summary-statistics.html#cb203-2"></a>desc1.t =<span class="st"> </span><span class="kw">t</span>(desc1)</span>
-<span id="cb203-3"><a href="4-3-summary-statistics.html#cb203-3"></a><span class="kw">head</span>(desc1.t)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="4-3-summary-statistics.html#cb199-1"></a><span class="co"># the above output is in long format, we can transpose it get column format</span></span>
+<span id="cb199-2"><a href="4-3-summary-statistics.html#cb199-2"></a>desc1.t =<span class="st"> </span><span class="kw">t</span>(desc1)</span>
+<span id="cb199-3"><a href="4-3-summary-statistics.html#cb199-3"></a><span class="kw">head</span>(desc1.t)</span></code></pre></div>
 <pre><code>                 DJI          AXP          MMM           ATT           BA
 vars    1.000000e+00 2.000000e+00 3.000000e+00  4.000000e+00 5.000000e+00
 n       3.522000e+03 3.522000e+03 3.522000e+03  3.522000e+03 3.522000e+03
@@ -727,19 +728,13 @@ trimmed 4.678016e-02 -1.339579e-04  1.469270e-03 4.883990e-02  9.841473e-05</cod
 <li><p>This can easily be transferred to a CSV file or a text file. The following single line of code transfers the descriptive statistics to a CSV file which then can be imported into a word or latex file as required.</p></li>
 <li><p>The pastecs package provides the function <span class="math inline">\(\mathtt{stat.desc}\)</span> which generated descriptive statistics for a data frame, matrix or a timeseries. Skewness and Kurtosis are not calculated by default in <span class="math inline">\(\mathtt{stat.desc}\)</span> but the argument <span class="math inline">\(\mathtt{norm}\)</span> can be set to TRUE to get these measures along with their standard errors.</p></li>
 </ul>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="4-3-summary-statistics.html#cb205-1"></a><span class="kw">require</span>(pastecs)  <span class="co"># note library and require can both be used to include a package</span></span></code></pre></div>
-<pre><code>Loading required package: pastecs</code></pre>
-<pre><code>
-Attaching package: &#39;pastecs&#39;</code></pre>
-<pre><code>The following object is masked from &#39;package:tidyr&#39;:
-
-    extract</code></pre>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="4-3-summary-statistics.html#cb209-1"></a><span class="co"># detach the package pastecs its useful to avoid any conflicts (e.g psych and</span></span>
-<span id="cb209-2"><a href="4-3-summary-statistics.html#cb209-2"></a><span class="co"># Hmisc have &#39;describe&#39; function with two different behaviours</span></span>
-<span id="cb209-3"><a href="4-3-summary-statistics.html#cb209-3"></a><span class="kw">detach</span>(<span class="st">&quot;package:psych&quot;</span>, <span class="dt">unload =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb209-4"><a href="4-3-summary-statistics.html#cb209-4"></a><span class="co"># use stat.desc in with default arguments</span></span>
-<span id="cb209-5"><a href="4-3-summary-statistics.html#cb209-5"></a>desc2 =<span class="st"> </span><span class="kw">stat.desc</span>(data_stocks_ret[, <span class="dv">2</span><span class="op">:</span><span class="dv">11</span>], <span class="dt">norm =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb209-6"><a href="4-3-summary-statistics.html#cb209-6"></a>desc2  <span class="co">#note skewness/kurtosis</span></span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="4-3-summary-statistics.html#cb201-1"></a><span class="kw">require</span>(pastecs)  <span class="co"># note library and require can both be used to include a package</span></span>
+<span id="cb201-2"><a href="4-3-summary-statistics.html#cb201-2"></a><span class="co"># detach the package pastecs its useful to avoid any conflicts (e.g psych and</span></span>
+<span id="cb201-3"><a href="4-3-summary-statistics.html#cb201-3"></a><span class="co"># Hmisc have &#39;describe&#39; function with two different behaviours</span></span>
+<span id="cb201-4"><a href="4-3-summary-statistics.html#cb201-4"></a><span class="kw">detach</span>(<span class="st">&quot;package:psych&quot;</span>, <span class="dt">unload =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb201-5"><a href="4-3-summary-statistics.html#cb201-5"></a><span class="co"># use stat.desc in with default arguments</span></span>
+<span id="cb201-6"><a href="4-3-summary-statistics.html#cb201-6"></a>desc2 =<span class="st"> </span><span class="kw">stat.desc</span>(data_stocks_ret[, <span class="dv">2</span><span class="op">:</span><span class="dv">11</span>], <span class="dt">norm =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb201-7"><a href="4-3-summary-statistics.html#cb201-7"></a>desc2  <span class="co">#note skewness/kurtosis</span></span></code></pre></div>
 <pre><code>                       DJI           AXP           MMM           ATT
 nbr.val       3.522000e+03  3.522000e+03  3.522000e+03  3.522000e+03
 nbr.null      2.000000e+00  2.400000e+01  3.000000e+01  5.000000e+01

@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -237,48 +238,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.2</span> R Graphical Parameters</h2>
 <ul>
 <li><p>The <span class="math inline">\(\mathtt{par}\)</span> function facilitates access and modification of a large list of parameters such as color, margin, number of rows and columns on a graphic device etc (see <span class="math inline">\(\mathtt{help(par)}\)</span> for a list of such parameters).</p></li>
-<li><p>R provides various margin parameters to tweak inner and outer margins of a graphical device.</p>
-<div class="figure"><span id="fig:unnamed-chunk-12"></span>
+<li><p>R provides various margin parameters to tweak inner and outer margins of a graphical device.</p></li>
+</ul>
+<div class="figure"><span id="fig:margins1"></span>
 <img src="figure-6_15.png" alt="Graph Margins" width="436" />
 <p class="caption">
-Figure 5.9: Graph Margins
+Figure 5.10: Graph Margins
 </p>
-</div></li>
+</div>
+<ul>
 <li><p>A modification to par always changes the global values of graphic parameters and hence its is a good practice to first store the default parameters in a separate object (variable) which can be later used to restore default graphic parameters.</p></li>
 <li><p>These margins can be altered using or  parameters with the first setting the margins in inches and the second in unit of text lines. Setting one of these will adjust the other accordingly.</p></li>
 <li><p>The following example (output not shown here) changes the margins to <span class="math inline">\(\mathtt{c(5,4,7,2)}\)</span> from the default of <span class="math inline">\(\mathtt{c(5,4,4,2)+0.1}\)</span> to accommodate a title on top of the figure.</p></li>
 </ul>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="5-2-r-graphical-parameters.html#cb228-1"></a><span class="co"># first save the default parameters</span></span>
-<span id="cb228-2"><a href="5-2-r-graphical-parameters.html#cb228-2"></a>par.old =<span class="st"> </span><span class="kw">par</span>()</span>
-<span id="cb228-3"><a href="5-2-r-graphical-parameters.html#cb228-3"></a><span class="co"># change the margins</span></span>
-<span id="cb228-4"><a href="5-2-r-graphical-parameters.html#cb228-4"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">2</span>))</span>
-<span id="cb228-5"><a href="5-2-r-graphical-parameters.html#cb228-5"></a><span class="co"># plot the bargraph</span></span>
-<span id="cb228-6"><a href="5-2-r-graphical-parameters.html#cb228-6"></a><span class="kw">barplot</span>(<span class="dt">height =</span> data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ], <span class="dt">beside =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="kw">rainbow</span>(<span class="dv">5</span>), <span class="dt">legend =</span> <span class="kw">rownames</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </span>
-<span id="cb228-7"><a href="5-2-r-graphical-parameters.html#cb228-7"></a>    ]), <span class="dt">args.legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">horiz =</span> <span class="ot">TRUE</span>, <span class="dt">inset =</span> <span class="fl">-0.1</span>), <span class="dt">cex.names =</span> <span class="fl">0.6</span>)</span>
-<span id="cb228-8"><a href="5-2-r-graphical-parameters.html#cb228-8"></a><span class="kw">title</span>(<span class="st">&quot;Bar Plot </span><span class="ch">\n</span><span class="st">(with custom margins)&quot;</span>)</span>
-<span id="cb228-9"><a href="5-2-r-graphical-parameters.html#cb228-9"></a><span class="co"># set parameters to default</span></span>
-<span id="cb228-10"><a href="5-2-r-graphical-parameters.html#cb228-10"></a><span class="kw">par</span>(par.old)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="5-2-r-graphical-parameters.html#cb217-1"></a><span class="co"># first save the default parameters</span></span>
+<span id="cb217-2"><a href="5-2-r-graphical-parameters.html#cb217-2"></a>par.old =<span class="st"> </span><span class="kw">par</span>()</span>
+<span id="cb217-3"><a href="5-2-r-graphical-parameters.html#cb217-3"></a><span class="co"># change the margins</span></span>
+<span id="cb217-4"><a href="5-2-r-graphical-parameters.html#cb217-4"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">2</span>))</span>
+<span id="cb217-5"><a href="5-2-r-graphical-parameters.html#cb217-5"></a><span class="co"># plot the bargraph</span></span>
+<span id="cb217-6"><a href="5-2-r-graphical-parameters.html#cb217-6"></a><span class="kw">barplot</span>(<span class="dt">height =</span> data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ], <span class="dt">beside =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="kw">rainbow</span>(<span class="dv">5</span>), <span class="dt">legend =</span> <span class="kw">rownames</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, </span>
+<span id="cb217-7"><a href="5-2-r-graphical-parameters.html#cb217-7"></a>    ]), <span class="dt">args.legend =</span> <span class="kw">list</span>(<span class="dt">x =</span> <span class="st">&quot;top&quot;</span>, <span class="dt">horiz =</span> <span class="ot">TRUE</span>, <span class="dt">inset =</span> <span class="fl">-0.1</span>), <span class="dt">cex.names =</span> <span class="fl">0.6</span>)</span>
+<span id="cb217-8"><a href="5-2-r-graphical-parameters.html#cb217-8"></a><span class="kw">title</span>(<span class="st">&quot;Bar Plot </span><span class="ch">\n</span><span class="st">(with custom margins)&quot;</span>)</span>
+<span id="cb217-9"><a href="5-2-r-graphical-parameters.html#cb217-9"></a><span class="co"># set parameters to default</span></span>
+<span id="cb217-10"><a href="5-2-r-graphical-parameters.html#cb217-10"></a><span class="kw">par</span>(par.old)</span></code></pre></div>
 <ul>
 <li>A multiple plot grid can be created by altering <span class="math inline">\(\mathtt{mfrow}\)</span> or <span class="math inline">\(\mathtt{mfcol}\)</span> parameter which specifies the number of rows and columns in a grid.</li>
 </ul>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="5-2-r-graphical-parameters.html#cb229-1"></a><span class="co"># first save the default parameters</span></span>
-<span id="cb229-2"><a href="5-2-r-graphical-parameters.html#cb229-2"></a>par.old =<span class="st"> </span><span class="kw">par</span>()</span>
-<span id="cb229-3"><a href="5-2-r-graphical-parameters.html#cb229-3"></a><span class="co"># creat a 2X2 grid</span></span>
-<span id="cb229-4"><a href="5-2-r-graphical-parameters.html#cb229-4"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb229-5"><a href="5-2-r-graphical-parameters.html#cb229-5"></a><span class="co"># scatterplot</span></span>
-<span id="cb229-6"><a href="5-2-r-graphical-parameters.html#cb229-6"></a><span class="kw">plot</span>(x, y, <span class="dt">xlab =</span> <span class="st">&quot;Normal X&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Normal Y&quot;</span>)</span>
-<span id="cb229-7"><a href="5-2-r-graphical-parameters.html#cb229-7"></a><span class="co"># time series plot</span></span>
-<span id="cb229-8"><a href="5-2-r-graphical-parameters.html#cb229-8"></a><span class="kw">plot</span>(FinData.ts[, <span class="dv">1</span>])</span>
-<span id="cb229-9"><a href="5-2-r-graphical-parameters.html#cb229-9"></a><span class="co"># bar plot</span></span>
-<span id="cb229-10"><a href="5-2-r-graphical-parameters.html#cb229-10"></a><span class="kw">barplot</span>(<span class="dt">height =</span> GDP<span class="op">$</span>Australia, <span class="dt">names.arg =</span> GDP<span class="op">$</span>Year, <span class="dt">ylab =</span> <span class="st">&quot;GDP Per Capita (Australia)&quot;</span>)</span>
-<span id="cb229-11"><a href="5-2-r-graphical-parameters.html#cb229-11"></a><span class="co"># pie chart</span></span>
-<span id="cb229-12"><a href="5-2-r-graphical-parameters.html#cb229-12"></a><span class="kw">pie</span>(<span class="dt">x =</span> data[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>, <span class="dv">1</span>], <span class="dt">labels =</span> <span class="kw">rownames</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>, ]))</span>
-<span id="cb229-13"><a href="5-2-r-graphical-parameters.html#cb229-13"></a><span class="co"># set parameters to default</span></span>
-<span id="cb229-14"><a href="5-2-r-graphical-parameters.html#cb229-14"></a><span class="kw">par</span>(par.old)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-14"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-14-1.png" alt="Multiple Plots in a Grid" width="672" />
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="5-2-r-graphical-parameters.html#cb218-1"></a><span class="co"># first save the default parameters</span></span>
+<span id="cb218-2"><a href="5-2-r-graphical-parameters.html#cb218-2"></a>par.old =<span class="st"> </span><span class="kw">par</span>()</span>
+<span id="cb218-3"><a href="5-2-r-graphical-parameters.html#cb218-3"></a><span class="co"># creat a 2X2 grid</span></span>
+<span id="cb218-4"><a href="5-2-r-graphical-parameters.html#cb218-4"></a><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb218-5"><a href="5-2-r-graphical-parameters.html#cb218-5"></a><span class="co"># scatterplot</span></span>
+<span id="cb218-6"><a href="5-2-r-graphical-parameters.html#cb218-6"></a><span class="kw">plot</span>(x, y, <span class="dt">xlab =</span> <span class="st">&quot;Normal X&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Normal Y&quot;</span>)</span>
+<span id="cb218-7"><a href="5-2-r-graphical-parameters.html#cb218-7"></a><span class="co"># time series plot</span></span>
+<span id="cb218-8"><a href="5-2-r-graphical-parameters.html#cb218-8"></a><span class="kw">plot</span>(FinData.ts[, <span class="dv">1</span>])</span>
+<span id="cb218-9"><a href="5-2-r-graphical-parameters.html#cb218-9"></a><span class="co"># bar plot</span></span>
+<span id="cb218-10"><a href="5-2-r-graphical-parameters.html#cb218-10"></a><span class="kw">barplot</span>(<span class="dt">height =</span> GDP<span class="op">$</span>Australia, <span class="dt">names.arg =</span> GDP<span class="op">$</span>Year, <span class="dt">ylab =</span> <span class="st">&quot;GDP Per Capita (Australia)&quot;</span>)</span>
+<span id="cb218-11"><a href="5-2-r-graphical-parameters.html#cb218-11"></a><span class="co"># pie chart</span></span>
+<span id="cb218-12"><a href="5-2-r-graphical-parameters.html#cb218-12"></a><span class="kw">pie</span>(<span class="dt">x =</span> data[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>, <span class="dv">1</span>], <span class="dt">labels =</span> <span class="kw">rownames</span>(data[<span class="dv">1</span><span class="op">:</span><span class="dv">11</span>, ]))</span>
+<span id="cb218-13"><a href="5-2-r-graphical-parameters.html#cb218-13"></a><span class="co"># set parameters to default</span></span>
+<span id="cb218-14"><a href="5-2-r-graphical-parameters.html#cb218-14"></a><span class="kw">par</span>(par.old)</span></code></pre></div>
+<div class="figure"><span id="fig:multiplot1"></span>
+<img src="05-plots_files/figure-html/multiplot1-1.png" alt="Multiple Plots in a Grid" width="672" />
 <p class="caption">
-Figure 5.10: Multiple Plots in a Grid
+Figure 5.11: Multiple Plots in a Grid
 </p>
 </div>
 </div>

@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -240,11 +241,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>R package <em>tidyr</em> provides two functions <code>pivot_longer()</code> and <code>pivot_wider()</code> to transform the data into long or wide format.</li>
 <li>Let’s convert the stocks data to the long format</li>
 </ul>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb157-1"></a><span class="kw">library</span>(tidyr)</span>
-<span id="cb157-2"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb157-2"></a></span>
-<span id="cb157-3"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb157-3"></a>FinData_long =<span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">data =</span> data_stocks, <span class="dt">cols =</span> <span class="op">-</span>Date, <span class="dt">names_to =</span> <span class="st">&quot;Stock&quot;</span>, </span>
-<span id="cb157-4"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb157-4"></a>    <span class="dt">values_to =</span> <span class="st">&quot;Price&quot;</span>)</span>
-<span id="cb157-5"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb157-5"></a><span class="kw">head</span>(FinData_long)</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb153-1"></a><span class="kw">library</span>(tidyr)</span>
+<span id="cb153-2"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb153-2"></a></span>
+<span id="cb153-3"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb153-3"></a>FinData_long =<span class="st"> </span><span class="kw">pivot_longer</span>(<span class="dt">data =</span> data_stocks, <span class="dt">cols =</span> <span class="op">-</span>Date, <span class="dt">names_to =</span> <span class="st">&quot;Stock&quot;</span>, </span>
+<span id="cb153-4"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb153-4"></a>    <span class="dt">values_to =</span> <span class="st">&quot;Price&quot;</span>)</span>
+<span id="cb153-5"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb153-5"></a><span class="kw">head</span>(FinData_long)</span></code></pre></div>
 <pre><code># A tibble: 6 x 3
   Date      Stock Price
   &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt;
@@ -257,8 +258,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>A reverse operation can be conducted using <code>pivot_wider()</code></li>
 </ul>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb159-1"></a>FinData_wide =<span class="st"> </span><span class="kw">pivot_wider</span>(FinData_long, <span class="dt">names_from =</span> Stock, <span class="dt">values_from =</span> Price)</span>
-<span id="cb159-2"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb159-2"></a><span class="kw">head</span>(FinData_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb155-1"></a>FinData_wide =<span class="st"> </span><span class="kw">pivot_wider</span>(FinData_long, <span class="dt">names_from =</span> Stock, <span class="dt">values_from =</span> Price)</span>
+<span id="cb155-2"><a href="4-2-data-transformation-from-wide-to-long-or-vice-versa.html#cb155-2"></a><span class="kw">head</span>(FinData_wide)</span></code></pre></div>
 <pre><code># A tibble: 6 x 7
   Date       MSFT   IBM  AAPL   MCD    PG  GOOG
   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;

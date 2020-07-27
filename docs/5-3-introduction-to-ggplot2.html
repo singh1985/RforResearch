@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -245,30 +246,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><span class="math inline">\(\mathtt{qplot}\)</span> stands for quick plot and it makes is easy to produce plots which may often require several lines of codes using base R graphics system.</p></li>
 <li><p><span class="math inline">\(\mathtt{qplot}\)</span> is particularly useful for beginners as they are just getting used to the <span class="math inline">\(\mathtt{plot}\)</span> function from the base package also the data arguments in <span class="math inline">\(\mathtt{qplot}\)</span> are same as in the <span class="math inline">\(\mathtt{plot}\)</span> function (see <span class="math inline">\(\mathtt{help(qplot)}\)</span> for other arguments to the function).</p></li>
 </ul>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="5-3-introduction-to-ggplot2.html#cb230-1"></a>x =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb230-2"><a href="5-3-introduction-to-ggplot2.html#cb230-2"></a>y =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb230-3"><a href="5-3-introduction-to-ggplot2.html#cb230-3"></a><span class="co"># load the library</span></span>
-<span id="cb230-4"><a href="5-3-introduction-to-ggplot2.html#cb230-4"></a><span class="kw">library</span>(ggplot2)</span>
-<span id="cb230-5"><a href="5-3-introduction-to-ggplot2.html#cb230-5"></a><span class="co"># simple scatterplot using qplot</span></span>
-<span id="cb230-6"><a href="5-3-introduction-to-ggplot2.html#cb230-6"></a><span class="kw">qplot</span>(x, y)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-15"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-15-1.png" alt="Scatterplot using qplot" width="672" />
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="5-3-introduction-to-ggplot2.html#cb219-1"></a>x =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb219-2"><a href="5-3-introduction-to-ggplot2.html#cb219-2"></a>y =<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb219-3"><a href="5-3-introduction-to-ggplot2.html#cb219-3"></a><span class="co"># load the library</span></span>
+<span id="cb219-4"><a href="5-3-introduction-to-ggplot2.html#cb219-4"></a><span class="kw">library</span>(ggplot2)</span>
+<span id="cb219-5"><a href="5-3-introduction-to-ggplot2.html#cb219-5"></a><span class="co"># simple scatterplot using qplot</span></span>
+<span id="cb219-6"><a href="5-3-introduction-to-ggplot2.html#cb219-6"></a><span class="kw">qplot</span>(x, y)</span></code></pre></div>
+<div class="figure"><span id="fig:ggplot1"></span>
+<img src="05-plots_files/figure-html/ggplot1-1.png" alt="Scatterplot using qplot" width="672" />
 <p class="caption">
-Figure 5.11: Scatterplot using qplot
+Figure 5.12: Scatterplot using qplot
 </p>
 </div>
 <ul>
 <li><p>The argument geom, which stands for geometric objects drawn to represent data has to be changed to “line” create this line plot.</p></li>
 <li><p>Similarly there is an option to plot histograms using the argument <em>geom=“histogram”</em></p></li>
 </ul>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="5-3-introduction-to-ggplot2.html#cb231-1"></a><span class="kw">load</span>(<span class="st">&quot;data/data_fin.RData&quot;</span>)</span>
-<span id="cb231-2"><a href="5-3-introduction-to-ggplot2.html#cb231-2"></a><span class="co"># line plot using qplot</span></span>
-<span id="cb231-3"><a href="5-3-introduction-to-ggplot2.html#cb231-3"></a><span class="kw">qplot</span>(<span class="dt">x =</span> FinData<span class="op">$</span>Date, <span class="dt">y =</span> FinData<span class="op">$</span>DJI, <span class="dt">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Dates&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Prices&quot;</span>, </span>
-<span id="cb231-4"><a href="5-3-introduction-to-ggplot2.html#cb231-4"></a>    <span class="dt">main =</span> <span class="st">&quot;DJIA Price Timeseries&quot;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-16"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-16-1.png" alt="Line Plot with lables using qplot" width="672" />
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="5-3-introduction-to-ggplot2.html#cb220-1"></a><span class="kw">load</span>(<span class="st">&quot;data/data_fin.RData&quot;</span>)</span>
+<span id="cb220-2"><a href="5-3-introduction-to-ggplot2.html#cb220-2"></a><span class="co"># line plot using qplot</span></span>
+<span id="cb220-3"><a href="5-3-introduction-to-ggplot2.html#cb220-3"></a><span class="kw">qplot</span>(<span class="dt">x =</span> FinData<span class="op">$</span>Date, <span class="dt">y =</span> FinData<span class="op">$</span>DJI, <span class="dt">geom =</span> <span class="st">&quot;line&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Dates&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Prices&quot;</span>, </span>
+<span id="cb220-4"><a href="5-3-introduction-to-ggplot2.html#cb220-4"></a>    <span class="dt">main =</span> <span class="st">&quot;DJIA Price Timeseries&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:ggplot2"></span>
+<img src="05-plots_files/figure-html/ggplot2-1.png" alt="Line Plot with lables using qplot" width="672" />
 <p class="caption">
-Figure 5.12: Line Plot with lables using qplot
+Figure 5.13: Line Plot with lables using qplot
 </p>
 </div>
 </div>
@@ -278,10 +279,10 @@ Figure 5.12: Line Plot with lables using qplot
 <li><p>The <span class="math inline">\(\mathtt{qplot}\)</span> function is just sufficient for creating various plots with better presentation compared to base R plots but the true capabilities of ggplot2 are realised by the function <span class="math inline">\(\mathtt{ggplot}\)</span>.</p></li>
 <li><p>It is important to note that <span class="math inline">\(\mathtt{ggplot}\)</span> function requires the data in “long” format and hence it is required to first transform the dataset to “long” from “wide” format as in ggplot2, groups are identified by rows, not by columns.</p></li>
 </ul>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="5-3-introduction-to-ggplot2.html#cb232-1"></a><span class="co"># Read &#39;long&#39; format data</span></span>
-<span id="cb232-2"><a href="5-3-introduction-to-ggplot2.html#cb232-2"></a><span class="kw">load</span>(<span class="st">&quot;data/GDP_l.RData&quot;</span>)</span>
-<span id="cb232-3"><a href="5-3-introduction-to-ggplot2.html#cb232-3"></a><span class="co"># data snapshot</span></span>
-<span id="cb232-4"><a href="5-3-introduction-to-ggplot2.html#cb232-4"></a><span class="kw">head</span>(GDP_l)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="5-3-introduction-to-ggplot2.html#cb221-1"></a><span class="co"># Read &#39;long&#39; format data</span></span>
+<span id="cb221-2"><a href="5-3-introduction-to-ggplot2.html#cb221-2"></a><span class="kw">load</span>(<span class="st">&quot;data/GDP_l.RData&quot;</span>)</span>
+<span id="cb221-3"><a href="5-3-introduction-to-ggplot2.html#cb221-3"></a><span class="co"># data snapshot</span></span>
+<span id="cb221-4"><a href="5-3-introduction-to-ggplot2.html#cb221-4"></a><span class="kw">head</span>(GDP_l)</span></code></pre></div>
 <pre><code>  Year   Country      GDP
 1 1990 Australia 18247.39
 2 1991 Australia 18837.19
@@ -289,30 +290,30 @@ Figure 5.12: Line Plot with lables using qplot
 4 1993 Australia 17658.08
 5 1994 Australia 18080.70
 6 1995 Australia 20375.30</code></pre>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="5-3-introduction-to-ggplot2.html#cb234-1"></a><span class="co"># creating the aesthetics using ggplot</span></span>
-<span id="cb234-2"><a href="5-3-introduction-to-ggplot2.html#cb234-2"></a>p1 =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l, <span class="kw">aes</span>(Country, GDP, <span class="dt">fill =</span> Year))</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="5-3-introduction-to-ggplot2.html#cb223-1"></a><span class="co"># creating the aesthetics using ggplot</span></span>
+<span id="cb223-2"><a href="5-3-introduction-to-ggplot2.html#cb223-2"></a>p1 =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l, <span class="kw">aes</span>(Country, GDP, <span class="dt">fill =</span> Year))</span></code></pre></div>
 <ul>
 <li>A plot can be created by adding another layer to p1</li>
 </ul>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="5-3-introduction-to-ggplot2.html#cb235-1"></a><span class="co"># figure</span></span>
-<span id="cb235-2"><a href="5-3-introduction-to-ggplot2.html#cb235-2"></a>p1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-18"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-18-1.png" alt="Bar Chart Using ggplot function" width="672" />
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="5-3-introduction-to-ggplot2.html#cb224-1"></a><span class="co"># figure</span></span>
+<span id="cb224-2"><a href="5-3-introduction-to-ggplot2.html#cb224-2"></a>p1 <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:ggplot4"></span>
+<img src="05-plots_files/figure-html/ggplot4-1.png" alt="Bar Chart Using ggplot function" width="672" />
 <p class="caption">
-Figure 5.13: Bar Chart Using ggplot function
+Figure 5.14: Bar Chart Using ggplot function
 </p>
 </div>
 <ul>
 <li>To draw a line chart using <span class="math inline">\(\mathtt{ggplot}\)</span>, <span class="math inline">\(\mathtt{geom\_line()}\)</span></li>
 </ul>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="5-3-introduction-to-ggplot2.html#cb236-1"></a><span class="co"># change the aesthetics to show time on X-axis and GDP values on Y-axis the</span></span>
-<span id="cb236-2"><a href="5-3-introduction-to-ggplot2.html#cb236-2"></a><span class="co"># colour line fill be according to the country</span></span>
-<span id="cb236-3"><a href="5-3-introduction-to-ggplot2.html#cb236-3"></a>p2 =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l, <span class="kw">aes</span>(Year, GDP, <span class="dt">colour =</span> Country, <span class="dt">group =</span> Country))</span>
-<span id="cb236-4"><a href="5-3-introduction-to-ggplot2.html#cb236-4"></a>p2 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-19"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-19-1.png" alt="Line Chart Using ggplot" width="960" />
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="5-3-introduction-to-ggplot2.html#cb225-1"></a><span class="co"># change the aesthetics to show time on X-axis and GDP values on Y-axis the</span></span>
+<span id="cb225-2"><a href="5-3-introduction-to-ggplot2.html#cb225-2"></a><span class="co"># colour line fill be according to the country</span></span>
+<span id="cb225-3"><a href="5-3-introduction-to-ggplot2.html#cb225-3"></a>p2 =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l, <span class="kw">aes</span>(Year, GDP, <span class="dt">colour =</span> Country, <span class="dt">group =</span> Country))</span>
+<span id="cb225-4"><a href="5-3-introduction-to-ggplot2.html#cb225-4"></a>p2 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>()</span></code></pre></div>
+<div class="figure"><span id="fig:ggplot5"></span>
+<img src="05-plots_files/figure-html/ggplot5-1.png" alt="Line Chart Using ggplot" width="960" />
 <p class="caption">
-Figure 2.1: Line Chart Using ggplot
+Figure 5.15: Line Chart Using ggplot
 </p>
 </div>
 <ul>
@@ -320,14 +321,14 @@ Figure 2.1: Line Chart Using ggplot
 <li><p>Faceting can be used to either to split the data into vertical groups using <span class="math inline">\(\mathtt{facet\_grid}\)</span> or horizontal groups using <span class="math inline">\(\mathtt{facet\_wrap}\)</span>.</p></li>
 <li><p>Figure plots GDP for each country in a separate subplot using grid faceting.</p></li>
 </ul>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="5-3-introduction-to-ggplot2.html#cb237-1"></a><span class="co"># change the aesthetics to show time on X-axis and GDP values on Y-axis the</span></span>
-<span id="cb237-2"><a href="5-3-introduction-to-ggplot2.html#cb237-2"></a><span class="co"># colour line fill be according to the country</span></span>
-<span id="cb237-3"><a href="5-3-introduction-to-ggplot2.html#cb237-3"></a>p2 =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l, <span class="kw">aes</span>(Year, GDP, <span class="dt">colour =</span> Country, <span class="dt">group =</span> Country))</span>
-<span id="cb237-4"><a href="5-3-introduction-to-ggplot2.html#cb237-4"></a>p2 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(Country <span class="op">~</span><span class="st"> </span>.)</span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-20"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-20-1.png" alt="Faceting in ggplot (Line Chart)" width="672" />
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="5-3-introduction-to-ggplot2.html#cb226-1"></a><span class="co"># change the aesthetics to show time on X-axis and GDP values on Y-axis the</span></span>
+<span id="cb226-2"><a href="5-3-introduction-to-ggplot2.html#cb226-2"></a><span class="co"># colour line fill be according to the country</span></span>
+<span id="cb226-3"><a href="5-3-introduction-to-ggplot2.html#cb226-3"></a>p2 =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l, <span class="kw">aes</span>(Year, GDP, <span class="dt">colour =</span> Country, <span class="dt">group =</span> Country))</span>
+<span id="cb226-4"><a href="5-3-introduction-to-ggplot2.html#cb226-4"></a>p2 <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>() <span class="op">+</span><span class="st"> </span><span class="kw">facet_grid</span>(Country <span class="op">~</span><span class="st"> </span>.)</span></code></pre></div>
+<div class="figure"><span id="fig:ggplot6"></span>
+<img src="05-plots_files/figure-html/ggplot6-1.png" alt="Faceting in ggplot (Line Chart)" width="672" />
 <p class="caption">
-Figure 5.14: Faceting in ggplot (Line Chart)
+Figure 5.16: Faceting in ggplot (Line Chart)
 </p>
 </div>
 </div>
@@ -338,52 +339,48 @@ Figure 5.14: Faceting in ggplot (Line Chart)
 <li><p>Look at the Vignette for egg package for more options. <a href="https://cran.r-project.org/web/packages/egg/vignettes/Ecosystem.html" class="uri">https://cran.r-project.org/web/packages/egg/vignettes/Ecosystem.html</a></p></li>
 <li><p>Let’s create three ggplots</p></li>
 </ul>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="5-3-introduction-to-ggplot2.html#cb238-1"></a>p1<span class="fl">.1</span> =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> GDP))</span>
-<span id="cb238-2"><a href="5-3-introduction-to-ggplot2.html#cb238-2"></a>p2<span class="fl">.1</span> =<span class="st"> </span>p1<span class="fl">.1</span> <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Country), <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="5-3-introduction-to-ggplot2.html#cb227-1"></a>p1<span class="fl">.1</span> =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> GDP))</span>
+<span id="cb227-2"><a href="5-3-introduction-to-ggplot2.html#cb227-2"></a>p2<span class="fl">.1</span> =<span class="st"> </span>p1<span class="fl">.1</span> <span class="op">+</span><span class="st"> </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Country), <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="dt">position =</span> <span class="st">&quot;dodge&quot;</span>)</span></code></pre></div>
 <ul>
 <li>Stacked bar chart (previous example)</li>
 </ul>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="5-3-introduction-to-ggplot2.html#cb239-1"></a>p1<span class="fl">.2</span> =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l[GDP_l<span class="op">$</span>Country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Australia&quot;</span>, <span class="st">&quot;UK&quot;</span>, <span class="st">&quot;USA&quot;</span>), ], <span class="kw">aes</span>(Year, </span>
-<span id="cb239-2"><a href="5-3-introduction-to-ggplot2.html#cb239-2"></a>    GDP))</span>
-<span id="cb239-3"><a href="5-3-introduction-to-ggplot2.html#cb239-3"></a>p2<span class="fl">.2</span> =<span class="st"> </span>p1<span class="fl">.2</span> <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Country)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;GDP for Aus, US and UK&quot;</span>)  <span class="co">#using labs to modify title</span></span>
-<span id="cb239-4"><a href="5-3-introduction-to-ggplot2.html#cb239-4"></a>p2<span class="fl">.2</span></span></code></pre></div>
-<div class="figure"><span id="fig:unnamed-chunk-22"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-22-1.png" alt="Bar Chart with Selected Data" width="672" />
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="5-3-introduction-to-ggplot2.html#cb228-1"></a>p1<span class="fl">.2</span> =<span class="st"> </span><span class="kw">ggplot</span>(GDP_l[GDP_l<span class="op">$</span>Country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Australia&quot;</span>, <span class="st">&quot;UK&quot;</span>, <span class="st">&quot;USA&quot;</span>), ], <span class="kw">aes</span>(Year, </span>
+<span id="cb228-2"><a href="5-3-introduction-to-ggplot2.html#cb228-2"></a>    GDP))</span>
+<span id="cb228-3"><a href="5-3-introduction-to-ggplot2.html#cb228-3"></a>p2<span class="fl">.2</span> =<span class="st"> </span>p1<span class="fl">.2</span> <span class="op">+</span><span class="st"> </span><span class="kw">geom_col</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> Country)) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;GDP for Aus, US and UK&quot;</span>)  <span class="co">#using labs to modify title</span></span>
+<span id="cb228-4"><a href="5-3-introduction-to-ggplot2.html#cb228-4"></a>p2<span class="fl">.2</span></span></code></pre></div>
+<div class="figure"><span id="fig:ggplot8"></span>
+<img src="05-plots_files/figure-html/ggplot8-1.png" alt="Bar Chart with Selected Data" width="672" />
 <p class="caption">
-Figure 5.15: Bar Chart with Selected Data
+Figure 5.17: Bar Chart with Selected Data
 </p>
 </div>
 <ul>
 <li>Stock data</li>
 </ul>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="5-3-introduction-to-ggplot2.html#cb240-1"></a>p1<span class="fl">.3</span> =<span class="st"> </span><span class="kw">ggplot</span>(FinData, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> DJI))</span>
-<span id="cb240-2"><a href="5-3-introduction-to-ggplot2.html#cb240-2"></a>p2<span class="fl">.3</span> =<span class="st"> </span>p1<span class="fl">.3</span> <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>(<span class="dt">colour =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_linedraw</span>()  <span class="co">#changing theme</span></span>
-<span id="cb240-3"><a href="5-3-introduction-to-ggplot2.html#cb240-3"></a>p2<span class="fl">.3</span></span></code></pre></div>
-<pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<pre><code>Warning: Removed 27 rows containing non-finite values (stat_smooth).</code></pre>
-<div class="figure"><span id="fig:unnamed-chunk-23"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-23-1.png" alt="Stock Series Plot with Smooth Curve" width="672" />
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="5-3-introduction-to-ggplot2.html#cb229-1"></a>p1<span class="fl">.3</span> =<span class="st"> </span><span class="kw">ggplot</span>(FinData, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> DJI))</span>
+<span id="cb229-2"><a href="5-3-introduction-to-ggplot2.html#cb229-2"></a>p2<span class="fl">.3</span> =<span class="st"> </span>p1<span class="fl">.3</span> <span class="op">+</span><span class="st"> </span><span class="kw">geom_path</span>(<span class="dt">colour =</span> <span class="st">&quot;darkblue&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_linedraw</span>()  <span class="co">#changing theme</span></span>
+<span id="cb229-3"><a href="5-3-introduction-to-ggplot2.html#cb229-3"></a>p2<span class="fl">.3</span></span></code></pre></div>
+<div class="figure"><span id="fig:ggplot9"></span>
+<img src="05-plots_files/figure-html/ggplot9-1.png" alt="Stock Series Plot with Smooth Curve" width="672" />
 <p class="caption">
-Figure 5.16: Stock Series Plot with Smooth Curve
+Figure 5.18: Stock Series Plot with Smooth Curve
 </p>
 </div>
 <ul>
 <li>Now use gridExtra to put these together</li>
 </ul>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="5-3-introduction-to-ggplot2.html#cb243-1"></a><span class="kw">library</span>(gridExtra)</span>
-<span id="cb243-2"><a href="5-3-introduction-to-ggplot2.html#cb243-2"></a>fig1 =<span class="st"> </span><span class="kw">grid.arrange</span>(p2<span class="fl">.1</span>, p2<span class="fl">.2</span>, p2<span class="fl">.3</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">heights =</span> <span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">12</span>), <span class="dt">top =</span> <span class="st">&quot;Combined plots in three rows&quot;</span>)</span></code></pre></div>
-<pre><code>`geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<pre><code>Warning: Removed 27 rows containing non-finite values (stat_smooth).</code></pre>
-<div class="figure"><span id="fig:unnamed-chunk-24"></span>
-<img src="05-plots_1_files/figure-html/unnamed-chunk-24-1.png" alt="Combined plots" width="672" />
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="5-3-introduction-to-ggplot2.html#cb230-1"></a><span class="kw">library</span>(gridExtra)</span>
+<span id="cb230-2"><a href="5-3-introduction-to-ggplot2.html#cb230-2"></a>fig1 =<span class="st"> </span><span class="kw">grid.arrange</span>(p2<span class="fl">.1</span>, p2<span class="fl">.2</span>, p2<span class="fl">.3</span>, <span class="dt">nrow =</span> <span class="dv">3</span>, <span class="dt">heights =</span> <span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">12</span>, <span class="dv">12</span>), <span class="dt">top =</span> <span class="st">&quot;Combined plots in three rows&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:ggplot10"></span>
+<img src="05-plots_files/figure-html/ggplot10-1.png" alt="Combined plots" width="672" />
 <p class="caption">
-Figure 5.17: Combined plots
+Figure 5.19: Combined plots
 </p>
 </div>
 <ul>
 <li>The plots can be saved using the <span class="math inline">\(\mathtt{ggsave}\)</span> function</li>
 </ul>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="5-3-introduction-to-ggplot2.html#cb246-1"></a><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;combined_plot.pdf&quot;</span>, <span class="dt">plot =</span> fig1)</span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="5-3-introduction-to-ggplot2.html#cb231-1"></a><span class="kw">ggsave</span>(<span class="dt">filename =</span> <span class="st">&quot;combined_plot.pdf&quot;</span>, <span class="dt">plot =</span> fig1)</span></code></pre></div>
 
 </div>
 </div>

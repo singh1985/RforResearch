@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -244,33 +245,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>We use if-else conditional statements when we want the R program to branch out in different directions based on a logical condition.</p></li>
 <li><p>The following example compares the mean of two stocks and assigns a variable with the greater mean.</p></li>
 </ul>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="3-1-programming-control-flow.html#cb91-1"></a>data_stocks =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/us_stocks.csv&quot;</span>)</span>
-<span id="cb91-2"><a href="3-1-programming-control-flow.html#cb91-2"></a><span class="co"># remove NAs from the data</span></span>
-<span id="cb91-3"><a href="3-1-programming-control-flow.html#cb91-3"></a></span>
-<span id="cb91-4"><a href="3-1-programming-control-flow.html#cb91-4"></a>data_stocks =<span class="st"> </span><span class="kw">na.omit</span>(data_stocks)</span>
-<span id="cb91-5"><a href="3-1-programming-control-flow.html#cb91-5"></a>m_msft =<span class="st"> </span><span class="kw">mean</span>(data_stocks<span class="op">$</span>MSFT)</span>
-<span id="cb91-6"><a href="3-1-programming-control-flow.html#cb91-6"></a>m_aapl =<span class="st"> </span><span class="kw">mean</span>(data_stocks<span class="op">$</span>AAPL)</span>
-<span id="cb91-7"><a href="3-1-programming-control-flow.html#cb91-7"></a><span class="cf">if</span> (m_msft <span class="op">&gt;</span><span class="st"> </span>m_aapl) {</span>
-<span id="cb91-8"><a href="3-1-programming-control-flow.html#cb91-8"></a>    g_mean =<span class="st"> </span>m_msft</span>
-<span id="cb91-9"><a href="3-1-programming-control-flow.html#cb91-9"></a>    <span class="kw">message</span>(<span class="st">&quot;Msft mean is higher&quot;</span>)</span>
-<span id="cb91-10"><a href="3-1-programming-control-flow.html#cb91-10"></a>} <span class="cf">else</span> {</span>
-<span id="cb91-11"><a href="3-1-programming-control-flow.html#cb91-11"></a>    g_mean =<span class="st"> </span>m_aapl</span>
-<span id="cb91-12"><a href="3-1-programming-control-flow.html#cb91-12"></a>    <span class="kw">message</span>(<span class="st">&quot;Aapl mean is higher&quot;</span>)</span>
-<span id="cb91-13"><a href="3-1-programming-control-flow.html#cb91-13"></a>}</span></code></pre></div>
-<pre><code>Aapl mean is higher</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="3-1-programming-control-flow.html#cb93-1"></a>g_mean  <span class="co">#print greater mean</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="3-1-programming-control-flow.html#cb89-1"></a>data_stocks =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/us_stocks.csv&quot;</span>)</span>
+<span id="cb89-2"><a href="3-1-programming-control-flow.html#cb89-2"></a><span class="co"># remove NAs from the data</span></span>
+<span id="cb89-3"><a href="3-1-programming-control-flow.html#cb89-3"></a></span>
+<span id="cb89-4"><a href="3-1-programming-control-flow.html#cb89-4"></a>data_stocks =<span class="st"> </span><span class="kw">na.omit</span>(data_stocks)</span>
+<span id="cb89-5"><a href="3-1-programming-control-flow.html#cb89-5"></a>m_msft =<span class="st"> </span><span class="kw">mean</span>(data_stocks<span class="op">$</span>MSFT)</span>
+<span id="cb89-6"><a href="3-1-programming-control-flow.html#cb89-6"></a>m_aapl =<span class="st"> </span><span class="kw">mean</span>(data_stocks<span class="op">$</span>AAPL)</span>
+<span id="cb89-7"><a href="3-1-programming-control-flow.html#cb89-7"></a><span class="cf">if</span> (m_msft <span class="op">&gt;</span><span class="st"> </span>m_aapl) {</span>
+<span id="cb89-8"><a href="3-1-programming-control-flow.html#cb89-8"></a>    g_mean =<span class="st"> </span>m_msft</span>
+<span id="cb89-9"><a href="3-1-programming-control-flow.html#cb89-9"></a>    <span class="kw">message</span>(<span class="st">&quot;Msft mean is higher&quot;</span>)</span>
+<span id="cb89-10"><a href="3-1-programming-control-flow.html#cb89-10"></a>} <span class="cf">else</span> {</span>
+<span id="cb89-11"><a href="3-1-programming-control-flow.html#cb89-11"></a>    g_mean =<span class="st"> </span>m_aapl</span>
+<span id="cb89-12"><a href="3-1-programming-control-flow.html#cb89-12"></a>    <span class="kw">message</span>(<span class="st">&quot;Aapl mean is higher&quot;</span>)</span>
+<span id="cb89-13"><a href="3-1-programming-control-flow.html#cb89-13"></a>}</span>
+<span id="cb89-14"><a href="3-1-programming-control-flow.html#cb89-14"></a>g_mean  <span class="co">#print greater mean</span></span></code></pre></div>
 <pre><code>[1] 207.7967</code></pre>
 <ul>
 <li><p>The if-else also works as a function call, the if-else call in the example above can be reduced to one line as follows.</p></li>
 <li><p>Note that the curly brackets in case of just one statement are optional. They are required in case of a block operation. Its easy to just use them to avoid confusion.</p></li>
 <li><p>R also has a function <span class="math inline">\(\mathtt{ifelse}\)</span> which does the same operation as in example above. See <span class="math inline">\(\mathtt{help(ifelse)}\)</span> for more details</p></li>
 </ul>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="3-1-programming-control-flow.html#cb95-1"></a><span class="co"># arguments to ifelse</span></span>
-<span id="cb95-2"><a href="3-1-programming-control-flow.html#cb95-2"></a><span class="kw">args</span>(ifelse)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="3-1-programming-control-flow.html#cb91-1"></a><span class="co"># arguments to ifelse</span></span>
+<span id="cb91-2"><a href="3-1-programming-control-flow.html#cb91-2"></a><span class="kw">args</span>(ifelse)</span></code></pre></div>
 <pre><code>function (test, yes, no) 
 NULL</code></pre>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="3-1-programming-control-flow.html#cb97-1"></a>g_mean =<span class="st"> </span><span class="kw">ifelse</span>(m_msft <span class="op">&gt;</span><span class="st"> </span>m_aapl, m_msft, m_aapl)</span>
-<span id="cb97-2"><a href="3-1-programming-control-flow.html#cb97-2"></a>g_mean</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="3-1-programming-control-flow.html#cb93-1"></a>g_mean =<span class="st"> </span><span class="kw">ifelse</span>(m_msft <span class="op">&gt;</span><span class="st"> </span>m_aapl, m_msft, m_aapl)</span>
+<span id="cb93-2"><a href="3-1-programming-control-flow.html#cb93-2"></a>g_mean</span></code></pre></div>
 <pre><code>[1] 207.7967</code></pre>
 </div>
 <div id="loops" class="section level3">
@@ -279,12 +279,12 @@ NULL</code></pre>
 <li><p>Loops are the common feature in almost all the programming languages.</p></li>
 <li><p>R provides three basic loops using <span class="math inline">\(\mathtt{for}\)</span>, <span class="math inline">\(\mathtt{while}\)</span> and <span class="math inline">\(\mathtt{repeat}\)</span>.</p></li>
 </ul>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="3-1-programming-control-flow.html#cb99-1"></a><span class="co"># construct the loop</span></span>
-<span id="cb99-2"><a href="3-1-programming-control-flow.html#cb99-2"></a>j =<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb99-3"><a href="3-1-programming-control-flow.html#cb99-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">15</span>) {</span>
-<span id="cb99-4"><a href="3-1-programming-control-flow.html#cb99-4"></a>    j =<span class="st"> </span>j <span class="op">+</span><span class="st"> </span>i  <span class="co">#add i to j </span></span>
-<span id="cb99-5"><a href="3-1-programming-control-flow.html#cb99-5"></a>    <span class="kw">print</span>(j)  <span class="co">#print the sequential sum</span></span>
-<span id="cb99-6"><a href="3-1-programming-control-flow.html#cb99-6"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="3-1-programming-control-flow.html#cb95-1"></a><span class="co"># construct the loop</span></span>
+<span id="cb95-2"><a href="3-1-programming-control-flow.html#cb95-2"></a>j =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb95-3"><a href="3-1-programming-control-flow.html#cb95-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">15</span>) {</span>
+<span id="cb95-4"><a href="3-1-programming-control-flow.html#cb95-4"></a>    j =<span class="st"> </span>j <span class="op">+</span><span class="st"> </span>i  <span class="co">#add i to j </span></span>
+<span id="cb95-5"><a href="3-1-programming-control-flow.html#cb95-5"></a>    <span class="kw">print</span>(j)  <span class="co">#print the sequential sum</span></span>
+<span id="cb95-6"><a href="3-1-programming-control-flow.html#cb95-6"></a>}</span></code></pre></div>
 <pre><code>[1] 1
 [1] 3
 [1] 6
@@ -306,15 +306,15 @@ NULL</code></pre>
 <ul>
 <li><span class="math inline">\(\mathtt{while}\)</span> loop evaluates an expression or a function while a condition is TRUE. Lets repeat the above example using <span class="math inline">\(\mathtt{while}\)</span> loop</li>
 </ul>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="3-1-programming-control-flow.html#cb101-1"></a><span class="co"># intialise j and i</span></span>
-<span id="cb101-2"><a href="3-1-programming-control-flow.html#cb101-2"></a>j =<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb101-3"><a href="3-1-programming-control-flow.html#cb101-3"></a>i =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb101-4"><a href="3-1-programming-control-flow.html#cb101-4"></a><span class="co"># one can also use i&lt;=15</span></span>
-<span id="cb101-5"><a href="3-1-programming-control-flow.html#cb101-5"></a><span class="cf">while</span> (i <span class="op">&lt;</span><span class="st"> </span><span class="dv">16</span>) {</span>
-<span id="cb101-6"><a href="3-1-programming-control-flow.html#cb101-6"></a>    j =<span class="st"> </span>j <span class="op">+</span><span class="st"> </span>i</span>
-<span id="cb101-7"><a href="3-1-programming-control-flow.html#cb101-7"></a>    i =<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb101-8"><a href="3-1-programming-control-flow.html#cb101-8"></a>    <span class="kw">print</span>(j)</span>
-<span id="cb101-9"><a href="3-1-programming-control-flow.html#cb101-9"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="3-1-programming-control-flow.html#cb97-1"></a><span class="co"># intialise j and i</span></span>
+<span id="cb97-2"><a href="3-1-programming-control-flow.html#cb97-2"></a>j =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb97-3"><a href="3-1-programming-control-flow.html#cb97-3"></a>i =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb97-4"><a href="3-1-programming-control-flow.html#cb97-4"></a><span class="co"># one can also use i&lt;=15</span></span>
+<span id="cb97-5"><a href="3-1-programming-control-flow.html#cb97-5"></a><span class="cf">while</span> (i <span class="op">&lt;</span><span class="st"> </span><span class="dv">16</span>) {</span>
+<span id="cb97-6"><a href="3-1-programming-control-flow.html#cb97-6"></a>    j =<span class="st"> </span>j <span class="op">+</span><span class="st"> </span>i</span>
+<span id="cb97-7"><a href="3-1-programming-control-flow.html#cb97-7"></a>    i =<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb97-8"><a href="3-1-programming-control-flow.html#cb97-8"></a>    <span class="kw">print</span>(j)</span>
+<span id="cb97-9"><a href="3-1-programming-control-flow.html#cb97-9"></a>}</span></code></pre></div>
 <pre><code>[1] 1
 [1] 3
 [1] 6
@@ -336,16 +336,16 @@ NULL</code></pre>
 <ul>
 <li><span class="math inline">\(\mathtt{repeat}\)</span> repeats the same expression till it is broken due to a condition.</li>
 </ul>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="3-1-programming-control-flow.html#cb103-1"></a><span class="co"># intialize</span></span>
-<span id="cb103-2"><a href="3-1-programming-control-flow.html#cb103-2"></a>j =<span class="st"> </span><span class="dv">0</span></span>
-<span id="cb103-3"><a href="3-1-programming-control-flow.html#cb103-3"></a>i =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb103-4"><a href="3-1-programming-control-flow.html#cb103-4"></a><span class="cf">repeat</span> {</span>
-<span id="cb103-5"><a href="3-1-programming-control-flow.html#cb103-5"></a>    j =<span class="st"> </span>j <span class="op">+</span><span class="st"> </span>i</span>
-<span id="cb103-6"><a href="3-1-programming-control-flow.html#cb103-6"></a>    i =<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
-<span id="cb103-7"><a href="3-1-programming-control-flow.html#cb103-7"></a>    <span class="kw">print</span>(j)</span>
-<span id="cb103-8"><a href="3-1-programming-control-flow.html#cb103-8"></a>    <span class="cf">if</span> (i <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span>) </span>
-<span id="cb103-9"><a href="3-1-programming-control-flow.html#cb103-9"></a>        <span class="cf">break</span></span>
-<span id="cb103-10"><a href="3-1-programming-control-flow.html#cb103-10"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="3-1-programming-control-flow.html#cb99-1"></a><span class="co"># intialize</span></span>
+<span id="cb99-2"><a href="3-1-programming-control-flow.html#cb99-2"></a>j =<span class="st"> </span><span class="dv">0</span></span>
+<span id="cb99-3"><a href="3-1-programming-control-flow.html#cb99-3"></a>i =<span class="st"> </span><span class="dv">1</span></span>
+<span id="cb99-4"><a href="3-1-programming-control-flow.html#cb99-4"></a><span class="cf">repeat</span> {</span>
+<span id="cb99-5"><a href="3-1-programming-control-flow.html#cb99-5"></a>    j =<span class="st"> </span>j <span class="op">+</span><span class="st"> </span>i</span>
+<span id="cb99-6"><a href="3-1-programming-control-flow.html#cb99-6"></a>    i =<span class="st"> </span>i <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb99-7"><a href="3-1-programming-control-flow.html#cb99-7"></a>    <span class="kw">print</span>(j)</span>
+<span id="cb99-8"><a href="3-1-programming-control-flow.html#cb99-8"></a>    <span class="cf">if</span> (i <span class="op">&gt;</span><span class="st"> </span><span class="dv">15</span>) </span>
+<span id="cb99-9"><a href="3-1-programming-control-flow.html#cb99-9"></a>        <span class="cf">break</span></span>
+<span id="cb99-10"><a href="3-1-programming-control-flow.html#cb99-10"></a>}</span></code></pre></div>
 <pre><code>[1] 1
 [1] 3
 [1] 6

@@ -24,7 +24,7 @@
 <meta name="author" content="Abhay Singh" />
 
 
-<meta name="date" content="2020-07-26" />
+<meta name="date" content="2020-07-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -212,7 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="6-graphics-in-r-part-ii.html"><a href="6-graphics-in-r-part-ii.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (Part-II)</a><ul>
 <li class="chapter" data-level="6.1" data-path="6-1-interactive-plots-using-plotly.html"><a href="6-1-interactive-plots-using-plotly.html"><i class="fa fa-check"></i><b>6.1</b> Interactive Plots using Plotly</a></li>
-<li class="chapter" data-level="6.2" data-path="6-2-plot-maps.html"><a href="6-2-plot-maps.html"><i class="fa fa-check"></i><b>6.2</b> Plot Maps</a></li>
+<li class="chapter" data-level="6.2" data-path="6-2-anmiation-using-gganimate.html"><a href="6-2-anmiation-using-gganimate.html"><i class="fa fa-check"></i><b>6.2</b> Anmiation using gganimate</a></li>
+<li class="chapter" data-level="6.3" data-path="6-3-plot-maps.html"><a href="6-3-plot-maps.html"><i class="fa fa-check"></i><b>6.3</b> Plot Maps</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="7-final-words.html"><a href="7-final-words.html"><i class="fa fa-check"></i><b>7</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
@@ -243,8 +244,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Lets see some methods to extract data from a data frame. We will use the example dataset called <span class="math inline">\(\mathtt{us\_stocks.csv}\)</span>.</p></li>
 <li><p>Lets import it using <span class="math inline">\(\mathtt{read.csv}\)</span></p></li>
 </ul>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="4-1-data-preprocessing.html#cb110-1"></a>data_stocks =<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/us_stocks.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb110-2"><a href="4-1-data-preprocessing.html#cb110-2"></a><span class="kw">head</span>(data_stocks)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="4-1-data-preprocessing.html#cb106-1"></a>data_stocks =<span class="st"> </span><span class="kw">read.csv</span>(<span class="dt">file =</span> <span class="st">&quot;data/us_stocks.csv&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb106-2"><a href="4-1-data-preprocessing.html#cb106-2"></a><span class="kw">head</span>(data_stocks)</span></code></pre></div>
 <pre><code>       Date  MSFT    IBM  AAPL   MCD    PG GOOG
 1 2/01/2002 33.52 121.50 11.65 26.49 40.00   NA
 2 3/01/2002 34.62 123.66 11.79 26.79 39.62   NA
@@ -256,23 +257,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>The function <span class="math inline">\(\mathtt{names}\)</span> or <span class="math inline">\(\mathtt{colnames}\)</span> are used to access the names of the columns (or variables) in the data set as shows below.</p></li>
 <li><p>The function <span class="math inline">\(\mathtt{row.names}\)</span> can be used to access row names (if any) from a dataset</p></li>
 </ul>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="4-1-data-preprocessing.html#cb112-1"></a><span class="kw">names</span>(data_stocks)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="4-1-data-preprocessing.html#cb108-1"></a><span class="kw">names</span>(data_stocks)</span></code></pre></div>
 <pre><code>[1] &quot;Date&quot; &quot;MSFT&quot; &quot;IBM&quot;  &quot;AAPL&quot; &quot;MCD&quot;  &quot;PG&quot;   &quot;GOOG&quot;</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="4-1-data-preprocessing.html#cb114-1"></a><span class="kw">colnames</span>(data_stocks)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="4-1-data-preprocessing.html#cb110-1"></a><span class="kw">colnames</span>(data_stocks)</span></code></pre></div>
 <pre><code>[1] &quot;Date&quot; &quot;MSFT&quot; &quot;IBM&quot;  &quot;AAPL&quot; &quot;MCD&quot;  &quot;PG&quot;   &quot;GOOG&quot;</code></pre>
 <ul>
 <li><p>A specific data variable can be accessed using its name or index (column number) in the data frame.</p></li>
 <li><p>To select any column use <span class="math inline">\(\mathtt{\$}\)</span> symbol followed by the column name or its name in square brackets as shown in the example below</p></li>
 </ul>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="4-1-data-preprocessing.html#cb116-1"></a>msft_prices1 =<span class="st"> </span>data_stocks<span class="op">$</span>MSFT  <span class="co">#the data is returned as a vector</span></span>
-<span id="cb116-2"><a href="4-1-data-preprocessing.html#cb116-2"></a><span class="kw">head</span>(msft_prices1)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="4-1-data-preprocessing.html#cb112-1"></a>msft_prices1 =<span class="st"> </span>data_stocks<span class="op">$</span>MSFT  <span class="co">#the data is returned as a vector</span></span>
+<span id="cb112-2"><a href="4-1-data-preprocessing.html#cb112-2"></a><span class="kw">head</span>(msft_prices1)</span></code></pre></div>
 <pre><code>[1] 33.52 34.62 34.45 34.28 34.69 34.36</code></pre>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="4-1-data-preprocessing.html#cb118-1"></a>msft_prices2 =<span class="st"> </span>data_stocks[[<span class="st">&quot;MSFT&quot;</span>]]  <span class="co">#the data is returned as a vector</span></span>
-<span id="cb118-2"><a href="4-1-data-preprocessing.html#cb118-2"></a><span class="kw">head</span>(msft_prices2)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="4-1-data-preprocessing.html#cb114-1"></a>msft_prices2 =<span class="st"> </span>data_stocks[[<span class="st">&quot;MSFT&quot;</span>]]  <span class="co">#the data is returned as a vector</span></span>
+<span id="cb114-2"><a href="4-1-data-preprocessing.html#cb114-2"></a><span class="kw">head</span>(msft_prices2)</span></code></pre></div>
 <pre><code>[1] 33.52 34.62 34.45 34.28 34.69 34.36</code></pre>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="4-1-data-preprocessing.html#cb120-1"></a><span class="co"># the following returns data as a data frame</span></span>
-<span id="cb120-2"><a href="4-1-data-preprocessing.html#cb120-2"></a>msft_prices3 =<span class="st"> </span>data_stocks[<span class="st">&quot;MSFT&quot;</span>]  <span class="co">#can also be used to access multiple columns</span></span>
-<span id="cb120-3"><a href="4-1-data-preprocessing.html#cb120-3"></a><span class="kw">head</span>(msft_prices3)</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="4-1-data-preprocessing.html#cb116-1"></a><span class="co"># the following returns data as a data frame</span></span>
+<span id="cb116-2"><a href="4-1-data-preprocessing.html#cb116-2"></a>msft_prices3 =<span class="st"> </span>data_stocks[<span class="st">&quot;MSFT&quot;</span>]  <span class="co">#can also be used to access multiple columns</span></span>
+<span id="cb116-3"><a href="4-1-data-preprocessing.html#cb116-3"></a><span class="kw">head</span>(msft_prices3)</span></code></pre></div>
 <pre><code>   MSFT
 1 33.52
 2 34.62
@@ -284,15 +285,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>These data columns can also be accessed like a matrix, using a matrix index.</p></li>
 <li><p>This method can return a complete row, a complete column or just an element from the dataset.</p></li>
 </ul>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="4-1-data-preprocessing.html#cb122-1"></a><span class="co"># MSFT is in the second column and leaving the row index blank returns all the</span></span>
-<span id="cb122-2"><a href="4-1-data-preprocessing.html#cb122-2"></a><span class="co"># rows for the particular column</span></span>
-<span id="cb122-3"><a href="4-1-data-preprocessing.html#cb122-3"></a></span>
-<span id="cb122-4"><a href="4-1-data-preprocessing.html#cb122-4"></a>msft_prices4 =<span class="st"> </span>data_stocks[, <span class="dv">2</span>]</span>
-<span id="cb122-5"><a href="4-1-data-preprocessing.html#cb122-5"></a></span>
-<span id="cb122-6"><a href="4-1-data-preprocessing.html#cb122-6"></a><span class="kw">head</span>(msft_prices4)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="4-1-data-preprocessing.html#cb118-1"></a><span class="co"># MSFT is in the second column and leaving the row index blank returns all the</span></span>
+<span id="cb118-2"><a href="4-1-data-preprocessing.html#cb118-2"></a><span class="co"># rows for the particular column</span></span>
+<span id="cb118-3"><a href="4-1-data-preprocessing.html#cb118-3"></a></span>
+<span id="cb118-4"><a href="4-1-data-preprocessing.html#cb118-4"></a>msft_prices4 =<span class="st"> </span>data_stocks[, <span class="dv">2</span>]</span>
+<span id="cb118-5"><a href="4-1-data-preprocessing.html#cb118-5"></a></span>
+<span id="cb118-6"><a href="4-1-data-preprocessing.html#cb118-6"></a><span class="kw">head</span>(msft_prices4)</span></code></pre></div>
 <pre><code>[1] 33.52 34.62 34.45 34.28 34.69 34.36</code></pre>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="4-1-data-preprocessing.html#cb124-1"></a><span class="co"># all the elements in row 4</span></span>
-<span id="cb124-2"><a href="4-1-data-preprocessing.html#cb124-2"></a>data_stocks[<span class="dv">4</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="4-1-data-preprocessing.html#cb120-1"></a><span class="co"># all the elements in row 4</span></span>
+<span id="cb120-2"><a href="4-1-data-preprocessing.html#cb120-2"></a>data_stocks[<span class="dv">4</span>, ]</span></code></pre></div>
 <pre><code>       Date  MSFT    IBM  AAPL  MCD    PG GOOG
 4 7/01/2002 34.28 124.05 11.45 27.2 38.78   NA</code></pre>
 </div>
@@ -303,24 +304,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>This can be done by stacking them row by row or combining them by columns using <span class="math inline">\(\mathtt{rbind}\)</span> and <span class="math inline">\(\mathtt{cbind}\)</span> respectively.</p></li>
 <li><p>When using <span class="math inline">\(\mathtt{cbind}\)</span> the number of rows in the columns combined must be of equal length likewise in <span class="math inline">\(\mathtt{rbind}\)</span> the number of columns of the datasets combined should be equal. Lets see an example</p></li>
 </ul>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="4-1-data-preprocessing.html#cb126-1"></a><span class="co"># First create a vector having the returns for msft</span></span>
-<span id="cb126-2"><a href="4-1-data-preprocessing.html#cb126-2"></a>msft_ret =<span class="st"> </span><span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="kw">diff</span>(<span class="kw">log</span>(data_stocks<span class="op">$</span>MSFT))</span>
-<span id="cb126-3"><a href="4-1-data-preprocessing.html#cb126-3"></a><span class="co"># combine the vector with the data</span></span>
-<span id="cb126-4"><a href="4-1-data-preprocessing.html#cb126-4"></a>data_stocks_r =<span class="st"> </span><span class="kw">cbind</span>(data_stocks, <span class="dt">MSFT_RET =</span> msft_ret)  <span class="co">#this will generate an error message </span></span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="4-1-data-preprocessing.html#cb122-1"></a><span class="co"># First create a vector having the returns for msft</span></span>
+<span id="cb122-2"><a href="4-1-data-preprocessing.html#cb122-2"></a>msft_ret =<span class="st"> </span><span class="dv">100</span> <span class="op">*</span><span class="st"> </span><span class="kw">diff</span>(<span class="kw">log</span>(data_stocks<span class="op">$</span>MSFT))</span>
+<span id="cb122-3"><a href="4-1-data-preprocessing.html#cb122-3"></a><span class="co"># combine the vector with the data</span></span>
+<span id="cb122-4"><a href="4-1-data-preprocessing.html#cb122-4"></a>data_stocks_r =<span class="st"> </span><span class="kw">cbind</span>(data_stocks, <span class="dt">MSFT_RET =</span> msft_ret)  <span class="co">#this will generate an error message </span></span></code></pre></div>
 <pre><code>Error in data.frame(..., check.names = FALSE): arguments imply differing number of rows: 2784, 2783</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="4-1-data-preprocessing.html#cb128-1"></a><span class="co"># different length</span></span>
-<span id="cb128-2"><a href="4-1-data-preprocessing.html#cb128-2"></a><span class="kw">length</span>(msft_ret)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="4-1-data-preprocessing.html#cb124-1"></a><span class="co"># different length</span></span>
+<span id="cb124-2"><a href="4-1-data-preprocessing.html#cb124-2"></a><span class="kw">length</span>(msft_ret)</span></code></pre></div>
 <pre><code>[1] 2783</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="4-1-data-preprocessing.html#cb130-1"></a><span class="kw">length</span>(data_stocks<span class="op">$</span>MSFT)</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="4-1-data-preprocessing.html#cb126-1"></a><span class="kw">length</span>(data_stocks<span class="op">$</span>MSFT)</span></code></pre></div>
 <pre><code>[1] 2784</code></pre>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="4-1-data-preprocessing.html#cb132-1"></a><span class="co"># add one more value to vector msft_ret</span></span>
-<span id="cb132-2"><a href="4-1-data-preprocessing.html#cb132-2"></a>msft_ret =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, msft_ret)</span>
-<span id="cb132-3"><a href="4-1-data-preprocessing.html#cb132-3"></a><span class="co"># check the length</span></span>
-<span id="cb132-4"><a href="4-1-data-preprocessing.html#cb132-4"></a><span class="kw">length</span>(msft_ret)</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="4-1-data-preprocessing.html#cb128-1"></a><span class="co"># add one more value to vector msft_ret</span></span>
+<span id="cb128-2"><a href="4-1-data-preprocessing.html#cb128-2"></a>msft_ret =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, msft_ret)</span>
+<span id="cb128-3"><a href="4-1-data-preprocessing.html#cb128-3"></a><span class="co"># check the length</span></span>
+<span id="cb128-4"><a href="4-1-data-preprocessing.html#cb128-4"></a><span class="kw">length</span>(msft_ret)</span></code></pre></div>
 <pre><code>[1] 2784</code></pre>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="4-1-data-preprocessing.html#cb134-1"></a><span class="co"># lets combine now (it should work)</span></span>
-<span id="cb134-2"><a href="4-1-data-preprocessing.html#cb134-2"></a>data_stocks_r =<span class="st"> </span><span class="kw">cbind</span>(data_stocks, <span class="dt">MSFT_RET =</span> msft_ret)</span>
-<span id="cb134-3"><a href="4-1-data-preprocessing.html#cb134-3"></a><span class="kw">head</span>(data_stocks_r)  <span class="co">#shows one more column added to the data</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="4-1-data-preprocessing.html#cb130-1"></a><span class="co"># lets combine now (it should work)</span></span>
+<span id="cb130-2"><a href="4-1-data-preprocessing.html#cb130-2"></a>data_stocks_r =<span class="st"> </span><span class="kw">cbind</span>(data_stocks, <span class="dt">MSFT_RET =</span> msft_ret)</span>
+<span id="cb130-3"><a href="4-1-data-preprocessing.html#cb130-3"></a><span class="kw">head</span>(data_stocks_r)  <span class="co">#shows one more column added to the data</span></span></code></pre></div>
 <pre><code>       Date  MSFT    IBM  AAPL   MCD    PG GOOG   MSFT_RET
 1 2/01/2002 33.52 121.50 11.65 26.49 40.00   NA  0.0000000
 2 3/01/2002 34.62 123.66 11.79 26.79 39.62   NA  3.2289274
@@ -331,11 +332,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>The following example adds a row to the data frame.</li>
 </ul>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="4-1-data-preprocessing.html#cb136-1"></a><span class="co"># create two dataframes from data_stocks</span></span>
-<span id="cb136-2"><a href="4-1-data-preprocessing.html#cb136-2"></a>data_r1 =<span class="st"> </span>data_stocks[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ]  <span class="co">#first 10 rows</span></span>
-<span id="cb136-3"><a href="4-1-data-preprocessing.html#cb136-3"></a>data_r2 =<span class="st"> </span>data_stocks[<span class="dv">2775</span><span class="op">:</span><span class="dv">2784</span>, ]  <span class="co">#last 10 rows</span></span>
-<span id="cb136-4"><a href="4-1-data-preprocessing.html#cb136-4"></a>data_stocks_rbind =<span class="st"> </span><span class="kw">rbind</span>(data_r1, data_r2)</span>
-<span id="cb136-5"><a href="4-1-data-preprocessing.html#cb136-5"></a><span class="kw">print</span>(data_stocks_rbind)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="4-1-data-preprocessing.html#cb132-1"></a><span class="co"># create two dataframes from data_stocks</span></span>
+<span id="cb132-2"><a href="4-1-data-preprocessing.html#cb132-2"></a>data_r1 =<span class="st"> </span>data_stocks[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, ]  <span class="co">#first 10 rows</span></span>
+<span id="cb132-3"><a href="4-1-data-preprocessing.html#cb132-3"></a>data_r2 =<span class="st"> </span>data_stocks[<span class="dv">2775</span><span class="op">:</span><span class="dv">2784</span>, ]  <span class="co">#last 10 rows</span></span>
+<span id="cb132-4"><a href="4-1-data-preprocessing.html#cb132-4"></a>data_stocks_rbind =<span class="st"> </span><span class="kw">rbind</span>(data_r1, data_r2)</span>
+<span id="cb132-5"><a href="4-1-data-preprocessing.html#cb132-5"></a><span class="kw">print</span>(data_stocks_rbind)</span></code></pre></div>
 <pre><code>           Date  MSFT    IBM   AAPL   MCD    PG   GOOG
 1     2/01/2002 33.52 121.50  11.65 26.49 40.00     NA
 2     3/01/2002 34.62 123.66  11.79 26.79 39.62     NA
@@ -365,9 +366,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>This can be accomplished using logical statements in bracket notations.</p></li>
 <li><p>The following example illustrates. See <span class="math inline">\(\mathtt{help(&quot;&gt;&quot;)}\)</span> to see more comparison operators.</p></li>
 </ul>
-<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="4-1-data-preprocessing.html#cb138-1"></a><span class="co"># select all rows with Apple prices above 100</span></span>
-<span id="cb138-2"><a href="4-1-data-preprocessing.html#cb138-2"></a>data_aaplgr100 =<span class="st"> </span>data_stocks[data_stocks<span class="op">$</span>AAPL <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>, ]</span>
-<span id="cb138-3"><a href="4-1-data-preprocessing.html#cb138-3"></a><span class="kw">head</span>(data_aaplgr100)</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="4-1-data-preprocessing.html#cb134-1"></a><span class="co"># select all rows with Apple prices above 100</span></span>
+<span id="cb134-2"><a href="4-1-data-preprocessing.html#cb134-2"></a>data_aaplgr100 =<span class="st"> </span>data_stocks[data_stocks<span class="op">$</span>AAPL <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>, ]</span>
+<span id="cb134-3"><a href="4-1-data-preprocessing.html#cb134-3"></a><span class="kw">head</span>(data_aaplgr100)</span></code></pre></div>
 <pre><code>          Date  MSFT    IBM   AAPL   MCD    PG   GOOG
 1342 2/05/2007 30.61 102.22 100.39 50.02 62.37 465.78
 1343 3/05/2007 30.97 102.80 100.40 49.91 62.00 473.23
@@ -375,18 +376,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 1345 7/05/2007 30.71 103.16 103.92 49.50 62.18 467.27
 1346 8/05/2007 30.75 103.29 105.06 49.32 61.75 466.81
 1347 9/05/2007 30.78 104.38 106.88 49.84 62.01 469.25</code></pre>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="4-1-data-preprocessing.html#cb140-1"></a><span class="kw">min</span>(data_aaplgr100<span class="op">$</span>AAPL)  <span class="co">#check if the prices are above 100</span></span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="4-1-data-preprocessing.html#cb136-1"></a><span class="kw">min</span>(data_aaplgr100<span class="op">$</span>AAPL)  <span class="co">#check if the prices are above 100</span></span></code></pre></div>
 <pre><code>[1] NA</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="4-1-data-preprocessing.html#cb142-1"></a><span class="co"># this give NA as the minimum which indicates that data frame has NA lets remove</span></span>
-<span id="cb142-2"><a href="4-1-data-preprocessing.html#cb142-2"></a><span class="co"># NAs from data_aaplgr100 using na.omit function</span></span>
-<span id="cb142-3"><a href="4-1-data-preprocessing.html#cb142-3"></a>data_aaplgr100 =<span class="st"> </span><span class="kw">na.omit</span>(data_aaplgr100)</span>
-<span id="cb142-4"><a href="4-1-data-preprocessing.html#cb142-4"></a><span class="co"># now check the minimum again</span></span>
-<span id="cb142-5"><a href="4-1-data-preprocessing.html#cb142-5"></a><span class="kw">min</span>(data_aaplgr100<span class="op">$</span>AAPL)</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="4-1-data-preprocessing.html#cb138-1"></a><span class="co"># this give NA as the minimum which indicates that data frame has NA lets remove</span></span>
+<span id="cb138-2"><a href="4-1-data-preprocessing.html#cb138-2"></a><span class="co"># NAs from data_aaplgr100 using na.omit function</span></span>
+<span id="cb138-3"><a href="4-1-data-preprocessing.html#cb138-3"></a>data_aaplgr100 =<span class="st"> </span><span class="kw">na.omit</span>(data_aaplgr100)</span>
+<span id="cb138-4"><a href="4-1-data-preprocessing.html#cb138-4"></a><span class="co"># now check the minimum again</span></span>
+<span id="cb138-5"><a href="4-1-data-preprocessing.html#cb138-5"></a><span class="kw">min</span>(data_aaplgr100<span class="op">$</span>AAPL)</span></code></pre></div>
 <pre><code>[1] 100.06</code></pre>
 <ul>
 <li>The <span class="math inline">\(\mathtt{na.omit}\)</span> function used in the example above can be used to remove all the empty values in the dataset.</li>
 </ul>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="4-1-data-preprocessing.html#cb144-1"></a><span class="kw">head</span>(data_stocks)  <span class="co">#notice NAs in GOOG</span></span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="4-1-data-preprocessing.html#cb140-1"></a><span class="kw">head</span>(data_stocks)  <span class="co">#notice NAs in GOOG</span></span></code></pre></div>
 <pre><code>       Date  MSFT    IBM  AAPL   MCD    PG GOOG
 1 2/01/2002 33.52 121.50 11.65 26.49 40.00   NA
 2 3/01/2002 34.62 123.66 11.79 26.79 39.62   NA
@@ -394,8 +395,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 4 7/01/2002 34.28 124.05 11.45 27.20 38.78   NA
 5 8/01/2002 34.69 124.70 11.30 27.36 38.88   NA
 6 9/01/2002 34.36 124.49 10.82 26.88 38.60   NA</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="4-1-data-preprocessing.html#cb146-1"></a>data_stocks_googlena =<span class="st"> </span>data_stocks[<span class="op">!</span><span class="kw">is.na</span>(data_stocks<span class="op">$</span>GOOG), ]</span>
-<span id="cb146-2"><a href="4-1-data-preprocessing.html#cb146-2"></a><span class="kw">head</span>(data_stocks_googlena)  <span class="co">#after removing NAs</span></span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="4-1-data-preprocessing.html#cb142-1"></a>data_stocks_googlena =<span class="st"> </span>data_stocks[<span class="op">!</span><span class="kw">is.na</span>(data_stocks<span class="op">$</span>GOOG), ]</span>
+<span id="cb142-2"><a href="4-1-data-preprocessing.html#cb142-2"></a><span class="kw">head</span>(data_stocks_googlena)  <span class="co">#after removing NAs</span></span></code></pre></div>
 <pre><code>          Date  MSFT   IBM  AAPL   MCD    PG   GOOG
 663 19/08/2004 27.12 84.89 15.36 26.60 54.48 100.34
 664 20/08/2004 27.20 85.25 15.40 27.07 54.85 108.31
@@ -403,27 +404,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 666 24/08/2004 27.24 84.71 15.98 26.87 54.95 104.87
 667 25/08/2004 27.55 85.07 16.52 26.95 55.30 106.00
 668 26/08/2004 27.44 84.69 17.33 27.10 55.70 107.91</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="4-1-data-preprocessing.html#cb148-1"></a><span class="co"># the above can still leave NAs in other columns use na.omit to remove all the</span></span>
-<span id="cb148-2"><a href="4-1-data-preprocessing.html#cb148-2"></a><span class="co"># blank data</span></span>
-<span id="cb148-3"><a href="4-1-data-preprocessing.html#cb148-3"></a>data_stocks_naomit =<span class="st"> </span><span class="kw">na.omit</span>(data_stocks)</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="4-1-data-preprocessing.html#cb144-1"></a><span class="co"># the above can still leave NAs in other columns use na.omit to remove all the</span></span>
+<span id="cb144-2"><a href="4-1-data-preprocessing.html#cb144-2"></a><span class="co"># blank data</span></span>
+<span id="cb144-3"><a href="4-1-data-preprocessing.html#cb144-3"></a>data_stocks_naomit =<span class="st"> </span><span class="kw">na.omit</span>(data_stocks)</span></code></pre></div>
 <ul>
 <li><p>There can be a requirement in data pre processing where one might have to select data in a range.</p></li>
 <li><p>The following example selects data where MSFT prices lie between 20 and 30.</p></li>
 <li><p><span class="math inline">\(\mathtt{\&amp;}\)</span> is a Logic operator in R see help(“&amp;”) to see more details and other Logic operators.</p></li>
 </ul>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="4-1-data-preprocessing.html#cb149-1"></a>data_msft =<span class="st"> </span>data_stocks_naomit[data_stocks_naomit<span class="op">$</span>MSFT <span class="op">&lt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>data_stocks_naomit<span class="op">$</span>MSFT <span class="op">&gt;</span><span class="st"> </span></span>
-<span id="cb149-2"><a href="4-1-data-preprocessing.html#cb149-2"></a><span class="st">    </span><span class="dv">20</span>, ]</span>
-<span id="cb149-3"><a href="4-1-data-preprocessing.html#cb149-3"></a><span class="kw">min</span>(data_msft<span class="op">$</span>MSFT)  <span class="co">#check </span></span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="4-1-data-preprocessing.html#cb145-1"></a>data_msft =<span class="st"> </span>data_stocks_naomit[data_stocks_naomit<span class="op">$</span>MSFT <span class="op">&lt;=</span><span class="st"> </span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>data_stocks_naomit<span class="op">$</span>MSFT <span class="op">&gt;</span><span class="st"> </span></span>
+<span id="cb145-2"><a href="4-1-data-preprocessing.html#cb145-2"></a><span class="st">    </span><span class="dv">20</span>, ]</span>
+<span id="cb145-3"><a href="4-1-data-preprocessing.html#cb145-3"></a><span class="kw">min</span>(data_msft<span class="op">$</span>MSFT)  <span class="co">#check </span></span></code></pre></div>
 <pre><code>[1] 20.06</code></pre>
 <ul>
 <li><p>These selections can also be performed using the function <span class="math inline">\(\mathtt{subset}\)</span>.</p></li>
 <li><p>The following example uses <span class="math inline">\(\mathtt{subset}\)</span> function to select rows with AAPL&gt;100. The arguments to the function are also shows in the example</p></li>
 </ul>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="4-1-data-preprocessing.html#cb151-1"></a><span class="kw">args</span>(subset.data.frame)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="4-1-data-preprocessing.html#cb147-1"></a><span class="kw">args</span>(subset.data.frame)</span></code></pre></div>
 <pre><code>function (x, subset, select, drop = FALSE, ...) 
 NULL</code></pre>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="4-1-data-preprocessing.html#cb153-1"></a>aaplgr100 =<span class="st"> </span><span class="kw">subset</span>(data_stocks_naomit, AAPL <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>)</span>
-<span id="cb153-2"><a href="4-1-data-preprocessing.html#cb153-2"></a><span class="kw">head</span>(aaplgr100)</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="4-1-data-preprocessing.html#cb149-1"></a>aaplgr100 =<span class="st"> </span><span class="kw">subset</span>(data_stocks_naomit, AAPL <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>)</span>
+<span id="cb149-2"><a href="4-1-data-preprocessing.html#cb149-2"></a><span class="kw">head</span>(aaplgr100)</span></code></pre></div>
 <pre><code>          Date  MSFT    IBM   AAPL   MCD    PG   GOOG
 1342 2/05/2007 30.61 102.22 100.39 50.02 62.37 465.78
 1343 3/05/2007 30.97 102.80 100.40 49.91 62.00 473.23
@@ -431,7 +432,7 @@ NULL</code></pre>
 1345 7/05/2007 30.71 103.16 103.92 49.50 62.18 467.27
 1346 8/05/2007 30.75 103.29 105.06 49.32 61.75 466.81
 1347 9/05/2007 30.78 104.38 106.88 49.84 62.01 469.25</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="4-1-data-preprocessing.html#cb155-1"></a><span class="kw">min</span>(aaplgr100<span class="op">$</span>AAPL)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="4-1-data-preprocessing.html#cb151-1"></a><span class="kw">min</span>(aaplgr100<span class="op">$</span>AAPL)</span></code></pre></div>
 <pre><code>[1] 100.06</code></pre>
 </div>
 </div>
