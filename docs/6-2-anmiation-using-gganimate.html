@@ -238,17 +238,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">6.2</span> Anmiation using gganimate</h2>
 <ul>
 <li>We can also use the gganimate package to convert the image into a gif.</li>
-<li>Its also possible to create animations with plotly <a href="6-2-anmiation-using-gganimate.html#fig:ch6-5">6.4</a></li>
+<li>Its also possible to create animations with plotly <a href="6-2-anmiation-using-gganimate.html#fig:ch6-5">6.3</a></li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="6-2-anmiation-using-gganimate.html#cb8-1"></a><span class="kw">library</span>(gganimate)</span>
-<span id="cb8-2"><a href="6-2-anmiation-using-gganimate.html#cb8-2"></a>p1.anim =<span class="st"> </span>p1 <span class="op">+</span><span class="st"> </span><span class="kw">transition_reveal</span>(Date)</span>
-<span id="cb8-3"><a href="6-2-anmiation-using-gganimate.html#cb8-3"></a>anim_p1 =<span class="st"> </span><span class="kw">animate</span>(p1.anim, <span class="dt">fps =</span> <span class="dv">2</span>, <span class="dt">start_pause =</span> <span class="dv">2</span>, <span class="dt">end_pause =</span> <span class="dv">5</span>, <span class="dt">rewind =</span> <span class="ot">FALSE</span>, </span>
-<span id="cb8-4"><a href="6-2-anmiation-using-gganimate.html#cb8-4"></a>    <span class="dt">width =</span> <span class="dv">800</span>, <span class="dt">height =</span> <span class="dv">1000</span>)</span>
-<span id="cb8-5"><a href="6-2-anmiation-using-gganimate.html#cb8-5"></a><span class="kw">anim_save</span>(<span class="dt">filename =</span> <span class="st">&quot;covid_cases_log_2020jul.gif&quot;</span>, <span class="dt">animation =</span> anim_p1)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="6-2-anmiation-using-gganimate.html#cb239-1"></a><span class="kw">library</span>(gganimate)</span>
+<span id="cb239-2"><a href="6-2-anmiation-using-gganimate.html#cb239-2"></a>p1.anim =<span class="st"> </span>p1 <span class="op">+</span><span class="st"> </span><span class="kw">transition_reveal</span>(Date)</span>
+<span id="cb239-3"><a href="6-2-anmiation-using-gganimate.html#cb239-3"></a>anim_p1 =<span class="st"> </span><span class="kw">animate</span>(p1.anim, <span class="dt">fps =</span> <span class="dv">2</span>, <span class="dt">start_pause =</span> <span class="dv">2</span>, <span class="dt">end_pause =</span> <span class="dv">5</span>, <span class="dt">rewind =</span> <span class="ot">FALSE</span>, </span>
+<span id="cb239-4"><a href="6-2-anmiation-using-gganimate.html#cb239-4"></a>    <span class="dt">width =</span> <span class="dv">800</span>, <span class="dt">height =</span> <span class="dv">1000</span>)</span>
+<span id="cb239-5"><a href="6-2-anmiation-using-gganimate.html#cb239-5"></a><span class="kw">anim_save</span>(<span class="dt">filename =</span> <span class="st">&quot;covid_cases_log_2020jul.gif&quot;</span>, <span class="dt">animation =</span> anim_p1)</span></code></pre></div>
 <div class="figure"><span id="fig:ch6-5"></span>
-<img src="covid_cases_log_2020jul.gif" alt="Animated Graph"  />
+<img src="covid_cases_log_2020jul.gif" alt="Animated Graph" height="100px" />
 <p class="caption">
-Figure 6.4: Animated Graph
+Figure 6.3: Animated Graph
 </p>
 </div>
 </div>
